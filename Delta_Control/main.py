@@ -5,7 +5,11 @@ PORT = 502  # Default Modbus TCP port
 
 def main():
     # Create a Modbus client
-    client = ModbusClient(ROBOT_IP, port=PORT)
+    try:
+        client = ModbusClient(ROBOT_IP, port=PORT)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return  
 
     try:
         # Attempt to connect to the robot

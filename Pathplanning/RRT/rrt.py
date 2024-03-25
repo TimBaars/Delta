@@ -23,6 +23,9 @@ class Nodes:
         self.parent_y = []
 
 class RRT:
+    def __init__(self):
+        self.node_list = [0]
+        
     def collision(self, x1,y1,x2,y2):
         color=[]
         x = list(np.arange(x1,x2,(x2-x1)/100))
@@ -30,7 +33,7 @@ class RRT:
         #print("collision",x,y)
         for i in range(len(x)):
             #print(int(x[i]),int(y[i]))
-            color.append(img[int(y[i]),int(x[i])])
+            color.append(self.img[int(y[i]),int(x[i])])
         if (0 in color):
             return True #collision
         else:
@@ -46,15 +49,15 @@ class RRT:
         #print("check_collision",x,y)
 
         # TODO: trim the branch if its going out of image area
-        # print("Image shape",img.shape)
-        hy,hx=img.shape
+        # print("Image shape",self.img.shape)
+        hy,hx=self.img.shape
         if y<0 or y>hy or x<0 or x>hx:
             print("Point out of image bound")
             directCon = False
             nodeCon = False
         else:
             # check direct connection
-            if self.collision(x,y,end[0],end[1]):
+            if self.collision(x,y,self.end[0],self.end[1]):
                 directCon = False
             else:
                 directCon=True
@@ -76,8 +79,8 @@ class RRT:
     # return the neaerst node index
     def nearest_node(self, x,y):
         temp_dist=[]
-        for i in range(len(node_list)):
-            dist,_ = self.dist_and_angle(x,y,node_list[i].x,node_list[i].y)
+        for i in range(len(self.node_list)):
+            dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
             temp_dist.append(dist)
         return temp_dist.index(min(temp_dist))
 
@@ -88,20 +91,25 @@ class RRT:
         return (new_x,new_y)
 
 
-    def RRT(self, img, img2, start, end, stepSize):
-        h,l= img.shape # dim of the loaded image
-        # print(img.shape) # (384, 683)
+    def RRT(self, img, img2, coordinates, stepSize):
+        self.start =(coordinates[0],coordinates[1])
+        self.end =(coordinates[2],coordinates[3])
+        self.img = img
+        self.img2 = img2
+        h,l= self.img.shape # dim of the loaded image
+        # print(self.img.shape) # (384, 683)
         # print(h,l)
 
+
         # insert the starting point in the node class
-        # node_list = [0] # list to store all the node points         
-        node_list[0] = Nodes(start[0],start[1])
-        node_list[0].parent_x.append(start[0])
-        node_list[0].parent_y.append(start[1])
+        # self.node_list = [0] # list to store all the node points         
+        self.node_list[0] = Nodes(self.start[0],self.start[1])
+        self.node_list[0].parent_x.append(self.start[0])
+        self.node_list[0].parent_y.append(self.start[1])
 
         # display start and end
-        cv2.circle(img2, (start[0],start[1]), 5,(0,0,255),thickness=3, lineType=8)
-        cv2.circle(img2, (end[0],end[1]), 5,(0,0,255),thickness=3, lineType=8)
+        cv2.circle(self.img2, (self.start[0],self.start[1]), 5,(0,0,255),thickness=3, lineType=8)
+        cv2.circle(self.img2, (self.end[0],self.end[1]), 5,(0,0,255),thickness=3, lineType=8)
 
         i=1
         pathFound = False
@@ -110,8 +118,8 @@ class RRT:
             #print("Random points:",nx,ny)
 
             nearest_ind = self.nearest_node(nx,ny)
-            nearest_x = node_list[nearest_ind].x
-            nearest_y = node_list[nearest_ind].y
+            nearest_x = self.node_list[nearest_ind].x
+            nearest_y = self.node_list[nearest_ind].y
             #print("Nearest node coordinates:",nearest_x,nearest_y)
 
             #check direct connection
@@ -120,42 +128,42 @@ class RRT:
 
             if directCon and nodeCon:
                 #print("Node can connect directly with end")
-                node_list.append(i)
-                node_list[i] = Nodes(tx,ty)
-                node_list[i].parent_x = node_list[nearest_ind].parent_x.copy()
-                node_list[i].parent_y = node_list[nearest_ind].parent_y.copy()
-                node_list[i].parent_x.append(tx)
-                node_list[i].parent_y.append(ty)
+                self.node_list.append(i)
+                self.node_list[i] = Nodes(tx,ty)
+                self.node_list[i].parent_x = self.node_list[nearest_ind].parent_x.copy()
+                self.node_list[i].parent_y = self.node_list[nearest_ind].parent_y.copy()
+                self.node_list[i].parent_x.append(tx)
+                self.node_list[i].parent_y.append(ty)
 
-                cv2.circle(img2, (int(tx),int(ty)), 2,(0,0,255),thickness=3, lineType=8)
-                cv2.line(img2, (int(tx),int(ty)), (int(node_list[nearest_ind].x),int(node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
-                cv2.line(img2, (int(tx),int(ty)), (end[0],end[1]), (255,0,0), thickness=2, lineType=8)
+                cv2.circle(self.img2, (int(tx),int(ty)), 2,(0,0,255),thickness=3, lineType=8)
+                cv2.line(self.img2, (int(tx),int(ty)), (int(self.node_list[nearest_ind].x),int(self.node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
+                cv2.line(self.img2, (int(tx),int(ty)), (self.end[0],self.end[1]), (255,0,0), thickness=2, lineType=8)
 
                 print("Path has been found")
-                #print("parent_x",node_list[i].parent_x)
-                for j in range(len(node_list[i].parent_x)-1):
-                    cv2.line(img2, (int(node_list[i].parent_x[j]),int(node_list[i].parent_y[j])), (int(node_list[i].parent_x[j+1]),int(node_list[i].parent_y[j+1])), (255,0,0), thickness=2, lineType=8)
+                #print("parent_x",self.node_list[i].parent_x)
+                for j in range(len(self.node_list[i].parent_x)-1):
+                    cv2.line(self.img2, (int(self.node_list[i].parent_x[j]),int(self.node_list[i].parent_y[j])), (int(self.node_list[i].parent_x[j+1]),int(self.node_list[i].parent_y[j+1])), (255,0,0), thickness=2, lineType=8)
                 # cv2.waitKey(1)
-                cv2.imwrite("Pathplanning/media/"+str(i)+".jpg",img2)
-                cv2.imwrite("Pathplanning/out.jpg",img2)
-                break
+                cv2.imwrite("Pathplanning/media/"+str(i)+".jpg",self.img2)
+                cv2.imwrite("Pathplanning/out.jpg",self.img2)
+                return self.node_list
 
             elif nodeCon:
                 #print("Nodes connected")
-                node_list.append(i)
-                node_list[i] = Nodes(tx,ty)
-                node_list[i].parent_x = node_list[nearest_ind].parent_x.copy()
-                node_list[i].parent_y = node_list[nearest_ind].parent_y.copy()
+                self.node_list.append(i)
+                self.node_list[i] = Nodes(tx,ty)
+                self.node_list[i].parent_x = self.node_list[nearest_ind].parent_x.copy()
+                self.node_list[i].parent_y = self.node_list[nearest_ind].parent_y.copy()
                 # print(i)
-                # print(node_list[nearest_ind].parent_y)
-                node_list[i].parent_x.append(tx)
-                node_list[i].parent_y.append(ty)
+                # print(self.node_list[nearest_ind].parent_y)
+                self.node_list[i].parent_x.append(tx)
+                self.node_list[i].parent_y.append(ty)
                 i=i+1
                 # display
-                cv2.circle(img2, (int(tx),int(ty)), 2,(0,0,255),thickness=3, lineType=8)
-                cv2.line(img2, (int(tx),int(ty)), (int(node_list[nearest_ind].x),int(node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
-                cv2.imwrite("Pathplanning/media/"+str(i)+".jpg",img2)
-                cv2.imshow("sdc",img2)
+                cv2.circle(self.img2, (int(tx),int(ty)), 2,(0,0,255),thickness=3, lineType=8)
+                cv2.line(self.img2, (int(tx),int(ty)), (int(self.node_list[nearest_ind].x),int(self.node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
+                cv2.imwrite("Pathplanning/media/"+str(i)+".jpg",self.img2)
+                cv2.imshow("sdc",self.img2)
                 cv2.waitKey(1)
                 continue
 
@@ -163,26 +171,3 @@ class RRT:
                 #print("No direct con. and no node con. :( Generating new rnd numbers")
                 continue
 
-if __name__ == '__main__':
-    Testing = RRT()
-    imagePath = "Pathplanning/RRT/world3.png"
-    stepSize= 50 # stepsize for RRT
-    # remove previously stored data
-    try:
-      os.system("rm -rf Pathplanning/media")
-    except:
-      print("Dir already clean")
-    os.mkdir("Pathplanning/media")
-
-    img = cv2.imread(imagePath,0) # load grayscale maze image
-    img2 = cv2.imread(imagePath) # load colored maze image
-    node_list = [0] # list to store all the node points
-
-    coordinates=[10,10,500,250]
-    start=(coordinates[0],coordinates[1])
-    end=(coordinates[2],coordinates[3])
-
-    # run the RRT algorithm 
-    fps = time.time()
-    Testing.RRT(img, img2, start, end, stepSize)
-    print(f"Total time for processing = {time.time()-fps} seconds")
