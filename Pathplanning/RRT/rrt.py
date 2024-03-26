@@ -52,7 +52,7 @@ class RRT:
         # print("Image shape",self.img.shape)
         hy,hx=self.img.shape
         if y<0 or y>hy or x<0 or x>hx:
-            print("Point out of image bound")
+            #print("Point out of image bound")
             directCon = False
             nodeCon = False
         else:
@@ -139,7 +139,7 @@ class RRT:
                 cv2.line(self.img2, (int(tx),int(ty)), (int(self.node_list[nearest_ind].x),int(self.node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
                 cv2.line(self.img2, (int(tx),int(ty)), (self.end[0],self.end[1]), (255,0,0), thickness=2, lineType=8)
 
-                print("Path has been found")
+                #print("Path has been found")
                 #print("parent_x",self.node_list[i].parent_x)
                 for j in range(len(self.node_list[i].parent_x)-1):
                     cv2.line(self.img2, (int(self.node_list[i].parent_x[j]),int(self.node_list[i].parent_y[j])), (int(self.node_list[i].parent_x[j+1]),int(self.node_list[i].parent_y[j+1])), (255,0,0), thickness=2, lineType=8)
@@ -163,8 +163,6 @@ class RRT:
                 cv2.circle(self.img2, (int(tx),int(ty)), 2,(0,0,255),thickness=3, lineType=8)
                 cv2.line(self.img2, (int(tx),int(ty)), (int(self.node_list[nearest_ind].x),int(self.node_list[nearest_ind].y)), (0,255,0), thickness=1, lineType=8)
                 cv2.imwrite("Pathplanning/media/"+str(i)+".jpg",self.img2)
-                cv2.imshow("sdc",self.img2)
-                cv2.waitKey(1)
                 continue
 
             else:

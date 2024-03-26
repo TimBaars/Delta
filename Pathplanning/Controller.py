@@ -14,13 +14,13 @@ def display_image(window_name, img_path, wait_time=500):
     :param wait_time: Time in milliseconds for which the image is displayed.
     """
     img = cv2.imread(img_path)
+    print(f"Displaying image: {img_path}")
     cv2.imshow(window_name, img)
     cv2.waitKey(wait_time)
 
 if __name__ == '__main__':
-    Testing = RRT()
-    imagePath = "Pathplanning/RRT/world3.png"
-    stepSize = 50  # stepsize for RRT
+    imagePath = "Pathplanning/RRT/world2.png"
+    stepSize = 10  # stepsize for RRT
 
     # remove previously stored data
     try:
@@ -35,17 +35,22 @@ if __name__ == '__main__':
     # Define a sequence of coordinates (startX, startY, endX, endY)
     coordinate_sequence = [
         (10, 10, 500, 250),  # First set of coordinates
-        (500, 250, 250, 250)  # Second set of coordinates
+        (500, 250, 250, 250),  # Second set of coordinates
+        (250, 250, 10, 10),  # Third set of coordinates
+        (10, 10, 250, 250),  # Fourth set of coordinates
+        (250, 250, 500, 250),  # Fifth set of coordinates
+        (500, 250, 10, 10)  # Sixth set of coordinates
     ]
 
     for coordinates in coordinate_sequence:
         # Run the RRT algorithm
         fps = time.time()
-        Testing.RRT(img, img2, coordinates, stepSize)
+        Testing = RRT()
+        Nodes = Testing.RRT(img, img2, coordinates, stepSize)
         print(f"Total time for processing = {time.time() - fps} seconds")
-
+        print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
         # Assuming the output image is saved at PathPlanning/media/1.jpg after each RRT run
         # Display the updated path in a live window
-        display_image("RRT Path Planning", "PathPlanning/media/1.jpg", 2000)  # Adjust wait_time as needed
+        display_image("RRT Path Planning", "Pathplanning/out.jpg", 2000)  # Adjust wait_time as needed
 
     cv2.destroyAllWindows()  # Close the window when all paths are planned
