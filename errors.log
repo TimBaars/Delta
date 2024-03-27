@@ -1,0 +1,143 @@
+2024-03-27 16:43:07,649, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 80, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:43:13,798, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:19,947, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:26,163, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:32,412, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:38,723, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:44,899, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:51,046, Controller_RRT.py, 86, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 73, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:43:56,979, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:44:09,504, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:44:55,016, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:45:01,074, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:45:23,115, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:45:44,123, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:45:50,264, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:45:56,308, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:46:02,346, Controller_RRT.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-03-27 16:48:15,221, Controller_RRT_copy.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT_copy.py", line 81, in calculate_path
+    print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
+AttributeError: 'int' object has no attribute 'parent_x'
+2024-03-27 16:48:21,148, Controller_RRT_copy.py, 87, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT_copy.py", line 74, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'

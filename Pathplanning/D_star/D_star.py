@@ -371,7 +371,7 @@ class DStar:
 
 def main():
     s_start = (15, 5)
-    s_goal = (45, 10)
+    s_goal = (250, 250)
     dstar = DStar(s_start, s_goal)
     dstar.run(s_start, s_goal)
 
