@@ -21,11 +21,11 @@ class Controller_RRT():
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implentation with other group
-        number = 2 #random.randint(1, 18)
+        number = 6 #random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{number}.txt'
         img_path = f'Pathplanning/Paths/BLP0000{number}.jpg'
-        self.start_x = 100 # Needs to be determined when working with the robot.
-        self.start_y = 100 # Needs to be determined when working with the robot.
+        self.start_x = 500 # Needs to be determined when working with the robot.
+        self.start_y = 500 # Needs to be determined when working with the robot.
 
         # Variables
         self.stepSize = 100  # stepsize for RRT
