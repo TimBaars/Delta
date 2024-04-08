@@ -41,10 +41,13 @@ class Controller_RRT():
             print("Starting the process")
 
             # First get the weed centers
-            weed_centers = self.processor.process_segmentation_file()
+            weed_centers, image = self.processor.process_segmentation_file()
 
             # Run the RRT network
-            self.calculate_path(weed_centers)
+            self.calculate_path(weed_centers, image)
+
+            # Convert the path to delta locations
+            """ TODO , camera information from other group is needed for this part"""
 
             # Drive the delta robot to the calculated path
             """ TODO integrate the delta robot"""
@@ -52,39 +55,42 @@ class Controller_RRT():
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info
             logging.error("Error inside run", exc_info=exc_info)
-            # Optionally, keep the print statements or handle the error as needed
             print("Error inside run")
             traceback.print_exc()
 
-    def calculate_path(self, weed_centers, imagePath="Pathplanning/bw_output.png"):
-        """Calculate the path from the start to the end point"""
+    def calculate_path(self, weed_centers, image):
+        """Calculate the path from the start to the end point using the provided image.
+        
+        Args:
+            weed_centers (list): List of tuples representing the x, y coordinates of weed centers.
+            image (numpy.ndarray): The input image, which will be used directly for visualization
+                                and converted to grayscale for processing.
+        """
         try:
-            img = cv2.imread(imagePath, 0)  # load grayscale maze image
-            img2 = cv2.imread(imagePath)  # load colored maze image
+            # Convert the input image to grayscale for processing
+            img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            # Use the original image for colored visualization purposes
+            img_color = image
+
             for coordinates in weed_centers:
                 # Create coords list for the current start and end position
                 self.Calculating_Coords[0] = self.start_x
                 self.Calculating_Coords[1] = self.start_y
                 self.Calculating_Coords[2] = int(coordinates[0])
-                self.Calculating_Coords[3] = int(coordinates[1])  
+                self.Calculating_Coords[3] = int(coordinates[1])
 
                 RRT_Algorithm = RRT()
                 # Run the RRT algorithm
-                print(self.Calculating_Coords)    
-                Nodes = RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
-                # if len(Nodes) > 2:
-                #     print("Lenght bigger then 2")
-                #     """ TODO add the simplification of the path"""
-                #     #Simplified_Path = Testing.simplify_path(Nodes)
-                #     #print(f"Simplified: {Simplified_Path[-1].parent_x}, {Simplified_Path[-1].parent_y}")
+                #print(self.Calculating_Coords)    
+                Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+                # Optional code for handling path length and simplification commented out
 
                 print(f"Path: {Nodes[-1].parent_x}, {Nodes[-1].parent_y}")
                 # Update the start coordinates
                 self.start_x = int(coordinates[0])
                 self.start_y = int(coordinates[1])
-        except Exception:
-            exc_info = sys.exc_info()  # Get current exception info
-            logging.error("Error inside calculate_path", exc_info=exc_info)
-            # Optionally, keep the print statements or handle the error as needed
-            print("Error inside calculate path")
-            traceback.print_exc()
+
+        except Exception as e:
+            # Improved error handling
+            logging.error("Error inside calculate_path", exc_info=True)
+            print(f"Error inside calculate path: {e}")

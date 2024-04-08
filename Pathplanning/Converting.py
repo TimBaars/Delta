@@ -27,15 +27,17 @@ class SegmentationProcessor:
                 elif class_id == 1:  # For weeds, calculate the geometric center
                     center_x = np.mean(points[:, :, 0])
                     center_y = np.mean(points[:, :, 1])
+                    cv2.circle(bw_img, (int(center_x), int(center_y)), 10, (0, 0, 255), -1)
+
                     weed_centers.append([center_x, center_y])
 
         # Save the black and white image to the specified directory
-        bw_output_path = f"{self.output_dir}/bw_output.png"
-        cv2.imwrite(bw_output_path, bw_img)
+        #bw_output_path = f"{self.output_dir}/bw_output.png"
+        #cv2.imwrite(bw_output_path, bw_img)
 
         # Optionally, create and save a composite image
         composite_img = np.hstack((original_img, bw_img))
         composite_output_path = f"{self.output_dir}/composite_output.png"
         cv2.imwrite(composite_output_path, composite_img)
 
-        return weed_centers  # Return the list of weed centers
+        return weed_centers, bw_img  # Return the list of weed centers
