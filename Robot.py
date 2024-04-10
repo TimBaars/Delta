@@ -30,7 +30,6 @@
 # if __name__ == "__main__":
 #     main()
 import sys
-sys.path.append('/home/koen/git/Delta/')  # replace with the actual path to the Delta directory
 from Delta_Control.igus_modbus import Robot
 
 # Configuration
@@ -41,12 +40,16 @@ def main():
     """
     This function creates an instance of the Robot class, establishes a connection to the robot, and executes a predefined sequence of movements.
     """
-    delta = Robot("192.168.3.1")
+    delta = Robot("192.168.3.11")
     print(delta)
     wait = True
 
     if delta.is_connected:
         print("connected")
+    if delta.is_referenced():
+        print("Referencing")
+        delta.reference()
+    print(delta.get_position_endeffector())
 
 if __name__ == "__main__":
     main()
