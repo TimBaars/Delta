@@ -14,6 +14,10 @@ class DeltaRobotDriver:
         """
         self.robot = Robot(ip_address, port)
         self.robot.enable()  # Make sure to enable the robot before any operations
+        if self.robot.is_referenced() is False:
+            print("Referencing robot....")
+            self.robot.reference()
+            print("Referenced robot")
 
     def drive_to_location(self, x, y, z, velocity=None):
         """
@@ -58,8 +62,9 @@ class DeltaRobotDriver:
 
 # Example usage:
 if __name__ == "__main__":
-    robot_driver = DeltaRobotDriver(ip_address="192.168.1.11")
-    robot_driver.drive_to_location_and_wait(100, 100, 200, velocity=120)
-    print("Reached the destination.")
+    robot_driver = DeltaRobotDriver(ip_address="192.168.3.1")
+    print("Connected to printer")
+    #robot_driver.drive_to_location_and_wait(100, 100, 200, velocity=120)
+    #print("Reached the destination.")
     print(f"Current Position: {robot_driver.get_current_position()}")
     robot_driver.shutdown_robot()
