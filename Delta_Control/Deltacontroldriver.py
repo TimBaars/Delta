@@ -1,22 +1,22 @@
-import sys
-
-sys.path.append('/home/koen/git/Delta/')  # replace with the actual path to the Delta directory
-from igus_modbus import Robot  
+from Delta_Control.igus_modbus import Robot  
 import time
 
 class DeltaRobotDriver:
     def __init__(self, ip_address, port=502):
         """
-        Initialize the Delta Robot Driver.
+        Initialize the Delta Robot Driver. And reference the delta robot
         
         :param ip_address: IP address of the Delta Robot Modbus server.
         :param port: Port of the Modbus server (default is 502).
         """
         self.robot = Robot(ip_address, port)
+
         self.robot.enable()  # Make sure to enable the robot before any operations
+        self.robot.set_override_velocity(100)
         if self.robot.is_referenced() is False:
-            print("Referencing robot....")
             self.robot.reference()
+            print("------------------------- Referencing robot -------------------------")
+            time.sleep(20)
             print("Referenced robot")
 
     def drive_to_location(self, x, y, z, velocity=None):
@@ -60,11 +60,19 @@ class DeltaRobotDriver:
         """
         self.robot.disable()  # Ensure to disable the robot when done
 
-# Example usage:
-if __name__ == "__main__":
-    robot_driver = DeltaRobotDriver(ip_address="192.168.3.1")
-    print("Connected to printer")
-    #robot_driver.drive_to_location_and_wait(100, 100, 200, velocity=120)
-    #print("Reached the destination.")
-    print(f"Current Position: {robot_driver.get_current_position()}")
-    robot_driver.shutdown_robot()
+    def set_digital_output(self, output_number, value):
+        """
+        Set a digital output on the robot.
+
+        :param output_number: The number of the output to set.
+        :param value: The value to set the output to (0 or 1).
+        """
+        self.robot.set_digital_output(output_number, value)
+
+    def get_errors(self):
+        """
+        Get the current error codes from the robot.
+
+        :return: A list of error codes.
+        """
+        return self.robot.get_robot_errors()
