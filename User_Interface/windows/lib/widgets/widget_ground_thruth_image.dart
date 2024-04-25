@@ -28,7 +28,7 @@ class _GroundThruthImageWidgetState extends State<GroundThruthImageWidget> {
  }
 
  void _loadImage() async {
-    await Future.delayed(Duration(milliseconds: 50));
+    await Future.delayed(const Duration(milliseconds: 50));
 
     try {
         final bytes = await _imageFile.readAsBytes();
@@ -49,6 +49,6 @@ class _GroundThruthImageWidgetState extends State<GroundThruthImageWidget> {
 
  @override
  Widget build(BuildContext context) {
-    return _imageBytes != null ? Image.memory(_imageBytes!) : CircularProgressIndicator();
+    return _imageBytes != null ? Image.memory(_imageBytes!) : const CircularProgressIndicator();
  }
 }

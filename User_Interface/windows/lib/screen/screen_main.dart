@@ -1,65 +1,64 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../widgets/widget_ground_thruth_image.dart';
-import '../widgets/widget_rrt_tree.dart';
-import '../widgets/widget_datapoints.dart';
-import '../widgets/widget_start_stop.dart';
+import 'package:windows/screen/screen_combi.dart';
+import 'package:windows/screen/screen_controllers.dart';
+import 'package:windows/screen/screen_crosslink.dart';
+import 'package:windows/screen/screen_pathfinding.dart';
+import 'package:windows/widgets/widget_ground_thruth_image.dart';
+import 'package:windows/widgets/widget_navigatorbutton.dart';
 
-class GenericScreen extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
+class MainScreen extends StatelessWidget {
+  late final PathFindingScreen _pathFindingScreen;
+  late final AllScreen _allScreen;
+  late final ControllerScreen _controllerScreen;
+  
+  MainScreen() {
+    _pathFindingScreen = PathFindingScreen();
+    _allScreen = AllScreen();
+    _controllerScreen = ControllerScreen();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _controllerScreen.logic.disable();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Generic Screen'),
+        title: const Text('Main Screen'),
       ),
-      body: Column(
-        children: <Widget>[
+      body: Row(
+        children: [
           Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(child: GroundThruthImageWidget()),
-                Expanded(child: DataPointsOverlayImageWidget()),
+            flex: 8,
+            child: GroundThruthImageWidget(),
+          ),
+          const Expanded(
+            flex: 1,
+            child: Column()
+          ),
+          Expanded(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Expanded(flex:1, child: Text("")),
+                Expanded(flex:2, child: NavigatorButtonWidget("Pathfinding", Icons.approval_rounded, _pathFindingScreen)),
+                const Expanded(flex:1, child: Text("")),
+                Expanded(flex:2, child: NavigatorButtonWidget("Cameraview", Icons.video_camera_back_outlined, _allScreen)),
+                const Expanded(flex:1, child: Text("")),
+                Expanded(flex:2, child: NavigatorButtonWidget("Controllers", Icons.addchart_sharp, _controllerScreen, function: () => print("Controllers Screen"))),
+                const Expanded(flex:1, child: Text("")),
+                Expanded(flex:2, child: NavigatorButtonWidget("Controllers", Icons.numbers_rounded, GenericScreen())),
+                const Expanded(flex:1, child: Text("")),
               ],
             ),
           ),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                 child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: GroundThruthImageWidget() // Delta robot status
-                            ),
-                            Expanded(
-                              child: GroundThruthImageWidget() // Delta robot status
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: RobotStatusButtonWidget() // Start/Stop
-                            ),
-                            Expanded(
-                              child: GroundThruthImageWidget() // Actuator status
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                 ),
-                ),
-                Expanded(child: RrtTreeImageWidget()),
-              ],
-            ),
+          const Expanded(
+            flex: 1,
+            child: Column()
           ),
         ],
-      ),
+      )
     );
- }
+  }
 }
