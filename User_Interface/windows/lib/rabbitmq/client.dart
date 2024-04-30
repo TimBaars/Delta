@@ -1,5 +1,7 @@
 import 'package:dart_amqp/dart_amqp.dart';
 
+import 'package:windows/util/constants.dart';
+
 class RabbitMQClient {
   static final RabbitMQClient _singleton = RabbitMQClient._internal();
   late Client _client;
@@ -11,10 +13,10 @@ class RabbitMQClient {
 
   RabbitMQClient._internal();
 
-  Future<void> initialize(String host, String username, String password) async {
+  Future<void> initialize({host, username, password}) async {
     ConnectionSettings settings = ConnectionSettings(
-      host: host,
-      authProvider: PlainAuthenticator(username, password),
+      host: host ?? RMQHOST,
+      authProvider: PlainAuthenticator(username ?? RMQUSERNAME, password ?? RMQPASSWORD),
     );
     _client = Client(settings: settings);
     _channel = await _client.channel();
@@ -25,7 +27,7 @@ class RabbitMQClient {
   }
 
   Future<Consumer> setupConsumer(String queueName) async {
-    Exchange exchange = await _channel.exchange(queueName, ExchangeType.FANOUT);
+    Exchange exchange = await _channel.exchange(queueName, ExchangeType.TOPIC);
     Queue queue = await _channel.queue(queueName);
     print("Queue $queueName declared");
     await queue.bind(exchange, "");

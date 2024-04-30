@@ -1,4 +1,6 @@
-import '../api/api_connection.dart';
+// import '../api/api_connection.dart';
+
+import 'dart:async';
 
 class LogicStartStop {
   static Future<bool> toggle(bool active) {
@@ -10,11 +12,11 @@ class LogicStartStop {
   }
 
   static Future<bool> start() {
-    return startDelta();
+    return Future(false as FutureOr<bool> Function()); // startDelta();
   }
 
   static Future<bool> stop() {
-    return stopDelta();
+    return Future(false as FutureOr<bool> Function()); // stopDelta();
   }
 
   static String getButtonText(bool active) {

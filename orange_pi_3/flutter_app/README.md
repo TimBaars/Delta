@@ -23,6 +23,14 @@ sudo ufw allow 80
 sudo ufw allow 443
 ```
 
+#### Installing VLC Media Player
+
+The VLC Media Player is used to play the video stream from the camera.
+
+```ps
+sudo apt install vlc
+```
+
 #### Installing RabbitMQ
 
 Make sure RabbitMQ is installed and setup, information to be found in [README](../rabbitmq/README.md).

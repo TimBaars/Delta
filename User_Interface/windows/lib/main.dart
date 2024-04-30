@@ -5,16 +5,8 @@ import 'package:windows/screen/screen_main.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  void init() async {
-    print(String.fromEnvironment('APIKEY', defaultValue: ''));
-
-    var host = String.fromEnvironment('RABBITMQ_HOST', defaultValue: '192.168.178.170');
-    var username = String.fromEnvironment('RABBITMQ_USERNAME', defaultValue: 'rabbitmq');
-    var password = String.fromEnvironment('RABBITMQ_PASSWORD', defaultValue: 'orangepi');
-
-    print('Connecting to RabbitMQ at $host with $username:$password');
-
-    RabbitMQClient().initialize(host, username, password);
+  void init() {
+    RabbitMQClient().initialize();
   }
 
   @override
