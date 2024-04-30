@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/widget_ground_thruth_image.dart';
-import '../widgets/widget_rrt_tree.dart';
+import '../widgets/widget_rrt_image.dart';
 import '../widgets/widget_datapoints.dart';
 import '../widgets/widget_start_stop.dart';
 
@@ -54,7 +54,7 @@ class AllScreen extends StatelessWidget {
                     ],
                  ),
                 ),
-                Expanded(child: RrtTreeImageWidget()),
+                Expanded(child: RrtImageWidget()),
               ],
             ),
           ),

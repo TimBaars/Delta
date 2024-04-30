@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:windows/rabbitmq/client.dart';
 import 'package:windows/screen/screen_main.dart';
 
-// Temp Individual Tests
-import 'package:windows/screen/screen_crosslink.dart';
-import 'package:windows/screen/screen_pathfinding.dart';
-import 'package:windows/screen/screen_controllers.dart';
-import 'package:windows/screen/screen_combi.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
+  void init() async {
+    print(String.fromEnvironment('APIKEY', defaultValue: ''));
+
+    var host = String.fromEnvironment('RABBITMQ_HOST', defaultValue: '192.168.178.170');
+    var username = String.fromEnvironment('RABBITMQ_USERNAME', defaultValue: 'rabbitmq');
+    var password = String.fromEnvironment('RABBITMQ_PASSWORD', defaultValue: 'orangepi');
+
+    print('Connecting to RabbitMQ at $host with $username:$password');
+
+    RabbitMQClient().initialize(host, username, password);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    init();
+
     return MaterialApp(
       title: "Delta UI",
       home: MainScreen(),
-      
+
       // home: GenericScreen(),
       // home: AllScreen(),
       // home: PathFindingScreen(),
       // home: ControllerScreen(),
     );
- }
+  }
+
+  void dispose() {
+    RabbitMQClient client = RabbitMQClient();
+    client.close();
+  }
 }

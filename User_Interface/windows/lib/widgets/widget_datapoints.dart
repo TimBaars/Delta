@@ -1,7 +1,8 @@
-import 'dart:io';
-import 'dart:async';
 import 'dart:typed_data';
+import 'package:dart_amqp/dart_amqp.dart';
 import 'package:flutter/material.dart';
+
+import '../rabbitmq/client.dart';
 
 class DataPointsOverlayImageWidget extends StatefulWidget {
  @override
@@ -9,47 +10,47 @@ class DataPointsOverlayImageWidget extends StatefulWidget {
 }
 
 class _DataPointsOverlayImageWidgetState extends State<DataPointsOverlayImageWidget> {
- late StreamSubscription<FileSystemEvent> _subscription;
- late File _groundTruthImageFile;
- late File _maskedResultImageFile;
  Uint8List? _groundTruthImageBytes;
  Uint8List? _maskedResultImageBytes;
+ bool _isProcessingImage = false;
 
  @override
  void initState() {
     super.initState();
-    _groundTruthImageFile = File("assets/images/ground_thruth_image.png");
-    _maskedResultImageFile = File("assets/images/masked_result_image.png");
-    
-    _loadImages();
-    
-    _subscription = _groundTruthImageFile.parent.watch().listen((event) {
-      if (event is FileSystemModifyEvent) {
-        _loadImages(); // Reload the images when the file changes
+    setupConsumers();
+ }
+
+ void setupConsumers() async {
+    Consumer groundTruthConsumer = await RabbitMQClient().setupConsumer("ground_truth_image");
+    Consumer maskedResultConsumer = await RabbitMQClient().setupConsumer("masked_result_image");
+
+    groundTruthConsumer.listen((AmqpMessage message) {
+      print("[GroundTruthImageWidget] Received message: ${message.payloadAsString}");
+
+      if (!_isProcessingImage) {
+        _isProcessingImage = true;
+        Uint8List imageBytes = Uint8List.fromList(message.payloadAsString.codeUnits);
+        setState(() {
+          _groundTruthImageBytes = imageBytes;
+        });
+        message.ack();
+        _isProcessingImage = false;
       }
     });
- }
 
- void _loadImages() async {
-    await Future.delayed(Duration(milliseconds: 50));
-
-    try {
-      final groundTruthBytes = await _groundTruthImageFile.readAsBytes();
-      final maskedResultBytes = await _maskedResultImageFile.readAsBytes();
-      setState(() {
-        _groundTruthImageBytes = groundTruthBytes;
-        _maskedResultImageBytes = maskedResultBytes;
-      });
-    } catch (e) {
-      print("[DataPointsOverlayImageWidget] Error loading images: $e");
-      _loadImages();
-    }
- }
-
- @override
- void dispose() {
-    _subscription.cancel();
-    super.dispose();
+    maskedResultConsumer.listen((AmqpMessage message) {
+      print("[MaskedResultImageWidget] Received message: ${message.payloadAsString}");
+      
+      if (!_isProcessingImage) {
+        _isProcessingImage = true;
+        Uint8List imageBytes = Uint8List.fromList(message.payloadAsString.codeUnits);
+        setState(() {
+          _maskedResultImageBytes = imageBytes;
+        });
+        message.ack();
+        _isProcessingImage = false;
+      }
+    });
  }
 
  @override

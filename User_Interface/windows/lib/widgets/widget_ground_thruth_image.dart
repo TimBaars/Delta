@@ -1,54 +1,76 @@
-import 'dart:io';
-import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
+import 'package:dart_amqp/dart_amqp.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+import '../rabbitmq/client.dart';
 
 class GroundThruthImageWidget extends StatefulWidget {
-   final String imagePath = "assets/images/ground_thruth_image.png";
-
- @override
- _GroundThruthImageWidgetState createState() => _GroundThruthImageWidgetState();
+  @override
+  _GroundThruthImageWidgetState createState() =>
+      _GroundThruthImageWidgetState();
 }
 
 class _GroundThruthImageWidgetState extends State<GroundThruthImageWidget> {
- late StreamSubscription<FileSystemEvent> _subscription;
- late File _imageFile;
- Uint8List? _imageBytes;
+  Uint8List? _imageBytes;
+  bool _isProcessingImage = false;
 
- @override
- void initState() {
+  @override
+  void initState() {
     super.initState();
-    _imageFile = File(widget.imagePath);
-    _loadImage();
-    _subscription = _imageFile.parent.watch().listen((event) {
-      if (event is FileSystemModifyEvent) {
-        _loadImage(); // Reload the image when the file changes
+    setupConsumer();
+  }
+
+  void setupConsumer() async {
+    Consumer groundTruthImageConsumer =
+        await RabbitMQClient().setupConsumer("ground_truth_image");
+
+    groundTruthImageConsumer.listen((AmqpMessage message) async {
+      print("[GroundThruthImageWidget] Received message: ${message.payloadAsString}");
+
+      if (!_isProcessingImage) {
+        _isProcessingImage = true;
+        // Parse the JSON string to get the URL
+        Map<String, dynamic> json = jsonDecode(message.payloadAsString);
+        print("JSON: $json");
+        String imageUrl = json['url'];
+
+        try {
+          // Fetch the image from the URL
+          print("Fetching image from URL: $imageUrl");
+          http.Response response = await http.get(Uri.parse(imageUrl));
+          print("Response status code: ${response.statusCode}");
+          if (response.statusCode == 200) {
+            // Check if the entire image has been downloaded
+            String? contentLength = response.headers['content-length'];
+            if (contentLength != null &&
+                int.parse(contentLength) == response.bodyBytes.length) {
+              // Convert the response body to Uint8List
+              Uint8List imageBytes = response.bodyBytes;
+              setState(() {
+                _imageBytes = imageBytes;
+              });
+            } else {
+              print("Image not fully downloaded");
+            }
+          } else {
+            print("Failed to load image from URL");
+          }
+        } catch (e) {
+          print("Error fetching image: $e");
+        } finally {
+          message.ack();
+          _isProcessingImage = false;
+        }
       }
     });
- }
+  }
 
- void _loadImage() async {
-    await Future.delayed(const Duration(milliseconds: 50));
-
-    try {
-        final bytes = await _imageFile.readAsBytes();
-        setState(() {
-          _imageBytes = bytes;
-        });
-    } catch (e) {
-        print("[GroundThruthImageWidget] Error loading image: $e");
-        _loadImage();
-    }
- }
-
- @override
- void dispose() {
-    _subscription.cancel();
-    super.dispose();
- }
-
- @override
- Widget build(BuildContext context) {
-    return _imageBytes != null ? Image.memory(_imageBytes!) : const CircularProgressIndicator();
- }
+  @override
+  Widget build(BuildContext context) {
+    return _imageBytes != null
+        ? Image.memory(_imageBytes!)
+        : const CircularProgressIndicator();
+  }
 }

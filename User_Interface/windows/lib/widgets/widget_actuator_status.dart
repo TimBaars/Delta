@@ -1,9 +1,9 @@
-import 'dart:io';
-import 'dart:async';
 import 'dart:typed_data';
+import 'package:dart_amqp/dart_amqp.dart';
 import 'package:flutter/material.dart';
 
 import '../logic/logic_actuator_status.dart';
+import '../rabbitmq/client.dart';
 
 class ActuatorStatusWidget extends StatefulWidget {
  final ActuatorStatusLogic logic;
@@ -15,56 +15,52 @@ class ActuatorStatusWidget extends StatefulWidget {
 }
 
 class _ActuatorStatusWidgetState extends State<ActuatorStatusWidget> {
-  late StreamSubscription<FileSystemEvent> _subscription;
- late File _imageFile;
  Uint8List? _imageBytes;
+ bool _isProcessingImage = false;
 
-  @override
-  void initState() {
+ @override
+ void initState() {
     super.initState();
-    _imageFile = File("assets/static/images/placeholder_delta_tool_status.png");
-    
-    _loadImages();
-    
-    _subscription = _imageFile.parent.watch().listen((event) {
-      if (event is FileSystemModifyEvent) {
-        _loadImages();
+    setupConsumer();
+ }
+
+ void setupConsumer() async {
+    Consumer actuatorConsumer = await RabbitMQClient().setupConsumer("actuator");
+
+    actuatorConsumer.listen((AmqpMessage message) {
+      print("[ActuatorStatusWidget] Received message: ${message.payloadAsString}");
+
+      if (!_isProcessingImage) {
+        _isProcessingImage = true;
+        Uint8List imageBytes = Uint8List.fromList(message.payloadAsString.codeUnits);
+        setState(() {
+          _imageBytes = imageBytes;
+        });
+        message.ack();
+        _isProcessingImage = false;
       }
     });
-  }
-
- void _loadImages() async {
-    await Future.delayed(Duration(milliseconds: 50));
-
-    try {
-      final imageBytes = await _imageFile.readAsBytes();
-      setState(() {
-        _imageBytes = imageBytes;
-      });
-    } catch (e) {
-      print("[DataPointsOverlayImageWidget] Error loading images: $e");
-      _loadImages();
-    }
  }
 
  @override
  void dispose() {
-    widget.logic.disable();
-    _subscription.cancel();
+    // widget.logic.disable();
     super.dispose();
  }
-  
-  @override
-  Widget build(BuildContext context) {
+
+ @override
+ Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
           children: <Widget>[
             Text(widget.logic.running ? 'Running' : 'Stopped'),
-            _imageBytes != null ? Image.memory(_imageBytes!) : CircularProgressIndicator(),
+            _imageBytes != null
+                ? Image.memory(_imageBytes!)
+                : CircularProgressIndicator(),
           ],
         ),
       ),
     );
-  }
+ }
 }
