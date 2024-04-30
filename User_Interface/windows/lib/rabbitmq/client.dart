@@ -27,7 +27,7 @@ class RabbitMQClient {
   }
 
   Future<Consumer> setupConsumer(String queueName) async {
-    Exchange exchange = await _channel.exchange(queueName, ExchangeType.TOPIC);
+    Exchange exchange = await _channel.exchange(queueName, ExchangeType.FANOUT);
     Queue queue = await _channel.queue(queueName);
     print("Queue $queueName declared");
     await queue.bind(exchange, "");

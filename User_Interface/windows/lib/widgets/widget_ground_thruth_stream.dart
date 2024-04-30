@@ -1,5 +1,5 @@
-import 'dart:html' as html;
 import 'package:flutter/material.dart';
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 import 'package:windows/util/constants.dart';
 
@@ -12,40 +12,45 @@ class GroundThruthStreamWidget extends StatefulWidget {
 }
 
 class _GroundThruthStreamWidgetState extends State<GroundThruthStreamWidget> {
-  late html.VideoElement _videoElement;
+  late VlcPlayerController _vlcPlayerController;
 
   @override
   void initState() {
     super.initState();
-    _videoElement = html.VideoElement()
-      ..src = STREAMENDPOINT
-      ..autoplay = true
-      ..controls = true;
+    _vlcPlayerController = VlcPlayerController.network(
+      RMQHOST,
+      autoPlay: true,
+      options: VlcPlayerOptions(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: HtmlElementView(
-        viewType: 'video-player',
-        onPlatformViewCreated: (int id) {
-          final container =
-              html.window.document.getElementById('video-player')!;
-          container.append(_videoElement);
-        },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: VlcPlayer(
+              controller: _vlcPlayerController,
+              aspectRatio: 16 / 9,
+              placeholder: Center(child: CircularProgressIndicator()),
+            ),
+          ),
+        ],
       ),
     );
   }
 
   @override
   void dispose() {
-    _videoElement.remove();
+    _vlcPlayerController.dispose();
     super.dispose();
   }
 }
 
 void main() {
   runApp(MaterialApp(
-    home: Expanded(child: GroundThruthStreamWidget()),
+    home: GroundThruthStreamWidget(),
   ));
 }
