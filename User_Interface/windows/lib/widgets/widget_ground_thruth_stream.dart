@@ -1,7 +1,5 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
-import 'dart:io' show Platform;
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 import 'package:windows/util/constants.dart';
 
