@@ -1,69 +1,68 @@
+import time, sys
+import csv
+
+sys.path.append('/home/koen/git/Delta/')  # replace with the actual path to the Delta directory
 from Delta_Control.igus_modbus import Robot
-import time
 
 class DeltaRobotDriver:
-    def __init__(self, ip_address, port=502, height=250):
-        """
-        Initialize the Delta Robot Driver. And reference the delta robot
-
-        :param ip_address: IP address of the Delta Robot Modbus server.
-        :param port: Port of the Modbus server (default is 502).
-        :param height: Fixed height for the robot operations.
-        """
+    def __init__(self, ip_address, port=502, height=200):
         self.robot = Robot(ip_address, port)
         self.height = height
-        self.speed = 100  # Default speed, can be adjusted with set_speed method
-
-        self.robot.enable()  # Make sure to enable the robot before any operations
-        self.robot.set_override_velocity(self.speed)
-        if self.robot.is_referenced() is False:
+        self.robot.enable()
+        if not self.robot.is_referenced():
             self.robot.reference()
             print("------------------------- Referencing robot -------------------------")
             time.sleep(20)
             print("Referenced robot")
 
     def drive_to_location_and_wait(self, x, y, z):
-        """
-        Drive the delta robot to a location and wait until it reaches that location.
-
-        :param x: X position in millimeters.
-        :param y: Y position in millimeters.
-        :param z: Z position in millimeters.
-        """
         self.robot.set_position_endeffector(x, y, z)
         self.robot.move_endeffector()
         while self.robot.is_moving():
-            time.sleep(0.1)  # Polling interval to check if the robot is still moving
+            time.sleep(0.1)
 
     def set_speed(self, speed):
-        """
-        Set the movement speed of the robot.
+        self.robot.set_velocity(speed)
 
-        :param speed: Speed in mm/s.
-        """
-        self.speed = speed
-
-    def execute_path(self):
-        """
-        Execute a predefined path of positions.
-        """
-        positions = [(250, 250), (250, -250), (-250, -250), (-250, 250), (250, 250)]
+    def execute_path(self, speed):
+        self.set_speed(speed)
+        positions = [(200, 200), (200, -200), (-200, -200), (-200, 200), (200, 200)]
         start_time = time.time()
-
         for x, y in positions:
             self.drive_to_location_and_wait(x, y, self.height)
-        
         end_time = time.time()
-        print(f"Completed path in {end_time - start_time:.2f} seconds.")
+        return end_time - start_time
 
     def shutdown_robot(self):
-        """
-        Properly shutdown the robot.
-        """
-        self.robot.disable()  # Ensure to disable the robot when done
+        self.robot.disable()
 
-# Example usage
 if __name__ == "__main__":
-    robot_driver = DeltaRobotDriver("192.168.1.11")
-    robot_driver.execute_path()
-    robot_driver.shutdown_robot()
+    try:
+        speeds = [200, 400, 600, 800]
+        times = []
+
+        weight_kg = input("Enter the weight in kilograms: ")
+
+        robot_driver = DeltaRobotDriver("192.168.3.11")
+        try:
+            for speed in speeds:
+                time_taken = robot_driver.execute_path(speed)
+                times.append(time_taken)
+                print(f"Speed: {speed} mm/s, Time: {time_taken:.2f} seconds")
+        finally:
+            robot_driver.shutdown_robot()
+
+        # Write data to CSV
+        with open('robot_speeds_times.csv', 'a', newline='') as file:
+            writer = csv.writer(file)
+            # Check if the file is empty to decide whether to write headers
+            file.seek(0, 2)  # Move to the end of the file
+            if file.tell() == 0:  # Check if the file is empty
+                writer.writerow(['Speed (mm/s)', 'Time (seconds)', 'Weight (kg)'])
+            for speed, time_taken in zip(speeds, times):
+                writer.writerow([speed, time_taken, weight_kg])
+        print("Data appended to robot_speeds_times.csv.")
+
+    except KeyboardInterrupt:
+        print("Exiting")
+        robot_driver.shutdown_robot()

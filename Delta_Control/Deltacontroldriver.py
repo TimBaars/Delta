@@ -13,6 +13,7 @@ class DeltaRobotDriver:
 
         self.robot.enable()  # Make sure to enable the robot before any operations
         self.robot.set_override_velocity(100)
+        
         if self.robot.is_referenced() is False:
             self.robot.reference()
             print("------------------------- Referencing robot -------------------------")
