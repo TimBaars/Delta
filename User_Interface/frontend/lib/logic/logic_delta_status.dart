@@ -4,24 +4,23 @@ import 'package:frontend/api/api.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  ActuatorStatusLogic actuatorStatusLogic = ActuatorStatusLogic();
+  DeltaStatusLogic deltaStatusLogic = DeltaStatusLogic();
 
-  actuatorStatusLogic.toggle();
-  actuatorStatusLogic.request();
+  deltaStatusLogic.toggle();
+  deltaStatusLogic.request();
 }
 
-class ActuatorStatusLogic {
-  final String endpointAddition = "actuator";
+class DeltaStatusLogic {
+  final String endpointAddition = "delta";
   final List<Map<String, dynamic>> historicalData = [];
   var running = false;
   var function = () => {};
   Map<String, dynamic> json = {
-    "drilling": false,
-    "extend": false,
-    "angle": 0,
+    "position": {"x": 0, "y": 0, "z": 0},
+    "moving": false,
   };
 
-  ActuatorStatusLogic();
+  DeltaStatusLogic();
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
@@ -48,11 +47,11 @@ class ActuatorStatusLogic {
 
           setJson(jsonResult);
 
-          print("ActuatorStatusLogic request: position: changed");
+          print("DeltaStatusLogic request: position: changed");
 
           function();
         } else {
-          print("ActuatorStatusLogic request: no change");
+          print("DeltaStatusLogic request: no change");
         }
       }
 
@@ -61,7 +60,7 @@ class ActuatorStatusLogic {
   }
 
   void toggle() {
-    print("ActuatorStatusLogic toggle");
+    print("DeltaStatusLogic toggle");
 
     if (running) {
       stop();
@@ -72,7 +71,7 @@ class ActuatorStatusLogic {
 
   void stop() {
     running = false;
-    print("ActuatorStatusLogic sendStop");
+    print("DeltaStatusLogic sendStop");
   }
 
   void start() {
@@ -80,6 +79,6 @@ class ActuatorStatusLogic {
 
     request();
 
-    print("ActuatorStatusLogic sendStart");
+    print("DeltaStatusLogic sendStart");
   }
 }

@@ -6,28 +6,6 @@ class DeltaStatusLogic extends StatusLogic {
 
   DeltaStatusLogic({queueName}) : super(queueName ?? "delta");
 
-  void toggle() {
-    print("DeltaStatusLogic toggle");
-
-    if (running) {
-      sendStop();
-    } else {
-      sendStart();
-    }
-  }
-
-  void sendStart() {
-    super.sendCommand("START");
-  }
-
-  void sendStop() {
-    super.sendCommand("STOP");
-  }
-
-  void sendShutdown() {
-    super.sendCommand("SHUTDOWN");
-  }
-
   @override
   void listener(AmqpMessage message) {
     super.listener(message);
