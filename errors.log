@@ -1,559 +1,220 @@
-2024-03-28 11:40:32,892, Controller_RRT.py, 87, Error inside calculate_path
+2024-05-07 11:06:44,405, Controller_RRT.py, 132, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 60, in check_collision
-    if self.collision(x,y,self.end[0],self.end[1]):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-03-28 11:40:50,399, Controller_RRT.py, 87, Error inside calculate_path
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 119, in calculate_path
+    Nodes.append(self.start_x, self.start_y)
+TypeError: list.append() takes exactly one argument (2 given)
+2024-05-07 11:06:44,496, Controller_RRT.py, 89, Error inside run
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-03-28 11:40:57,894, Controller_RRT.py, 87, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 74, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img, img2, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 10:30:47,594, Controller_RRT.py, 95, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 85, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 60, in check_collision
-    if self.collision(x,y,self.end[0],self.end[1]):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 10:43:13,216, Controller_RRT.py, 69, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 60, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in scale_coordinates
-    scaled_path = [[x * scale_factor_x, y * scale_factor_y] for x, y in zip(path[0], path[1])]
-TypeError: 'Nodes' object is not subscriptable
-2024-04-10 10:43:19,030, Controller_RRT.py, 69, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 60, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in scale_coordinates
-    scaled_path = [[x * scale_factor_x, y * scale_factor_y] for x, y in zip(path[0], path[1])]
-TypeError: 'Nodes' object is not subscriptable
-2024-04-10 10:43:25,047, Controller_RRT.py, 69, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 60, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in scale_coordinates
-    scaled_path = [[x * scale_factor_x, y * scale_factor_y] for x, y in zip(path[0], path[1])]
-TypeError: 'Nodes' object is not subscriptable
-2024-04-10 10:43:31,132, Controller_RRT.py, 69, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 60, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in scale_coordinates
-    scaled_path = [[x * scale_factor_x, y * scale_factor_y] for x, y in zip(path[0], path[1])]
-TypeError: 'Nodes' object is not subscriptable
-2024-04-10 10:43:37,130, Controller_RRT.py, 69, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 60, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in scale_coordinates
-    scaled_path = [[x * scale_factor_x, y * scale_factor_y] for x, y in zip(path[0], path[1])]
-TypeError: 'Nodes' object is not subscriptable
-2024-04-10 10:56:24,417, Controller_RRT.py, 78, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 72, in run
-    self.robot_driver.drive_to_location_and_wait(0, 0, 100, self.velocity)
-AttributeError: 'Controller_RRT' object has no attribute 'velocity'
-2024-04-10 10:56:30,716, Controller_RRT.py, 78, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 72, in run
-    self.robot_driver.drive_to_location_and_wait(0, 0, 100, self.velocity)
-AttributeError: 'Controller_RRT' object has no attribute 'velocity'
-2024-04-10 10:56:37,009, Controller_RRT.py, 78, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 72, in run
-    self.robot_driver.drive_to_location_and_wait(0, 0, 100, self.velocity)
-AttributeError: 'Controller_RRT' object has no attribute 'velocity'
-2024-04-10 11:10:18,220, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 43, in drive_to_location_and_wait
-    while self.robot.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:10:42,015, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:11:30,743, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:11:49,892, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:12:09,156, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:12:39,526, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:13:02,143, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:13:57,528, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:14:17,975, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:14:38,792, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:15:02,988, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:15:36,931, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:15:48,850, Controller_RRT.py, 125, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 11:15:48,920, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 141, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 79, in run
+    for path in scaled_paths:
 TypeError: 'NoneType' object is not iterable
-2024-04-10 11:15:58,152, Controller_RRT.py, 125, Error inside calculate_path
+2024-05-07 11:12:17,038, Controller_RRT.py, 137, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 60, in check_collision
-    if self.collision(x,y,self.end[0],self.end[1]):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 11:15:58,287, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:12:22,878, Controller_RRT.py, 137, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-05-07 11:13:41,915, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:47,802, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:53,713, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:59,611, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:05,525, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:11,419, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:17,308, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:15:01,833, Controller_RRT.py, 138, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    print(f"Nodes: {Nodes.parent_x}, {Nodes.parent_y}")
+AttributeError: 'list' object has no attribute 'parent_x'
+2024-05-07 11:15:33,526, Controller_RRT.py, 138, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    print(f"Nodes: {Nodes.parent_x}, {Nodes.parent_y}")
+AttributeError: 'list' object has no attribute 'parent_x'
+2024-05-07 11:16:00,867, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:20:15,240, Controller_RRT.py, 85, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 66, in run
     scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 141, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
-2024-04-10 11:16:07,333, Controller_RRT.py, 125, Error inside calculate_path
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 157, in scale_coordinates
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 157, in <listcomp>
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+TypeError: cannot unpack non-iterable int object
+2024-05-07 11:31:07,499, Controller_RRT.py, 85, Error inside run
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 60, in check_collision
-    if self.collision(x,y,self.end[0],self.end[1]):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 11:16:07,437, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 66, in run
     scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 141, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
-2024-04-10 11:16:35,728, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 156, in scale_coordinates
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 156, in <listcomp>
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+TypeError: cannot unpack non-iterable numpy.float64 object
+2024-05-07 11:38:03,574, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:16:55,885, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 127, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="closest_point")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 104, in optimize_path
+    new_position = self.closest_black_pixel(path[i])
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 78, in closest_black_pixel
+    for x in range(p[0] - search_radius, p[0] + search_radius + 1):
+TypeError: 'numpy.float64' object cannot be interpreted as an integer
+2024-05-07 11:38:21,656, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:17:31,116, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 127, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="closest_point")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 104, in optimize_path
+    new_position = self.closest_black_pixel(path[i])
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 78, in closest_black_pixel
+    for x in range(p[0] - search_radius, p[0] + search_radius + 1):
+TypeError: 'numpy.float64' object cannot be interpreted as an integer
+2024-05-07 12:03:26,455, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:17:48,012, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:03:37,048, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:18:09,064, Controller_RRT.py, 82, Error inside run
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:05:40,298, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 42, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 31, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:28:03,520, Controller_RRT.py, 125, Error inside calculate_path
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:06:07,159, Controller_RRT.py, 141, Error inside calculate_path
 Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 60, in check_collision
-    if self.collision(x,y,self.end[0],self.end[1]):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:56:01,802, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 114, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 12:56:16,030, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 114, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:01:51,959, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 116, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:02:28,499, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 116, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:05:27,313, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 117, in calculate_path
+    x_list.append(0, self.Calculating_Coords[2])
+TypeError: list.append() takes exactly one argument (2 given)
+2024-05-07 13:22:56,454, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 128, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="visibility")
+TypeError: PathOptimizer.optimize_path() got an unexpected keyword argument 'method'
+2024-05-07 13:23:02,371, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 128, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="visibility")
+TypeError: PathOptimizer.optimize_path() got an unexpected keyword argument 'method'
+2024-05-07 13:24:06,420, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 93, in RRT
+    tx, ty, directCon, nodeCon = self.check_collision(nx, ny, nearest_x, nearest_y, stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 41, in check_collision
+    if self.collision(x, y, self.end[0], self.end[1]):
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
+    x = list(np.arange(x1, x2, (x2 - x1) / 100))
 ValueError: arange: cannot compute length
-2024-04-10 11:28:03,613, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 142, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
-2024-04-10 11:28:09,569, Controller_RRT.py, 125, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 11:28:09,645, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 142, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
-2024-04-10 11:28:56,363, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 50, in run
-    weed_centers, image = self.processor.process_segmentation_file()
-  File "/home/koen/git/Delta/Pathplanning/Converting.py", line 12, in process_segmentation_file
-    height, width = original_img.shape[:2]
-AttributeError: 'NoneType' object has no attribute 'shape'
-2024-04-10 11:29:01,367, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 50, in run
-    weed_centers, image = self.processor.process_segmentation_file()
-  File "/home/koen/git/Delta/Pathplanning/Converting.py", line 12, in process_segmentation_file
-    height, width = original_img.shape[:2]
-AttributeError: 'NoneType' object has no attribute 'shape'
-2024-04-10 11:29:07,430, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 50, in run
-    weed_centers, image = self.processor.process_segmentation_file()
-  File "/home/koen/git/Delta/Pathplanning/Converting.py", line 12, in process_segmentation_file
-    height, width = original_img.shape[:2]
-AttributeError: 'NoneType' object has no attribute 'shape'
-2024-04-10 11:34:56,676, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 44, in drive_to_location_and_wait
-    while self.robot.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:43:21,802, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 46, in drive_to_location_and_wait
-    while self.robot.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:43:36,291, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 45, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 34, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:52:14,974, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 46, in drive_to_location_and_wait
-    while self.robot.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 11:52:32,056, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 45, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 34, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 12:04:02,760, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 46, in drive_to_location_and_wait
-    while self.robot.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 12:04:36,968, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 45, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 34, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 12:04:51,821, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 45, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 34, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 12:05:02,984, Controller_RRT.py, 125, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 111, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 12:05:03,076, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 63, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 142, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
-2024-04-10 12:05:33,041, Controller_RRT.py, 82, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 76, in run
-    self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)  # Command the robot to move to the new position
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 45, in drive_to_location_and_wait
-    self.drive_to_location(x, y, z, velocity)
-  File "/home/koen/git/Delta/Delta_Control/Deltacontroldriver.py", line 34, in drive_to_location
-    self.robot.move_endeffector()
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 416, in move_endeffector
-    while self.is_moving():
-  File "/home/koen/git/Delta/Delta_Control/igus_modbus.py", line 216, in is_moving
-    if self.client.read_coils(112)[0]:
-TypeError: 'NoneType' object is not subscriptable
-2024-04-10 13:06:59,545, Controller_RRT.py, 134, Error inside calculate_path
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 120, in calculate_path
-    Nodes = RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 126, in RRT
-    tx,ty,directCon,nodeCon = self.check_collision(nx,ny,nearest_x,nearest_y, stepSize)
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 66, in check_collision
-    if self.collision(x,y,x2,y2):
-  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 31, in collision
-    x = list(np.arange(x1,x2,(x2-x1)/100))
-ValueError: arange: cannot compute length
-2024-04-10 13:06:59,622, Controller_RRT.py, 91, Error inside run
-Traceback (most recent call last):
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 65, in run
-    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
-  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 151, in scale_coordinates
-    for path in nodes:  # Assuming 'nodes' is a list of paths where each path is a list of [x,y] coordinates.
-TypeError: 'NoneType' object is not iterable
