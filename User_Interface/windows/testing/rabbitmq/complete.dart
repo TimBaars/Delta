@@ -1,4 +1,5 @@
 import 'package:dart_amqp/dart_amqp.dart';
+import 'package:uuid/uuid.dart';
 
 void main() async {
   // Connection settings
@@ -14,11 +15,10 @@ void main() async {
   Channel channel = await client.channel();
 
   // Declare a fanout exchange
-  Exchange exchange =
-      await channel.exchange("my_fanout_exchange", ExchangeType.FANOUT);
+  Exchange exchange = await channel.exchange("complete", ExchangeType.FANOUT);
 
   // Declare a queue
-  Queue queue = await channel.queue("my_queue");
+  Queue queue = await channel.queue("actuator");
 
   // Bind the queue to the exchange
   await queue.bind(exchange, "");
@@ -31,9 +31,13 @@ void main() async {
   });
 
   // Publish a message to the exchange
-  exchange.publish("Hello, World!", "");
+  exchange.publish("A Hello, World!", "");
+  exchange.publish("A World!", "");
+  exchange.publish("A Hello!", "");
+  exchange.publish("A Hello, World!", "");
+  exchange.publish("A !", "");
 
   // Close the client after a delay to allow the message to be processed
-  await Future.delayed(Duration(seconds: 5));
+  await Future.delayed(Duration(seconds: 100));
   client.close();
 }

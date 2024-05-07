@@ -45,10 +45,17 @@ sudo vim /var/lib/dpkg/lock
 
 ### Following steps
 
+#### Resizing partition size
+
+This can be needed in case of a new sd-card.
+E.g. moving from a 2GB to 32GB sd-card.
+
+Step by step guide can be found [here](./partition_resize/README.md).
+
 #### Delta software
 
 #### Actuator software
 
 #### User Experience software
 
-See [README](./flutter_app/README.md)
+See [README](./compile/flutter/README.md)
