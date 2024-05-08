@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/widget_ground_thruth_image.dart';
 import '../widgets/widget_rrt_image.dart';
-import '../widgets/widget_datapoints.dart';
 import '../widgets/widget_start_stop.dart';
 
 class AllScreen extends StatelessWidget {
@@ -17,7 +16,7 @@ class AllScreen extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Expanded(child: GroundThruthImageWidget()),
-                Expanded(child: DataPointsOverlayImageWidget()),
+                // Expanded(child: DataPointsOverlayImageWidget()),
               ],
             ),
           ),

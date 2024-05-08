@@ -15,8 +15,8 @@ class RrtImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = () => {};
   Map<String, dynamic> json = {
-    "received": false,
     "url": "localhost/rrt_image.png",
+    "time": 0,
   };
   ByteData image = ByteData(0);
 
@@ -49,21 +49,23 @@ class RrtImageLogic {
     if (result.statusCode == 200) {
       String body = result.body;
 
-      print(body.toString());
-      var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-      print(jsonResult.toString());
+      if (body != "") {
+        print(body.toString());
+        var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+        print(jsonResult.toString());
 
-      if (jsonResult.toString() != json.toString()) {
-        if (historicalData.length > 10) historicalData.removeAt(0);
-        historicalData.add(json);
+        if (jsonResult.toString() != json.toString()) {
+          if (historicalData.length > 10) historicalData.removeAt(0);
+          historicalData.add(json);
 
-        setJson(jsonResult);
+          setJson(jsonResult);
 
-        print("RrtImageLogic request: position: changed");
+          print("RrtImageLogic request: position: changed");
 
-        function();
-      } else {
-        print("RrtImageLogic request: no change");
+          function();
+        } else {
+          print("RrtImageLogic request: no change");
+        }
       }
     }
 

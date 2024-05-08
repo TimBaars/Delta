@@ -1,13 +1,11 @@
 import 'dart:convert';
 
 import 'package:frontend/api/api.dart';
+import 'package:frontend/logic/logic_system_status.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  ActuatorStatusLogic actuatorStatusLogic = ActuatorStatusLogic();
-
-  actuatorStatusLogic.toggle();
-  actuatorStatusLogic.request();
+  ActuatorStatusLogic().request();
 }
 
 class ActuatorStatusLogic {
@@ -17,7 +15,7 @@ class ActuatorStatusLogic {
   var function = () => {};
   Map<String, dynamic> json = {
     "drilling": false,
-    "extend": false,
+    "extended": false,
     "angle": 0,
   };
 
@@ -25,61 +23,40 @@ class ActuatorStatusLogic {
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
-    
+
     print("Json: $json");
   }
 
   void request() async {
     await Future.delayed(Duration(milliseconds: 500));
 
-    if (running) {
+    if (SystemStatusLogic().isRunning()) {
       http.Response result = await apiManager.requestData(endpointAddition);
 
       if (result.statusCode == 200) {
         String body = result.body;
-        
-        print(body.toString());
-        var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-        print(jsonResult.toString());
 
-        if (jsonResult.toString() != json.toString()) {
-          if (historicalData.length > 10) historicalData.removeAt(0);
-          historicalData.add(json);
+        if (body != "") {
+          print(body.toString());
+          var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+          print(jsonResult.toString());
 
-          setJson(jsonResult);
+          if (jsonResult.toString() != json.toString()) {
+            if (historicalData.length > 10) historicalData.removeAt(0);
+            historicalData.add(json);
 
-          print("ActuatorStatusLogic request: position: changed");
+            setJson(jsonResult);
 
-          function();
-        } else {
-          print("ActuatorStatusLogic request: no change");
+            print("ActuatorStatusLogic request: position: changed");
+
+            function();
+          } else {
+            print("ActuatorStatusLogic request: no change");
+          }
         }
       }
-
-      request();
     }
-  }
-
-  void toggle() {
-    print("ActuatorStatusLogic toggle");
-
-    if (running) {
-      stop();
-    } else {
-      start();
-    }
-  }
-
-  void stop() {
-    running = false;
-    print("ActuatorStatusLogic sendStop");
-  }
-
-  void start() {
-    running = true;
 
     request();
-
-    print("ActuatorStatusLogic sendStart");
   }
 }

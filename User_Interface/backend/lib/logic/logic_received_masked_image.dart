@@ -1,10 +1,10 @@
 import 'package:dart_amqp/dart_amqp.dart';
 import 'logic_status.dart';
 
-class DeltaStatusLogic extends StatusLogic {
+class MaskedImageLogic extends StatusLogic {
   var running = false;
 
-  DeltaStatusLogic({queueName}) : super(queueName ?? "masked");
+  MaskedImageLogic({queueName}) : super(queueName ?? "masked");
 
   @override
   void listener(AmqpMessage message) {

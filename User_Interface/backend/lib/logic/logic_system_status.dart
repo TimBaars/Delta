@@ -1,10 +1,10 @@
 import 'package:dart_amqp/dart_amqp.dart';
 import 'logic_status.dart';
 
-class ActuatorStatusLogic extends StatusLogic {
+class SystemStatusLogic extends StatusLogic {
   var running = false;
 
-  ActuatorStatusLogic({queueName}) : super(queueName ?? "system");
+  SystemStatusLogic({queueName}) : super(queueName ?? "system");
 
   void toggle() {
     print("System toggle");

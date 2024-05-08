@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/widget_ground_thruth_stream.dart';
 import '../widgets/widget_rrt_image.dart';
-import '../widgets/widget_datapoints.dart';
 
 class PathFindingScreen extends StatelessWidget {
  @override
@@ -16,7 +15,7 @@ class PathFindingScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: <Widget>[
-                Expanded(child: DataPointsOverlayImageWidget()),
+                // Expanded(child: DataPointsOverlayImageWidget()),
                 Expanded(child: RrtImageWidget()),
               ],
             ),

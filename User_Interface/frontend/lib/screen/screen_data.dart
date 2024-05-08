@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/logic/logic_actuator_status.dart';
-import 'package:frontend/widgets/widget_actuator_status.dart';
+import 'package:frontend/logic/logic_system_status.dart';
+import 'package:frontend/widgets/widget_data_points.dart';
 
 class DataScreen extends StatelessWidget {
-  late final ActuatorStatusLogic logic;
+  final SystemStatusLogic logic = SystemStatusLogic();
 
-  DataScreen({super.key}) : logic = ActuatorStatusLogic();
+  DataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    logic.start();
-    
     return Scaffold(
       appBar: AppBar(
         title: Text('Data Screen'),
@@ -20,7 +18,7 @@ class DataScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: <Widget>[
-                Expanded(child: DataPointsWidget(logic: logic)),
+                DataPointsWidget(logic: logic),
               ],
             ),
           ),

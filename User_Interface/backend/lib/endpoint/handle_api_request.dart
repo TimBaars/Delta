@@ -10,7 +10,15 @@ Response HandleApiRequests(Request request) {
   if (request.url.path == 'delta') {
     jsonData = Application().getRobotStatus();
   }
-  // ToDo expand with more endpoint handlers
+  if (request.url.path == 'masked') {
+    jsonData = Application().getMaskedImage();
+  }
+  if (request.url.path == 'rrt') {
+    jsonData = Application().getRrtImage();
+  }
+  if (request.url.path == 'system') {
+    jsonData = Application().getSystemStatus();
+  }
 
   if (jsonData != null) {
     return Response.ok(jsonData, headers: {'Content-Type': 'application/json'});

@@ -1,4 +1,7 @@
 import 'package:backend/logic/logic_delta_status.dart';
+import 'package:backend/logic/logic_received_masked_image.dart';
+import 'package:backend/logic/logic_received_rrt_image.dart';
+import 'package:backend/logic/logic_system_status.dart';
 
 import '../logic/logic_actuator_status.dart';
 import '../logic/logic_status.dart';
@@ -19,7 +22,9 @@ class Application {
   
   final StatusLogic actuatorStatusLogic = ActuatorStatusLogic();
   final StatusLogic deltaStatusLogic = DeltaStatusLogic();
-  // ToDo add more logic classes
+  final StatusLogic maskedImageLogic = MaskedImageLogic();
+  final StatusLogic rrtImageLogic = RrtImageLogic();
+  final StatusLogic systemStatusLogic = SystemStatusLogic();
 
   factory Application() {
     return _singleton;
@@ -34,7 +39,18 @@ class Application {
   String getRobotStatus() {
     return actuatorStatusLogic.retrieveLastData();
   }
-  // ToDo add more logic data retrieval classes
+  
+  String getMaskedImage() {
+    return maskedImageLogic.retrieveLastData();
+  }
+
+  String getRrtImage() {
+    return rrtImageLogic.retrieveLastData();
+  }
+
+  String getSystemStatus() {
+    return systemStatusLogic.retrieveLastData();
+  }
 
   Future<void> endpoint() async {
     var handler = Pipeline()

@@ -5,9 +5,7 @@ import 'package:frontend/api/api.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  MaskedImageLogic maskedImageLogic = MaskedImageLogic();
-
-  maskedImageLogic.request();
+  MaskedImageLogic().request();
 }
 
 class MaskedImageLogic {
@@ -15,8 +13,8 @@ class MaskedImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = () => {};
   Map<String, dynamic> json = {
-    "received": false,
     "url": "localhost/masked_image.png",
+    "time": 0,
   };
   ByteData image = ByteData(0);
 
@@ -49,21 +47,23 @@ class MaskedImageLogic {
     if (result.statusCode == 200) {
       String body = result.body;
 
-      print(body.toString());
-      var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-      print(jsonResult.toString());
+      if (body != "") {
+        print(body.toString());
+        var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+        print(jsonResult.toString());
 
-      if (jsonResult.toString() != json.toString()) {
-        if (historicalData.length > 10) historicalData.removeAt(0);
-        historicalData.add(json);
+        if (jsonResult.toString() != json.toString()) {
+          if (historicalData.length > 10) historicalData.removeAt(0);
+          historicalData.add(json);
 
-        setJson(jsonResult);
+          setJson(jsonResult);
 
-        print("MaskedImageLogic request: position: changed");
+          print("MaskedImageLogic request: position: changed");
 
-        function();
-      } else {
-        print("MaskedImageLogic request: no change");
+          function();
+        } else {
+          print("MaskedImageLogic request: no change");
+        }
       }
     }
 
