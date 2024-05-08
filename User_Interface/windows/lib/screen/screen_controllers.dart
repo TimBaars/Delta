@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:windows/logic/logic_actuator_status.dart';
 import 'package:windows/widgets/widget_actuator_status.dart';
-import '../widgets/widget_rrt_tree.dart';
+import '../widgets/widget_rrt_image.dart';
 import '../widgets/widget_start_stop.dart';
 
 class ControllerScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class ControllerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    logic.enable();
+    // logic.enable();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +22,7 @@ class ControllerScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: <Widget>[
-                Expanded(child: RrtTreeImageWidget()),
+                Expanded(child: RrtImageWidget()),
                 Expanded(child: RobotStatusButtonWidget()),
               ],
             ),
