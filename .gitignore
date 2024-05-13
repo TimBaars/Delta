@@ -1,3 +1,4 @@
 *.pyc
 Pathplanning/media/*
 User_Interface/windows/build/*
+orange_pi_3/prebuilt_image/setup_32gb_orangepi.img
