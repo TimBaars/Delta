@@ -4,7 +4,7 @@ import 'logic_status.dart';
 class GroundTruthImageLogic extends StatusLogic {
   var running = false;
 
-  GroundTruthImageLogic({queueName}) : super(queueName ?? "rrt");
+  GroundTruthImageLogic({queueName}) : super(queueName ?? "ground_truth");
 
   @override
   void listener(AmqpMessage message) {

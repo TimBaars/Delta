@@ -4,22 +4,24 @@ import 'package:shelf/shelf.dart';
 Response HandleApiRequests(Request request) {
   String? jsonData = null;
 
-  if (request.url.path == 'actuator') {
+  var urlPath = request.url.path.split('/').last;
+
+  if (urlPath == 'actuator') {
     jsonData = Application().getActuatorStatus();
   }
-  if (request.url.path == 'delta') {
+  if (urlPath == 'delta') {
     jsonData = Application().getRobotStatus();
   }
-  if (request.url.path == 'masked') {
+  if (urlPath == 'masked') {
     jsonData = Application().getMaskedImage();
   }
-  if (request.url.path == 'rrt') {
+  if (urlPath == 'rrt') {
     jsonData = Application().getRrtImage();
   }
-  if (request.url.path == 'system') {
+  if (urlPath == 'system') {
     jsonData = Application().getSystemStatus();
   }
-  if (request.url.path == 'ground_truth') {
+  if (urlPath == 'ground_truth') {
     jsonData = Application().getGroundTruthImage();
   }
 

@@ -2,4 +2,4 @@ final String STREAMENDPOINT = "rtsp://192.168.178.60:554/user=view&password=1234
 final String RMQHOST = "192.168.178.170";
 final String RMQUSERNAME = "rabbitmq";
 final String RMQPASSWORD = "orangepi";
-final String WSHOST = "http://192.168.178.170:8080";
+final String WSHOST = "http://192.168.178.170/api";
