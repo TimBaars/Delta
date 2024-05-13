@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dart_amqp/dart_amqp.dart';
 
 class RobotStatusButtonWidget extends StatefulWidget {
  @override

@@ -13,12 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Delta UI",
       home: MainScreen(),
-
-      // home: GenericScreen(),
-      // home: AllScreen(),
-      // home: PathFindingScreen(),
-      // home: ControllerScreen(),
-      // home: DataScreen(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:frontend/api/api.dart';
 import 'package:frontend/logic/logic_actuator_status.dart';
 import 'package:frontend/logic/logic_delta_status.dart';
+import 'package:frontend/logic/logic_ground_truth_logic.dart';
 import 'package:frontend/logic/logic_masked_image.dart';
 import 'package:frontend/logic/logic_rrt_image.dart';
 import 'package:http/http.dart' as http;
@@ -21,6 +22,7 @@ class SystemStatusLogic {
   final DeltaStatusLogic deltaStatusLogic = DeltaStatusLogic();
   final MaskedImageLogic maskedImageLogic = MaskedImageLogic();
   final RrtImageLogic rrtImageLogic = RrtImageLogic();
+  final GroundTruthImageLogic groundTruthImageLogic = GroundTruthImageLogic();
 
   final String endpointAddition = "system";
   var running = false;
@@ -44,12 +46,11 @@ class SystemStatusLogic {
       deltaStatusLogic.request();
       maskedImageLogic.request();
       rrtImageLogic.request();
+      groundTruthImageLogic.request();
     }
   }
 
   bool isRunning() {
-    print("SystemStatusLogic isRunning: $running");
-
     return running;
   }
 
@@ -57,8 +58,6 @@ class SystemStatusLogic {
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
-
-    print("Json: $json");
   }
 
   void request() async {
@@ -70,21 +69,14 @@ class SystemStatusLogic {
       String body = result.body;
 
       if (body != "") {
-        print(body.toString());
         var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-        print(jsonResult.toString());
 
         if (jsonResult.toString() != json.toString()) {
-          print(jsonResult);
           running = jsonResult["running"] == "true";
 
           setJson(jsonResult);
 
-          print("SystemStatusLogic request: position: changed");
-
           function();
-        } else {
-          print("SystemStatusLogic request: no change");
         }
       }
     }

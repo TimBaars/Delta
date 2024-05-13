@@ -23,8 +23,6 @@ class ActuatorStatusLogic {
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
-
-    print("Json: $json");
   }
 
   void request() async {
@@ -37,9 +35,7 @@ class ActuatorStatusLogic {
         String body = result.body;
 
         if (body != "") {
-          print(body.toString());
           var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-          print(jsonResult.toString());
 
           if (jsonResult.toString() != json.toString()) {
             if (historicalData.length > 10) historicalData.removeAt(0);
@@ -47,11 +43,7 @@ class ActuatorStatusLogic {
 
             setJson(jsonResult);
 
-            print("ActuatorStatusLogic request: position: changed");
-
             function();
-          } else {
-            print("ActuatorStatusLogic request: no change");
           }
         }
       }

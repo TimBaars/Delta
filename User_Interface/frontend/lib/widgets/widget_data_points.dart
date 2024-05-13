@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:frontend/logic/logic_system_status.dart';
 import 'package:frontend/widgets/widget_data_points_actuator.dart';
+import 'package:frontend/widgets/widget_data_points_delta.dart';
+import 'package:frontend/widgets/widget_data_points_system.dart';
 
 class DataPointsWidget extends StatefulWidget {
   final SystemStatusLogic logic;
@@ -30,6 +32,12 @@ class _DataPointsWidgetState extends State<DataPointsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return DataPointsActuatorWidget(logic: widget.logic.actuatorStatusLogic);
+    return Column(
+      children: <Widget>[
+        DataPointsSystemWidget(logic: widget.logic),
+        DataPointsActuatorWidget(logic: widget.logic.actuatorStatusLogic, useHistoricalData: true),
+        DataPointsDeltaWidget(logic: widget.logic.deltaStatusLogic, useHistoricalData: true),
+      ],
+    );
   }
 }

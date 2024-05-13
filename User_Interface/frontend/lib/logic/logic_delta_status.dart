@@ -21,8 +21,6 @@ class DeltaStatusLogic {
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
-
-    print("Json: $json");
   }
 
   void request() async {
@@ -35,9 +33,7 @@ class DeltaStatusLogic {
         String body = result.body;
 
         if (body != "") {
-          print(body.toString());
           var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-          print(jsonResult.toString());
 
           if (jsonResult.toString() != json.toString()) {
             if (historicalData.length > 10) historicalData.removeAt(0);
@@ -45,11 +41,7 @@ class DeltaStatusLogic {
 
             setJson(jsonResult);
 
-            print("DeltaStatusLogic request: position: changed");
-
             function();
-          } else {
-            print("DeltaStatusLogic request: no change");
           }
         }
       }

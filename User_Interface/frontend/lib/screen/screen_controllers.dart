@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/logic/logic_actuator_status.dart';
-import '../widgets/widget_rrt_image.dart';
 import '../widgets/widget_start_stop.dart';
 
 class ControllerScreen extends StatelessWidget {
@@ -21,7 +20,7 @@ class ControllerScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: <Widget>[
-                Expanded(child: RrtImageWidget()),
+                // Expanded(child: RrtImageWidget()),
                 Expanded(child: RobotStatusButtonWidget()),
               ],
             ),

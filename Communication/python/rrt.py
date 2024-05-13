@@ -1,3 +1,4 @@
+import random
 import time
 
 class Rrt:
@@ -9,14 +10,17 @@ class Rrt:
 
         # Publish messages to the exchange
         # Define the parameters and their ranges
-        endpoint = "localhost/rrt_image.png"
+        endpoint = "http://192.168.178.170/images/rrt_image.png"
+        endpointDummy = "http://192.168.178.170/images/masked_image.png"
+        endpointDummyTwo = "http://192.168.178.170/images/ground_truth_image.png"
+        endpoint_def = (endpoint, endpointDummy, endpointDummyTwo)
         now = time.time()
         
 
         # Function to generate a message with randomized values
         def generate_random_message():
             return {
-                "url": endpoint,
+                "url": random.choice(endpoint_def),
                 "time": now
             }
 

@@ -21,4 +21,4 @@ class System:
         message = generate_random_message()
 
         channel.basic_publish(exchange=exchange_name, routing_key='', body=str(message))
-        print(f" [A] Sent {message}")
+        print(f" [S] Sent {message}")

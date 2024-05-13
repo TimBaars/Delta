@@ -19,6 +19,9 @@ Response HandleApiRequests(Request request) {
   if (request.url.path == 'system') {
     jsonData = Application().getSystemStatus();
   }
+  if (request.url.path == 'ground_truth') {
+    jsonData = Application().getGroundTruthImage();
+  }
 
   if (jsonData != null) {
     return Response.ok(jsonData, headers: {'Content-Type': 'application/json'});

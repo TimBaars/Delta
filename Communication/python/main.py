@@ -1,7 +1,7 @@
-import asyncio
 import time
 import pika
 
+from ground_truth import GroundTruth
 from actuator import Actuator
 from delta import Delta
 from masked import Masked
@@ -16,7 +16,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, creden
 channel = connection.channel()
 
 running = True
-messages = 10
+messages = 100
 
 # Define instances
 actuator = Actuator()
@@ -24,6 +24,7 @@ delta = Delta()
 system = System()
 masked = Masked()
 rrt = Rrt()
+ground_truth = GroundTruth()
 
 x = 0
 
@@ -34,6 +35,7 @@ while x < messages:
     system.run(channel)
     masked.run(channel)
     rrt.run(channel)
+    ground_truth.run(channel)
 
     x += 1
 

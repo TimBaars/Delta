@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
-import 'package:frontend/api/api.dart';
+import 'package:frontend/util/image_cache.dart';
 import 'package:http/http.dart' as http;
+import 'package:frontend/api/api.dart';
 
 void main() {
-  RrtImageLogic rrtImageLogic = RrtImageLogic();
-
-  rrtImageLogic.request();
+  RrtImageLogic().request();
 }
 
 class RrtImageLogic {
@@ -15,21 +13,22 @@ class RrtImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = () => {};
   Map<String, dynamic> json = {
-    "url": "localhost/rrt_image.png",
+    "url": "http://192.168.178.170/images/rrt_image.png",
     "time": 0,
   };
-  ByteData image = ByteData(0);
+  
+  final ImageCache imageCache = ImageCache();
 
-  RrtImageLogic();
+  RrtImageLogic() {
+    loadImage();
+  }
 
   void loadImage() {
-    print("RrtImageLogic loadImage: loading image");
-
+    print("Loading image: ${json["url"]}");
     http.get(Uri.parse(json["url"])).then((response) {
       if (response.statusCode == 200) {
-        print("RrtImageLogic loadImage: image loaded");
+        imageCache.addImage(response.bodyBytes.buffer.asUint8List());
 
-        image = ByteData.view(response.bodyBytes.buffer);
         function();
       }
     });
@@ -37,8 +36,6 @@ class RrtImageLogic {
 
   void setJson(Map<String, dynamic> json) {
     this.json = json;
-
-    print("Json: $json");
   }
 
   void request() async {
@@ -50,9 +47,7 @@ class RrtImageLogic {
       String body = result.body;
 
       if (body != "") {
-        print(body.toString());
         var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-        print(jsonResult.toString());
 
         if (jsonResult.toString() != json.toString()) {
           if (historicalData.length > 10) historicalData.removeAt(0);
@@ -60,11 +55,7 @@ class RrtImageLogic {
 
           setJson(jsonResult);
 
-          print("RrtImageLogic request: position: changed");
-
-          function();
-        } else {
-          print("RrtImageLogic request: no change");
+          loadImage();
         }
       }
     }

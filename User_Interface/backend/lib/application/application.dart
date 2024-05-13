@@ -1,7 +1,8 @@
-import 'package:backend/logic/logic_delta_status.dart';
-import 'package:backend/logic/logic_received_masked_image.dart';
-import 'package:backend/logic/logic_received_rrt_image.dart';
-import 'package:backend/logic/logic_system_status.dart';
+import '../logic/logic_delta_status.dart';
+import '../logic/logic_received_ground_truth_image.dart';
+import '../logic/logic_received_masked_image.dart';
+import '../logic/logic_received_rrt_image.dart';
+import '../logic/logic_system_status.dart';
 
 import '../logic/logic_actuator_status.dart';
 import '../logic/logic_status.dart';
@@ -15,7 +16,7 @@ class Application {
   static final Application _singleton = Application._internal();
 
   static const overrideHeaders = {
-    'Access-Control-Allow-Origin': '*', // Adjust this to your needs
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': '*',
   };
@@ -25,6 +26,7 @@ class Application {
   final StatusLogic maskedImageLogic = MaskedImageLogic();
   final StatusLogic rrtImageLogic = RrtImageLogic();
   final StatusLogic systemStatusLogic = SystemStatusLogic();
+  final StatusLogic groundTruthImageLogic = GroundTruthImageLogic();
 
   factory Application() {
     return _singleton;
@@ -37,7 +39,7 @@ class Application {
   }
 
   String getRobotStatus() {
-    return actuatorStatusLogic.retrieveLastData();
+    return deltaStatusLogic.retrieveLastData();
   }
   
   String getMaskedImage() {
@@ -49,6 +51,10 @@ class Application {
   }
 
   String getSystemStatus() {
+    return systemStatusLogic.retrieveLastData();
+  }
+
+  String getGroundTruthImage() {
     return systemStatusLogic.retrieveLastData();
   }
 
