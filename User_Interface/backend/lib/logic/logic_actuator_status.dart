@@ -10,6 +10,6 @@ class ActuatorStatusLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [A] Received string: ${message.payloadAsString}");
+    // print(" [A] Received string: ${message.payloadAsString}");
   }
 }

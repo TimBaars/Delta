@@ -20,7 +20,7 @@ class RabbitMQClient {
   Future<void> initialize({host, username, password}) async {
     if (!isInitializing && !isInitialized) {
       print("Initializing RabbitMQClient");
-      
+
       isInitializing = true;
       ConnectionSettings settings = ConnectionSettings(
         host: host ?? RMQHOST,
@@ -36,8 +36,6 @@ class RabbitMQClient {
 
       await initialize(host: host, username: username, password: password);
     }
-
-    print("RabbitMQClient initialized");
   }
 
   Future<void> close() async {
@@ -45,20 +43,18 @@ class RabbitMQClient {
   }
 
   Future<void> clientIsInitialized() async {
-    print("Client is initialized: $isInitialized");
     if (!isInitialized) {
-      print("Client is not initialized, initializing...");
       await initialize();
     }
   }
 
   Future<Consumer> setupConsumer(String queueName) async {
-    print("Setup consumer for $queueName");
+    // print("Setup consumer for $queueName");
     await clientIsInitialized();
 
     Exchange exchange = await _channel.exchange(queueName, ExchangeType.FANOUT);
     Queue queue = await _channel.queue(queueName);
-    print("Queue $queueName declared");
+    // print("Queue $queueName declared");
     await queue.bind(exchange, "");
     return await queue.consume();
   }

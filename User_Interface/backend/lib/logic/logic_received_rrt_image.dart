@@ -10,6 +10,6 @@ class RrtImageLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [R] Received string: ${message.payloadAsString}");
+    // print(" [R] Received string: ${message.payloadAsString}");
   }
 }

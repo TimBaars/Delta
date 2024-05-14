@@ -10,6 +10,6 @@ class GroundTruthImageLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [G] Received string: ${message.payloadAsString}");
+    // print(" [G] Received string: ${message.payloadAsString}");
   }
 }

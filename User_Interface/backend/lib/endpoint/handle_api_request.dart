@@ -5,7 +5,7 @@ Future<Response> HandleApiRequests(Request request) async {
   String? jsonData = null;
   int timestamp = 0;
 
-  print("request: ${request.url.path}, ${request.headers.entries}, ${request.headers}, ${request.url.queryParameters}, ${request.url.queryParametersAll}");
+  // print("request: ${request.url.path}, ${request.headers.entries}, ${request.headers}, ${request.url.queryParameters}, ${request.url.queryParametersAll}");
   
   try {
     timestamp = int.parse(request.headers['timestamp']!);
@@ -13,7 +13,7 @@ Future<Response> HandleApiRequests(Request request) async {
     print('Error parsing timestamp: $e');
   }
 
-  print("timestamp: $timestamp");
+  // print("timestamp: $timestamp");
 
   var urlPath = request.url.path.split('/').last;
 

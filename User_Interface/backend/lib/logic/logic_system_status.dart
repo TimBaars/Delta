@@ -28,6 +28,6 @@ class SystemStatusLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [S] Received string: ${message.payloadAsString}");
+    // print(" [S] Received string: ${message.payloadAsString}");
   }
 }

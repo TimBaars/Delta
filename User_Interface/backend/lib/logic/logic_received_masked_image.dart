@@ -10,6 +10,6 @@ class MaskedImageLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [M] Received string: ${message.payloadAsString}");
+    // print(" [M] Received string: ${message.payloadAsString}");
   }
 }

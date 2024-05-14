@@ -10,6 +10,6 @@ class DeltaStatusLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    print(" [D] Received string: ${message.payloadAsString}");
+    // print(" [D] Received string: ${message.payloadAsString}");
   }
 }
