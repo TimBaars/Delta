@@ -34,28 +34,28 @@ class Application {
 
   Application._internal();
 
-  String getActuatorStatus() {
-    return actuatorStatusLogic.retrieveLastData();
+  Future<String> getActuatorStatus(int timestamp) async {
+    return actuatorStatusLogic.retrieveLastData(timestamp);
   }
 
-  String getRobotStatus() {
-    return deltaStatusLogic.retrieveLastData();
+  Future<String> getRobotStatus(int timestamp) async {
+    return deltaStatusLogic.retrieveLastData(timestamp);
   }
   
-  String getMaskedImage() {
-    return maskedImageLogic.retrieveLastData();
+  Future<String> getMaskedImage(int timestamp) async {
+    return maskedImageLogic.retrieveLastData(timestamp);
   }
 
-  String getRrtImage() {
-    return rrtImageLogic.retrieveLastData();
+  Future<String> getRrtImage(int timestamp) async {
+    return rrtImageLogic.retrieveLastData(timestamp);
   }
 
-  String getSystemStatus() {
-    return systemStatusLogic.retrieveLastData();
+  Future<String> getSystemStatus(int timestamp) async {
+    return systemStatusLogic.retrieveLastData(timestamp);
   }
 
-  String getGroundTruthImage() {
-    return systemStatusLogic.retrieveLastData();
+  Future<String> getGroundTruthImage(int timestamp) async {
+    return systemStatusLogic.retrieveLastData(timestamp);
   }
 
   Future<void> endpoint() async {

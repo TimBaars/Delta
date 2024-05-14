@@ -60,28 +60,35 @@ class SystemStatusLogic {
     this.json = json;
   }
 
-  void request() async {
+  void request({DateTime? dateTime}) async {
     await Future.delayed(Duration(milliseconds: 500));
 
-    http.Response result = await apiManager.requestData(endpointAddition);
+    try {
+      http.Response result = await apiManager.requestData(endpointAddition, dateTime: dateTime);
 
-    if (result.statusCode == 200) {
-      String body = result.body;
+      if (result.statusCode == 200) {
+        String body = result.body;
 
-      if (body != "") {
-        var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+        if (body != "") {
+          var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
 
-        if (jsonResult.toString() != json.toString()) {
-          running = jsonResult["running"] == "true";
+          if (jsonResult.toString() != json.toString()) {
+            running = jsonResult["running"] == "true";
 
-          setJson(jsonResult);
+            setJson(jsonResult);
 
-          function();
+            function();
+          }
         }
+
+        dateTime = DateTime.now();
       }
+    } catch (e) {
+      await Future.delayed(Duration(milliseconds: 500));
+      print("SystemStatusLogic request error: $e");
     }
 
-    request();
+    request(dateTime: dateTime);
   }
 
   void toggle() {

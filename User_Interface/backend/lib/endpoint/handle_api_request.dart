@@ -1,32 +1,45 @@
 import '../application/application.dart';
 import 'package:shelf/shelf.dart';
 
-Response HandleApiRequests(Request request) {
+Future<Response> HandleApiRequests(Request request) async {
   String? jsonData = null;
+  int timestamp = 0;
+
+  print("request: ${request.url.path}, ${request.headers.entries}, ${request.headers}, ${request.url.queryParameters}, ${request.url.queryParametersAll}");
+  
+  try {
+    timestamp = int.parse(request.headers['timestamp']!);
+  } catch (e) {
+    print('Error parsing timestamp: $e');
+  }
+
+  print("timestamp: $timestamp");
 
   var urlPath = request.url.path.split('/').last;
 
   if (urlPath == 'actuator') {
-    jsonData = Application().getActuatorStatus();
+    jsonData = await Application().getActuatorStatus(timestamp);
   }
   if (urlPath == 'delta') {
-    jsonData = Application().getRobotStatus();
+    jsonData = await Application().getRobotStatus(timestamp);
   }
   if (urlPath == 'masked') {
-    jsonData = Application().getMaskedImage();
+    jsonData = await Application().getMaskedImage(timestamp);
   }
   if (urlPath == 'rrt') {
-    jsonData = Application().getRrtImage();
+    jsonData = await Application().getRrtImage(timestamp);
   }
   if (urlPath == 'system') {
-    jsonData = Application().getSystemStatus();
+    jsonData = await Application().getSystemStatus(timestamp);
   }
   if (urlPath == 'ground_truth') {
-    jsonData = Application().getGroundTruthImage();
+    jsonData = await Application().getGroundTruthImage(timestamp);
   }
 
-  if (jsonData != null) {
+  if (jsonData != null && jsonData != "") {
     return Response.ok(jsonData, headers: {'Content-Type': 'application/json'});
+  } else if (jsonData == "") {
+    return Response.notModified(context: {'message': 'No new data available'});
   }
 
   return Response.notFound('Not Found');

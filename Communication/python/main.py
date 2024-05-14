@@ -39,7 +39,7 @@ while x < messages:
 
     x += 1
 
-    time.sleep(0.5)
+    time.sleep(1.5)
 
 # Close the connection
 connection.close()

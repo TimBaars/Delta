@@ -10,6 +10,7 @@ abstract class StatusLogic {
   final String queueName;
   late final Consumer consumer;
   String lastData = "";
+  int lastDataReceived = 0;
 
   StatusLogic(this.queueName) {
     init();
@@ -56,11 +57,22 @@ abstract class StatusLogic {
     publish(command);
   }
 
-  String retrieveLastData() {
-    return lastData;
+  Future<String> retrieveLastData(int timestamp, {int counter = 0}) async {
+    if (lastDataReceived > timestamp) {
+      return lastData;
+    } else {
+      if (counter > 10) {
+        return "";
+      }
+
+      await Future.delayed(Duration(milliseconds: 500));
+
+      return retrieveLastData(timestamp, counter: counter + 1);
+    }
   }
 
   void listener(AmqpMessage message) {
     lastData = message.payloadAsString;
+    lastDataReceived = DateTime.now().toUtc().millisecondsSinceEpoch;
   }
 }

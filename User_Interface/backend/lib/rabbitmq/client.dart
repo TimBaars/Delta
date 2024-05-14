@@ -18,9 +18,9 @@ class RabbitMQClient {
   RabbitMQClient._internal();
 
   Future<void> initialize({host, username, password}) async {
-    print("Initializing RabbitMQClient");
-
     if (!isInitializing && !isInitialized) {
+      print("Initializing RabbitMQClient");
+      
       isInitializing = true;
       ConnectionSettings settings = ConnectionSettings(
         host: host ?? RMQHOST,

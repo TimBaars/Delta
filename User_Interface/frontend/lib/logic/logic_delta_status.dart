@@ -23,30 +23,37 @@ class DeltaStatusLogic {
     this.json = json;
   }
 
-  void request() async {
+  void request({DateTime? dateTime}) async {
     await Future.delayed(Duration(milliseconds: 500));
 
-    if (SystemStatusLogic().isRunning()) {
-      http.Response result = await apiManager.requestData(endpointAddition);
+    try {
+      if (SystemStatusLogic().isRunning()) {
+        http.Response result = await apiManager.requestData(endpointAddition, dateTime: dateTime);
 
-      if (result.statusCode == 200) {
-        String body = result.body;
+        if (result.statusCode == 200) {
+          String body = result.body;
 
-        if (body != "") {
-          var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+          if (body != "") {
+            var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
 
-          if (jsonResult.toString() != json.toString()) {
-            if (historicalData.length > 10) historicalData.removeAt(0);
-            historicalData.add(json);
+            if (jsonResult.toString() != json.toString()) {
+              if (historicalData.length > 10) historicalData.removeAt(0);
+              historicalData.add(json);
 
-            setJson(jsonResult);
+              setJson(jsonResult);
 
-            function();
+              function();
+            }
           }
+
+          dateTime = DateTime.now();
         }
       }
+    } catch (e) {
+      await Future.delayed(Duration(milliseconds: 500));
+      print("SystemStatusLogic request error: $e");
     }
 
-    request();
+    request(dateTime: dateTime);
   }
 }
