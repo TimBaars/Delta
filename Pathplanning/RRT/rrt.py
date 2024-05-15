@@ -107,7 +107,7 @@ class RRT:
                 for j in range(len(self.node_list[i].parent_x) - 1):
                     self.x_list.append(self.node_list[i].parent_x[j+1])
                     self.y_list.append(self.node_list[i].parent_y[j+1])
-                    print(f"Parent node: {self.node_list[i].parent_x[j]}, {self.node_list[i].parent_y[j]}")
+                    #print(f"Parent node: {self.node_list[i].parent_x[j]}, {self.node_list[i].parent_y[j]}")
                     cv2.line(self.img2, (int(self.node_list[i].parent_x[j]), int(self.node_list[i].parent_y[j])), (int(self.node_list[i].parent_x[j + 1]), int(self.node_list[i].parent_y[j + 1])), (255, 0, 0), thickness=2, lineType=8)
 
                 #cv2.imwrite("Pathplanning/media/" + str(i) + ".jpg", self.img2)
