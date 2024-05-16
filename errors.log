@@ -1,0 +1,2701 @@
+2024-05-07 11:06:44,405, Controller_RRT.py, 132, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 119, in calculate_path
+    Nodes.append(self.start_x, self.start_y)
+TypeError: list.append() takes exactly one argument (2 given)
+2024-05-07 11:06:44,496, Controller_RRT.py, 89, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 79, in run
+    for path in scaled_paths:
+TypeError: 'NoneType' object is not iterable
+2024-05-07 11:12:17,038, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:12:22,878, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    Nodes = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 120, in RRT
+    nearest_ind = self.nearest_node(nx,ny)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in nearest_node
+    dist,_ = self.dist_and_angle(x,y,self.node_list[i].x,self.node_list[i].y)
+AttributeError: 'int' object has no attribute 'x'
+2024-05-07 11:13:41,915, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:47,802, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:53,713, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:13:59,611, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:05,525, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:11,419, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:14:17,308, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:15:01,833, Controller_RRT.py, 138, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    print(f"Nodes: {Nodes.parent_x}, {Nodes.parent_y}")
+AttributeError: 'list' object has no attribute 'parent_x'
+2024-05-07 11:15:33,526, Controller_RRT.py, 138, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    print(f"Nodes: {Nodes.parent_x}, {Nodes.parent_y}")
+AttributeError: 'list' object has no attribute 'parent_x'
+2024-05-07 11:16:00,867, Controller_RRT.py, 137, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 124, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(convert_flat_list_to_tuples(flat_nodes), method="visibility")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 101, in optimize_path
+    if self.is_visible(optimized_path[-1], path[i]):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 53, in is_visible
+    dx = p2[0] - p1[0]
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2024-05-07 11:20:15,240, Controller_RRT.py, 85, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 66, in run
+    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 157, in scale_coordinates
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 157, in <listcomp>
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+TypeError: cannot unpack non-iterable int object
+2024-05-07 11:31:07,499, Controller_RRT.py, 85, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 66, in run
+    scaled_paths = self.scale_coordinates(nodes, scale_factor_x, scale_factor_y)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 156, in scale_coordinates
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 156, in <listcomp>
+    scaled_path = [(x * scale_factor_x - difference, y * scale_factor_y - difference) for x, y in path]
+TypeError: cannot unpack non-iterable numpy.float64 object
+2024-05-07 11:38:03,574, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 127, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="closest_point")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 104, in optimize_path
+    new_position = self.closest_black_pixel(path[i])
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 78, in closest_black_pixel
+    for x in range(p[0] - search_radius, p[0] + search_radius + 1):
+TypeError: 'numpy.float64' object cannot be interpreted as an integer
+2024-05-07 11:38:21,656, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 127, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="closest_point")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 104, in optimize_path
+    new_position = self.closest_black_pixel(path[i])
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 78, in closest_black_pixel
+    for x in range(p[0] - search_radius, p[0] + search_radius + 1):
+TypeError: 'numpy.float64' object cannot be interpreted as an integer
+2024-05-07 12:03:26,455, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:03:37,048, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:05:40,298, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:06:07,159, Controller_RRT.py, 141, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 113, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+ValueError: not enough values to unpack (expected 3, got 2)
+2024-05-07 12:56:01,802, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 114, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 12:56:16,030, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 114, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:01:51,959, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 116, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:02:28,499, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 116, in RRT
+    self.x_list.append(self.node_list[i].parent_x[i])
+IndexError: list index out of range
+2024-05-07 13:05:27,313, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 117, in calculate_path
+    x_list.append(0, self.Calculating_Coords[2])
+TypeError: list.append() takes exactly one argument (2 given)
+2024-05-07 13:22:56,454, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 128, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="visibility")
+TypeError: PathOptimizer.optimize_path() got an unexpected keyword argument 'method'
+2024-05-07 13:23:02,371, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 128, in calculate_path
+    optimized_nodes = self.optimizer.optimize_path(flat_nodes, method="visibility")
+TypeError: PathOptimizer.optimize_path() got an unexpected keyword argument 'method'
+2024-05-07 13:24:06,420, Controller_RRT.py, 142, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 114, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, self.Calculating_Coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 93, in RRT
+    tx, ty, directCon, nodeCon = self.check_collision(nx, ny, nearest_x, nearest_y, stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 41, in check_collision
+    if self.collision(x, y, self.end[0], self.end[1]):
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
+    x = list(np.arange(x1, x2, (x2 - x1) / 100))
+ValueError: arange: cannot compute length
+2024-05-15 16:44:26,824, Controller_RRT.py, 91, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 83, in run
+    while not self.robot_driver.get_feedback_ready():
+AttributeError: 'DeltaRobotDriver' object has no attribute 'get_feedback_ready'
+2024-05-15 16:44:32,903, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,009, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,117, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,228, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,350, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,459, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:33,574, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,389, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,492, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,593, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,697, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,798, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:39,902, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:44:40,005, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:49:25,849, Controller_RRT.py, 62, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 58, in run
+    curses.wrapper(self.curses_menu, weed_centers, image)
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/curses/__init__.py", line 94, in wrapper
+    return func(stdscr, *args, **kwds)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 79, in curses_menu
+    stdscr.addstr(2, 0, f"Current action: {self.current_action}")
+AttributeError: 'Controller_RRT' object has no attribute 'current_action'
+2024-05-15 16:49:31,651, Controller_RRT.py, 62, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 58, in run
+    curses.wrapper(self.curses_menu, weed_centers, image)
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/curses/__init__.py", line 94, in wrapper
+    return func(stdscr, *args, **kwds)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 79, in curses_menu
+    stdscr.addstr(2, 0, f"Current action: {self.current_action}")
+AttributeError: 'Controller_RRT' object has no attribute 'current_action'
+2024-05-15 16:50:13,839, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:13,965, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:14,114, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:14,253, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:14,378, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:14,500, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,369, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,465, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,557, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,651, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,743, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,840, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:23,933, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:32,772, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:32,877, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:33,010, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:33,141, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:33,248, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:33,362, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:33,478, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,253, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,339, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,427, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,509, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,593, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,677, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:42,760, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,529, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,613, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,700, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,784, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,868, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:51,975, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:50:52,083, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,077, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,182, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,325, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,459, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,571, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,665, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:01,790, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:10,805, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:10,896, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:10,996, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:11,131, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:11,263, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:11,369, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:11,490, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:20,496, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:20,619, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:20,751, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:20,892, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:21,016, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:21,135, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:21,261, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,362, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,489, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,604, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,720, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,833, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:30,931, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:31,045, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:39,883, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:39,980, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:40,077, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:40,166, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:40,261, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:40,348, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:40,435, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,394, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,504, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,628, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,738, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,850, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:49,958, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:50,066, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,000, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,112, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,221, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,335, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,451, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,555, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:51:59,662, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:08,577, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:08,693, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:08,801, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:08,910, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:09,021, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:09,132, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:09,241, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,182, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,293, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,416, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,522, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,623, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,735, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:18,841, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:27,758, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:27,866, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:27,975, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:28,090, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:28,199, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:28,315, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:28,427, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,362, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,471, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,586, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,698, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,808, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:37,922, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:38,032, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:46,984, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,122, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,277, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,387, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,475, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,571, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:52:47,696, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:02,365, Controller_RRT.py, 62, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 58, in run
+    curses.wrapper(self.curses_menu, weed_centers, image)
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/curses/__init__.py", line 94, in wrapper
+    return func(stdscr, *args, **kwds)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 83, in curses_menu
+    stdscr.addstr(3 + idx, 0, message)
+TypeError: expect bytes or str, got list
+2024-05-15 16:53:08,081, Controller_RRT.py, 62, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 58, in run
+    curses.wrapper(self.curses_menu, weed_centers, image)
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/curses/__init__.py", line 94, in wrapper
+    return func(stdscr, *args, **kwds)
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 83, in curses_menu
+    stdscr.addstr(3 + idx, 0, message)
+TypeError: expect bytes or str, got list
+2024-05-15 16:53:40,049, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:40,149, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:40,242, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:40,339, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:40,434, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:40,532, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:49,466, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:49,596, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:49,723, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:49,846, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:49,972, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:50,096, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:50,189, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,119, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,236, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,356, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,458, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,574, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,692, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:53:59,811, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:08,714, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:08,832, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:08,961, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:09,071, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:09,165, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:09,258, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:09,375, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:18,442, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    # Run the RRT algorithm
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:18,564, Controller_RRT.py, 168, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 145, in calculate_path
+    # Run the RRT algorithm
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:28,656, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:28,763, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:28,872, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:28,984, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:29,094, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:29,203, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,167, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,294, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,401, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,508, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,613, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,726, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:38,846, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:47,790, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:47,895, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:48,004, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:48,110, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:48,216, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:48,319, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:48,424, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:57,459, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:57,610, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:57,718, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:57,836, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:57,998, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:58,121, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:54:58,236, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,244, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,370, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,473, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,593, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,713, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:07,880, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:08,040, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,025, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,145, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,274, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,414, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,530, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,646, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:17,755, Controller_RRT.py, 169, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 146, in calculate_path
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,247, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,358, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,478, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,600, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,711, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:32,815, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:38,784, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:38,905, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:39,030, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:39,234, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:39,346, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 16:55:39,451, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 115, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 83, in RRT
+    cv2.circle(self.img2, (self.start[0], self.start[1]), 5, (0, 0, 255), thickness=3, lineType=8)
+cv2.error: OpenCV(4.9.0) :-1: error: (-5:Bad argument) in function 'circle'
+> Overload resolution failed:
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'center'. Sequence item with index 0 has a wrong type
+
+2024-05-15 17:02:00,198, Controller_RRT.py, 140, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 117, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, int_coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 93, in RRT
+    tx, ty, directCon, nodeCon = self.check_collision(nx, ny, nearest_x, nearest_y, stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 41, in check_collision
+    if self.collision(x, y, self.end[0], self.end[1]):
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
+    x = list(np.arange(x1, x2, (x2 - x1) / 100))
+ValueError: arange: cannot compute length
+2024-05-15 17:36:07,311, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (9 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (9 bytes not processed)
+2024-05-15 17:36:07,704, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (76 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (76 bytes not processed)
+2024-05-15 17:36:07,905, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (6 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (6 bytes not processed)
+2024-05-15 17:37:30,767, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (3 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (3 bytes not processed)
+2024-05-15 17:43:42,155, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 3309, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'Pathplanning/out.jpg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: cannot identify image file 'Pathplanning/out.jpg'
