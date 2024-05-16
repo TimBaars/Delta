@@ -2699,3 +2699,130 @@ Traceback (most recent call last):
   File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
     raise ValueError(f"Failed to load image: {e}")
 ValueError: Failed to load image: cannot identify image file 'Pathplanning/out.jpg'
+2024-05-15 17:54:57,757, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (7 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (7 bytes not processed)
+2024-05-15 17:54:58,454, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (5 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (5 bytes not processed)
+2024-05-15 17:55:37,805, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (87 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (87 bytes not processed)
+2024-05-15 17:56:41,072, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (4 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (4 bytes not processed)
+2024-05-15 17:56:41,832, Controller_RRT.py, 55, Error inside path_planning_worker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 28, in load_image
+    image = Image.open(image_path).convert('L')  # Convert to grayscale
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/Image.py", line 922, in convert
+    self.load()
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/PIL/ImageFile.py", line 288, in load
+    raise OSError(msg)
+OSError: image file is truncated (177 bytes not processed)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 48, in path_planning_worker
+    optimizer.load_image("Pathplanning/out.jpg")
+  File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
+    raise ValueError(f"Failed to load image: {e}")
+ValueError: Failed to load image: image file is truncated (177 bytes not processed)
+2024-05-15 17:57:08,862, Controller_RRT.py, 65, Error inside PathPlanningWorker
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 44, in run
+    _, x_list, y_list = rrt_algorithm.RRT(img_gray, img_color, int_coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 93, in RRT
+    tx, ty, directCon, nodeCon = self.check_collision(nx, ny, nearest_x, nearest_y, stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 46, in check_collision
+    if self.collision(x, y, x2, y2):
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
+    x = list(np.arange(x1, x2, (x2 - x1) / 100))
+ValueError: arange: cannot compute length
+2024-05-15 18:00:46,125, Controller_RRT.py, 154, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 130, in run
+    time.sleep(0.1)  # Wait until previous path is traversed
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 144, in run
+    except Queue.Empty:
+AttributeError: type object 'Queue' has no attribute 'Empty'
+2024-05-15 18:00:57,756, Controller_RRT.py, 154, Error inside run
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 126, in run
+    coords, path = result_queue.get(timeout=1)  # Wait for a path to become available
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/queue.py", line 179, in get
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 144, in run
+    except Queue.Empty:
+AttributeError: type object 'Queue' has no attribute 'Empty'
