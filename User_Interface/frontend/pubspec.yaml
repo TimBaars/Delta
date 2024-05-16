@@ -1,0 +1,24 @@
+name: frontend
+description: Web Frontend of Web-based UI for Delta Robot - Compas Agro.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  dart_amqp: ^0.2.5
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^1.1.0
+  flutter_html: ^2.2.1
+  web_socket_channel: ^2.4.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  assets:
+    - assets/images/
+  uses-material-design: true
