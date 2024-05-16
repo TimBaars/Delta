@@ -5,7 +5,7 @@
 
 <div align="center">
   <picture>
-    <img alt="Daytona logo" src="./images/Logo.png" width="75%">
+    <img alt="Daytona logo" src="./images/Logo.png" width="60%">
   </picture>
 </div>
 <br><br>
