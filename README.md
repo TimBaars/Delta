@@ -1,4 +1,35 @@
+<div align="center">
+
 # Minor A-Systems : Delta
+</div>
+
+<div align="center">
+  <picture>
+    <img alt="Daytona logo" src="./images/Logo.png" width="75%">
+  </picture>
+</div>
+<br><br>
+
+<div align="center">
+  <a href="https://github.com/TimBaars/Delta/stargazers">
+    <img src="https://img.shields.io/github/stars/TimBaars/Delta.svg?label=Stars&style=flat-square" alt="Stargazers">
+  </a>
+  <a href="https://github.com/TimBaars/Delta/issues">
+    <img src="https://img.shields.io/github/issues/TimBaars/Delta.svg?label=Issues&style=flat-square" alt="Issues">
+  </a>
+  <a href="https://github.com/TimBaars/Delta/network/members">
+    <img src="https://img.shields.io/github/forks/TimBaars/Delta.svg?label=Forks&style=flat-square" alt="Forks">
+  </a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square" alt="License">
+  </a>
+</div>
+<br><br>
+
+<h1 align="center">Delta control for weed remover</h1>
+<div align="center">
+This research was conducted as part of the A-System minor at Fontys University of Applied Sciences. The project explores advancements in automated bell pepper detection, evaluating existing methods and investigating innovative techniques using AI technologies. The primary focus is on enhancing the precision and efficiency of bell pepper detection in automated harvesting systems.
+</div>
 
 ## Table of Contents
 
@@ -17,7 +48,7 @@ This project focuses on utilizing an Igus Delta Robot for navigating a field fil
 The Igus Delta Robot is a lightweight, high-speed robotic arm designed for precision tasks. It stands out for its ability to perform quick and accurate movements, making it ideal for applications requiring delicate handling, such as navigating through a field of roses without causing damage. This robot utilizes a parallel kinematic system, which contributes to its agility and precision.
 
 <p align="center">
-<img src="images/MaximumHeight_Delta.png.jpg" width=95%>
+<img src="./images/MaximumHeight_Delta.png" width=95%>
 <p>
 
 ## Delta Robot Modbus Control
@@ -51,5 +82,5 @@ class DeltaRobotDriver:
 To navigate around roses effectively, the Rapidly-exploring Random Tree (RTT) algorithm is employed for path planning. RTT is particularly suited for this application due to its efficiency in exploring high-dimensional spaces and its ability to quickly find feasible paths in complex environments. The algorithm incrementally builds a tree by randomly exploring the available space, steering clear.
 
 <p align="center">
-<img src="images/RRT.jpg" width=95%>
+<img src="./images/RRT.jpg" width=95%>
 <p>

@@ -2699,3 +2699,14 @@ Traceback (most recent call last):
   File "/home/koen/git/Delta/Pathplanning/PathOptimize.py", line 31, in load_image
     raise ValueError(f"Failed to load image: {e}")
 ValueError: Failed to load image: cannot identify image file 'Pathplanning/out.jpg'
+2024-05-16 10:15:28,684, Controller_RRT.py, 139, Error inside calculate_path
+Traceback (most recent call last):
+  File "/home/koen/git/Delta/Pathplanning/Controller_RRT.py", line 116, in calculate_path
+    _, x_list, y_list = self.RRT_Algorithm.RRT(img_gray, img_color, int_coords, self.stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 93, in RRT
+    tx, ty, directCon, nodeCon = self.check_collision(nx, ny, nearest_x, nearest_y, stepSize)
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 46, in check_collision
+    if self.collision(x, y, x2, y2):
+  File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
+    x = list(np.arange(x1, x2, (x2 - x1) / 100))
+ValueError: arange: cannot compute length

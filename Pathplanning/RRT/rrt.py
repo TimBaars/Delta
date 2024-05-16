@@ -19,8 +19,13 @@ class RRT:
 
     def collision(self, x1, y1, x2, y2):
         color = []
-        x = list(np.arange(x1, x2, (x2 - x1) / 100))
-        y = list(((y2 - y1) / (x2 - x1)) * (x - x1) + y1)
+        if x1 == x2:  # Handle vertical line separately
+            y = np.linspace(y1, y2, 100)
+            x = np.full(y.shape, x1)
+        else:
+            x = np.arange(x1, x2, (x2 - x1) / 100)
+            y = ((y2 - y1) / (x2 - x1)) * (x - x1) + y1
+        
         for i in range(len(x)):
             color.append(self.img[int(y[i]), int(x[i])])
         if 0 in color:
