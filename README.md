@@ -12,18 +12,20 @@
 
 <div align="center">
   <a href="https://github.com/TimBaars/Delta/stargazers">
-    <img src="https://img.shields.io/github/stars/TimBaars/Delta.svg?label=Stars&style=flat-square" alt="Stargazers">
+    <img src="https://img.shields.io/github/stars/TimBaars/Delta?label=Stars&style=flat-square" alt="Stargazers">
   </a>
   <a href="https://github.com/TimBaars/Delta/issues">
-    <img src="https://img.shields.io/github/issues/TimBaars/Delta.svg?label=Issues&style=flat-square" alt="Issues">
+    <img src="https://img.shields.io/github/issues/TimBaars/Delta?label=Issues&style=flat-square" alt="Issues">
   </a>
   <a href="https://github.com/TimBaars/Delta/network/members">
-    <img src="https://img.shields.io/github/forks/TimBaars/Delta.svg?label=Forks&style=flat-square" alt="Forks">
+    <img src="https://img.shields.io/github/forks/TimBaars/Delta?label=Forks&style=flat-square" alt="Forks">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square" alt="License">
   </a>
 </div>
+
+
 <br><br>
 
 <h1 align="center">Delta control for weed remover</h1>
