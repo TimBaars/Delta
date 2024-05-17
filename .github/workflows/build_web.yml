@@ -5,9 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'User_Interface/frontend/**'
-    paths-ignore:
-      - 'User_Interface/frontend/build/**'
+      - 'User_Interface/frontend/lib/**'
 
 jobs:
   build-and-deploy:
