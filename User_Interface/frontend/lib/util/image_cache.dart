@@ -10,6 +10,7 @@ class ImageCache {
     if (_cache.length > 1) {
       _cache.removeAt(0);
     }
+    
     _cache.add(image);
   }
 }
