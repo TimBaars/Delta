@@ -21449,7 +21449,7 @@ ST:function ST(a,b,c){this.b=a
 this.c=b
 this.d=c},
 SU:function SU(){},
-ar5(){var s=new A.VF(A.a([],t.gG),new A.VG(),A.aD(["url","http://192.168.178.170/images/ground_truth_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
+ar5(){var s=new A.VF(A.a([],t.gG),new A.VG(),A.aD(["url","http://192.168.178.107/images/ground_truth_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
 s.jS()
 return s},
 VF:function VF(a,b,c,d){var _=this
@@ -21459,7 +21459,7 @@ _.d=c
 _.e=d},
 VG:function VG(){},
 VH:function VH(a){this.a=a},
-arC(){var s=new A.XU(A.a([],t.gG),new A.XV(),A.aD(["url","http://192.168.178.170/images/masked_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
+arC(){var s=new A.XU(A.a([],t.gG),new A.XV(),A.aD(["url","http://192.168.178.107/images/masked_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
 s.jS()
 return s},
 XU:function XU(a,b,c,d){var _=this
@@ -21469,7 +21469,7 @@ _.d=c
 _.e=d},
 XV:function XV(){},
 XW:function XW(a){this.a=a},
-at7(){var s=new A.a0y(A.a([],t.gG),new A.a0z(),A.aD(["url","http://192.168.178.170/images/rrt_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
+at7(){var s=new A.a0y(A.a([],t.gG),new A.a0z(),A.aD(["url","http://192.168.178.107/images/rrt_image.png","time",0],t.N,t.z),new A.tV(A.a([],t.XE)))
 s.jS()
 return s},
 a0y:function a0y(a,b,c,d){var _=this
