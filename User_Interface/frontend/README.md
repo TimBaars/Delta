@@ -1,4 +1,5 @@
-# windows
+# FrontEnd
+[![Build and Push Flutter Web](https://github.com/TimBaars/Delta/actions/workflows/build_web.yml/badge.svg)](https://github.com/TimBaars/Delta/actions/workflows/build_web.yml)
 
 A new Flutter project.
 
