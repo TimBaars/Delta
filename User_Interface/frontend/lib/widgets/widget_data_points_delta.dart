@@ -5,9 +5,7 @@ class DataPointsDeltaWidget extends StatefulWidget {
   final DeltaStatusLogic logic;
   final bool useHistoricalData;
 
-  DataPointsDeltaWidget(
-      {Key? key, required this.logic, required this.useHistoricalData})
-      : super(key: key);
+  DataPointsDeltaWidget({Key? key, required this.logic, required this.useHistoricalData}) : super(key: key);
 
   @override
   _DataPointsDeltaWidgetState createState() =>
