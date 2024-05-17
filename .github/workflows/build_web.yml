@@ -1,0 +1,36 @@
+name: Build and Push Flutter Web
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'User_Interface/frontend/**' # Matches any file or directory under User_Interface/frontend
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Dart
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'latest'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Flutter Web
+        run: flutter build web --release
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add.
+          git commit -m "Build web output" || echo "No changes to commit."
+          git push origin HEAD:main
