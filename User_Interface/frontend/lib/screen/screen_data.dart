@@ -11,7 +11,7 @@ class DataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data Screen'),
+        title: const Text('Data Screen'),
       ),
       body: Row(
         children: <Widget>[
