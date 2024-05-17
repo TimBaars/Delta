@@ -32,8 +32,8 @@ jobs:
           
       - name: Configure Git
         run: |
-          git config --global user.email "t.baars@student.fontys.nl"
-          git config --global user.name "TimBaars"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "Github Actions"
 
       - name: Push changes to temporary branch
         run: |
