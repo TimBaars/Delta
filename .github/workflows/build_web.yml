@@ -37,6 +37,7 @@ jobs:
 
       - name: Push changes to temporary branch
         run: |
+          git pull
           git push origin temp-branch
 
       - name: Merge temporary branch into main
