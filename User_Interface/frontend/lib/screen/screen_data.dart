@@ -14,7 +14,9 @@ class DataScreen extends StatelessWidget {
         title: Text('Data Screen'),
       ),
       body: Row(
-        children: <Widget>[Expanded(child: DataPointsWidget(logic: logic))],
+        children: <Widget>[
+          Expanded(child: DataPointsWidget(logic: logic)),
+        ],
       ),
     );
   }
