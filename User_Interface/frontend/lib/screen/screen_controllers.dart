@@ -9,8 +9,6 @@ class ControllerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // logic.enable();
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Controllers Screen'),
