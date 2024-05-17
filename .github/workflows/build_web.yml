@@ -44,6 +44,10 @@ jobs:
           git checkout main
           git merge --no-edit temp-branch
 
-      - name: Remove temp branch
+      - name: Delete temporary branch
+        run: gh pr delete ${{ github.event.pull_request.number }} --confirm
+
+      - name: Update main branch
         run: |
-          git branch -d temp_branch
+          git fetch origin main
+          git reset --hard origin/main
