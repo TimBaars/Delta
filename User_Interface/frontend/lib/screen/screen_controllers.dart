@@ -5,7 +5,7 @@ import '../widgets/widget_start_stop.dart';
 class ControllerScreen extends StatelessWidget {
   late final ActuatorStatusLogic logic;
 
-  ControllerScreen({super.key}) : logic = ActuatorStatusLogic();
+  ControllerScreen({super.key}) : logic = SystemStatusLogic().actuatorStatusLogic;
 
   @override
   Widget build(BuildContext context) {
