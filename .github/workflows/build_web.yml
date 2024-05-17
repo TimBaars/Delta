@@ -46,7 +46,7 @@ jobs:
           git merge --no-edit temp-branch
 
       - name: Delete temporary branch
-        run: gh branch delete temp-branch
+        run: gh repo delete temp-branch --confirm
 
       - name: Update main branch
         run: |
