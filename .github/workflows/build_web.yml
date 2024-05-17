@@ -20,7 +20,7 @@ jobs:
           working-directory: User_Interface/frontend/
 
       - name: Archive Production artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: release
           path: User_Interface/frontend/build/web
