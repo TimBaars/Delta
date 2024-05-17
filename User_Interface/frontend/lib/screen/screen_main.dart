@@ -7,6 +7,7 @@ import 'package:frontend/widgets/widget_ground_truth_image.dart';
 import 'package:frontend/widgets/widget_navigatorbutton.dart';
 
 class MainScreen extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
