@@ -13,7 +13,7 @@ class RrtImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = () => {};
   Map<String, dynamic> json = {
-    "url": "http://192.168.178.170/images/rrt_image.png",
+    "url": "http://192.168.178.107/images/rrt_image.png",
     "time": 0,
   };
   
