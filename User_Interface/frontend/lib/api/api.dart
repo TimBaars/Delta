@@ -30,6 +30,6 @@ class apiManager {
       body: body,
     );
 
-    if (kDebugMode) print('Response status code: ${response.statusCode}');
+    print('Response status code: ${response.statusCode}');
   }
 }
