@@ -13,9 +13,14 @@ jobs:
       my_secret: ${{secrets.GH_DEPLOY}}
     steps:
     - uses: actions/checkout@v1
-    - uses: subosito/flutter-action@v1
-      with:
-        channel: beta
+    - name: Install Flutter
+      run: |
+        sudo apt-get update
+        sudo apt-get install curl
+        curl https://storage.googleapis.com/flutter_infra/releases/stable/linux/debian/flutter_linux_2.10.4-stable.tar.xz | tar xf -
+        export PATH="$PATH:`pwd`/flutter/bin"
+    - name: Verify Flutter Installation
+      run: flutter doctor
     - run: cd User_Interface/frontend && flutter config --enable-web
     - run: cd User_Interface/frontend && flutter pub get
     - run: cd User_Interface/frontend && flutter build web
