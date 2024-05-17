@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add User_Interface/frontend/build/web/*
+          git add User_Interface/frontend/build/web/* -f
           git commit -m "Deploy build to main"
 
       - name: Push changes to temporary branch
