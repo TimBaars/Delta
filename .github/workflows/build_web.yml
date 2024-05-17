@@ -34,7 +34,7 @@ jobs:
         run: git fetch origin temp-branch
 
       - name: Merge remote changes into local temp-branch
-        run: git merge origin/temp-branch --allow-unrelated-histories
+        run: git merge origin/temp-branch --allow-unrelated-histories --strategy-option theirs
         
       - name: Push changes to temporary branch
         run: |
