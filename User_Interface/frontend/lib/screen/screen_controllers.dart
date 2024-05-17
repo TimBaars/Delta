@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/logic/logic_actuator_status.dart';
+import 'package:frontend/logic/logic_system_status.dart';
 import '../widgets/widget_start_stop.dart';
 
 class ControllerScreen extends StatelessWidget {
