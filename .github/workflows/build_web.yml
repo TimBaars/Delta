@@ -29,11 +29,15 @@ jobs:
         run: |
           git add User_Interface/frontend/build/web/* -f
           git commit -m "Deploy build to main"
+          
+      - name: Configure Git
+        run: |
+          git config --global user.email "t.baars@student.fontys.nl"
+          git config --global user.name "TimBaars"
 
       - name: Push changes to temporary branch
         run: |
-          echo "${{ secrets.TOKEN }}" > github_token.txt
-          GIT_ASKPASS="cat github_token.txt" git push origin temp-branch
+          git push origin temp-branch
 
       - name: Merge temporary branch into main
         run: |
