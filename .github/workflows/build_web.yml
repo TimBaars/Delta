@@ -32,7 +32,7 @@ jobs:
 
       - name: Push changes to temporary branch
         run: |
-          git push origin temp-branch
+          echo ${{ secrets.GITHUB_TOKEN }} | git push --stdin origin temp-branch
 
       - name: Merge temporary branch into main
         run: |
