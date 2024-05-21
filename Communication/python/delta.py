@@ -1,33 +1,37 @@
 import random
+import sys
+import os
+
+# Append the current main directory to the system path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from Delta_Control.igus_modbus import Robot
 
 class Delta:
+    def __init__(self, ip_address="192.168.3.11", port=502):
+        self.robot = Robot(ip_address, port)
+        if not self.robot.is_connected:
+            raise ConnectionError(f"Failed to connect to Delta Robot at {ip_address}:{port}")
+
     def run(self, channel):
         # Declare an exchange
         exchange_name = "delta"
         exchange_type = "fanout"
         channel.exchange_declare(exchange=exchange_name, exchange_type=exchange_type)
 
-        # Publish messages to the exchange
-        # Define the parameters and their ranges
-        position_x_range = (0, 100)
-        position_y_range = (0, 100)
-        position_z_range = (50, 100)
-        boolean_def = ('true', 'false')
-
-        # Function to generate a message with randomized values
-        def generate_random_message():
-            position = {
-                "x": random.randint(*position_x_range),
-                "y": random.randint(*position_y_range),
-                "z": random.randint(*position_z_range)
-            }
-            moving = random.choice(boolean_def)
+        # Function to get the current position of the Delta robot
+        def get_current_position():
+            position = self.robot.get_position_endeffector()
+            moving = self.robot.is_moving()
             return {
-                "position": position,
-                "moving": moving
+                "position": {
+                    "x": position[0],
+                    "y": position[1],
+                    "z": position[2]
+                },
+                "moving": "true" if moving else "false"
             }
 
-        message = generate_random_message()
+        message = get_current_position()
 
         channel.basic_publish(exchange=exchange_name, routing_key='', body=str(message))
         print(f" [D] Sent {message}")
