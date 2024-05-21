@@ -6,15 +6,12 @@ import '../widgets/widget_start_stop.dart';
 
 class ControllerScreen extends StatelessWidget {
   late final SystemStatusLogic logic = SystemStatusLogic();
-
   ControllerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Controllers Screen'),
-      ),
+      appBar: AppBar(title: Text('Controllers Screen')),
       body: Row(
         children: <Widget>[
           Expanded(
