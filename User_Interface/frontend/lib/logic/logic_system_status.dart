@@ -91,29 +91,21 @@ class SystemStatusLogic {
     request(dateTime: dateTime);
   }
 
-  void toggle() {
+  void toggle({bool? runningOverride}) {
     print("SystemStatusLogic toggle");
 
-    json["running"] = running ? "false" : "true";
+    running = runningOverride != null ? runningOverride : !running;
 
-    if (running) {
-      stop();
-    } else {
-      start();
-    }
+    json["running"] = running ? "true" : "false";
 
-    apiManager.sendData(endpointAddition, jsonEncode(json));
+    apiManager.sendData(endpointAddition, json);
   }
 
   void stop() {
-    running = false;
-
-    print("SystemStatusLogic sendStop");
+    toggle(runningOverride: false);
   }
 
   void start() {
-    running = true;
-
-    print("SystemStatusLogic sendStart");
+    toggle(runningOverride: true);
   }
 }

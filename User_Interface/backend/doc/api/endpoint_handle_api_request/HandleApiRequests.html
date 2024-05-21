@@ -63,7 +63,7 @@
     <section class="multi-line-signature">
         
 
-<span class="returntype"><a href="https://pub.dev/documentation/shelf/1.4.1/shelf/Response-class.html">Response</a></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/shelf/1.4.1/shelf/Response-class.html">Response</a></span>&gt;</span></span>
 <span class="name ">HandleApiRequests</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="HandleApiRequests-param-request"><span class="type-annotation"><a href="https://pub.dev/documentation/shelf/1.4.1/shelf/Request-class.html">Request</a></span> <span class="parameter-name">request</span></span></li>
 </ol>)
 
@@ -76,30 +76,48 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Response HandleApiRequests(Request request) {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Response&gt; HandleApiRequests(Request request) async {
   String? jsonData = null;
+  int timestamp = 0;
 
-  if (request.url.path == &#39;actuator&#39;) {
-    jsonData = Application().getActuatorStatus();
-  }
-  if (request.url.path == &#39;delta&#39;) {
-    jsonData = Application().getRobotStatus();
-  }
-  if (request.url.path == &#39;masked&#39;) {
-    jsonData = Application().getMaskedImage();
-  }
-  if (request.url.path == &#39;rrt&#39;) {
-    jsonData = Application().getRrtImage();
-  }
-  if (request.url.path == &#39;system&#39;) {
-    jsonData = Application().getSystemStatus();
-  }
-  if (request.url.path == &#39;ground_truth&#39;) {
-    jsonData = Application().getGroundTruthImage();
+  &#47;&#47; print(&quot;request: ${request.url.path}, ${request.headers.entries}, ${request.headers}, ${request.url.queryParameters}, ${request.url.queryParametersAll}&quot;);
+
+  try {
+    timestamp = int.parse(request.headers[&#39;timestamp&#39;]!);
+  } catch (e) {
+    print(&#39;Error parsing timestamp: $e&#39;);
   }
 
-  if (jsonData != null) {
+  &#47;&#47; print(&quot;timestamp: $timestamp&quot;);
+
+  var urlPath = request.url.path.split(&#39;&#47;&#39;).last;
+
+  if (urlPath == &#39;actuator&#39;) {
+    jsonData = await Application().getActuatorStatus(timestamp);
+  }
+  if (urlPath == &#39;delta&#39;) {
+    jsonData = await Application().getRobotStatus(timestamp);
+  }
+  if (urlPath == &#39;masked&#39;) {
+    jsonData = await Application().getMaskedImage(timestamp);
+  }
+  if (urlPath == &#39;rrt&#39;) {
+    jsonData = await Application().getRrtImage(timestamp);
+  }
+  if (urlPath == &#39;system&#39;) {
+    jsonData = await Application().getSystemStatus(timestamp);
+  }
+  if (urlPath == &#39;ground_truth&#39;) {
+    jsonData = await Application().getGroundTruthImage(timestamp);
+  }
+  if (urlPath == &#39;post&#39;) {
+    jsonData = await Application().putData(request);
+  }
+
+  if (jsonData != null &amp;&amp; jsonData != &quot;&quot;) {
     return Response.ok(jsonData, headers: {&#39;Content-Type&#39;: &#39;application&#47;json&#39;});
+  } else if (jsonData == &quot;&quot;) {
+    return Response.notModified(context: {&#39;message&#39;: &#39;No new data available&#39;});
   }
 
   return Response.notFound(&#39;Not Found&#39;);

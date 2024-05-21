@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/logic/logic_system_status.dart';
 
-class RobotStatusButtonWidget extends StatefulWidget {
- @override
- _RobotStatusButtonWidgetState createState() => _RobotStatusButtonWidgetState();
+class DeltaRobotStatusButtonWidget extends StatefulWidget {
+  final SystemStatusLogic logic;
+
+  DeltaRobotStatusButtonWidget({Key? key, required this.logic}) : super(key: key);
+
+  @override
+  _DeltaRobotStatusButtonWidgetState createState() =>
+      _DeltaRobotStatusButtonWidgetState();
 }
 
-class _RobotStatusButtonWidgetState extends State<RobotStatusButtonWidget> {
- final TextEditingController _buttonTextController = TextEditingController();
- bool _isRobotRunning = false;
- bool _callbackReceived = true;
+class _DeltaRobotStatusButtonWidgetState extends State<DeltaRobotStatusButtonWidget> {
+  final TextEditingController _buttonTextController = TextEditingController();
 
- @override
- void initState() {
+  @override
+  void initState() {
     super.initState();
- }
 
- void _onButtonClick() {
-    if (!_callbackReceived) {
-      print("Previous callback not received yet.");
-      return;
-    }
+    widget.logic.function = () {
+      setState(() {});
+      return {};
+    };
+  }
 
-    _callbackReceived = false;
-
-    if (_isRobotRunning) {
-      
+  void _onButtonClick() {
+    if (widget.logic.running) {
+      widget.logic.stop();
     } else {
-      
+      widget.logic.start();
     }
- }
+  }
 
- @override
- Widget build(BuildContext context) {
-    _buttonTextController.text = _isRobotRunning ? "Stop" : "Start";
+  @override
+  Widget build(BuildContext context) {
+    _buttonTextController.text = widget.logic.running ? "Stop" : "Start";
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -43,5 +45,5 @@ class _RobotStatusButtonWidgetState extends State<RobotStatusButtonWidget> {
         ),
       ],
     );
- }
+  }
 }

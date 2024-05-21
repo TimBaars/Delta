@@ -1,3 +1,5 @@
+import 'package:backend/rabbitmq/client.dart';
+
 import '../logic/logic_delta_status.dart';
 import '../logic/logic_received_ground_truth_image.dart';
 import '../logic/logic_received_masked_image.dart';
@@ -56,6 +58,53 @@ class Application {
 
   Future<String> getGroundTruthImage(int timestamp) async {
     return systemStatusLogic.retrieveLastData(timestamp);
+  }
+
+  Future<String> putData(Request request) async {
+    var headers = request.headers;
+
+    if (headers.containsKey("Endpoint")) {
+      var updated = false;
+
+      var endpoint = headers["Endpoint"];
+      var timestamp = DateTime.now().toUtc().millisecondsSinceEpoch;
+
+      if (headers.containsKey("Timestamp")) {
+        try {
+          timestamp = int.parse(headers["Timestamp"]!.toString());
+        } catch (e) {
+          print('Error parsing timestamp: $e');
+        }
+      }
+
+      var body = await request.readAsString();
+      var data = body;
+
+      if (endpoint == "actuator") {
+        updated = actuatorStatusLogic.setData(data, timestamp);
+      }
+      if (endpoint == "delta") {
+        updated = deltaStatusLogic.setData(data, timestamp);
+      }
+      if (endpoint == "masked") {
+        updated = maskedImageLogic.setData(data, timestamp);
+      }
+      if (endpoint == "rrt") {
+        updated = rrtImageLogic.setData(data, timestamp);
+      }
+      if (endpoint == "system") {
+        updated = systemStatusLogic.setData(data, timestamp);
+      }
+      if (endpoint == "ground_truth") {
+        updated = groundTruthImageLogic.setData(data, timestamp);
+      }
+
+      if (updated) RabbitMQClient().publish(endpoint!, "", data);
+
+      return "Data received";
+    } else {
+      return "No endpoint specified";
+    }
   }
 
   Future<void> endpoint() async {

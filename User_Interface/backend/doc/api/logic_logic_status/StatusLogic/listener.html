@@ -78,6 +78,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void listener(AmqpMessage message) {
   lastData = message.payloadAsString;
+  lastDataReceived = DateTime.now().toUtc().millisecondsSinceEpoch;
 }</code></pre>
 </section>
 

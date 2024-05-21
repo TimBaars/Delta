@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:frontend/util/constants.dart';
 import 'package:frontend/util/image_cache.dart';
 import 'package:http/http.dart' as http;
 import 'package:frontend/api/api.dart';
@@ -13,7 +14,7 @@ class MaskedImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = () => {};
   Map<String, dynamic> json = {
-    "url": "http://192.168.178.170/images/masked_image.png",
+    "url": "$IMAGEHOST/masked_image.png",
     "time": 0,
   };
   

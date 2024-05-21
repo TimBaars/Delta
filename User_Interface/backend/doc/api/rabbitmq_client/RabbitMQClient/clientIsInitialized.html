@@ -76,9 +76,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clientIsInitialized() async {
-  print(&quot;Client is initialized: $isInitialized&quot;);
   if (!isInitialized) {
-    print(&quot;Client is not initialized, initializing...&quot;);
     await initialize();
   }
 }</code></pre>

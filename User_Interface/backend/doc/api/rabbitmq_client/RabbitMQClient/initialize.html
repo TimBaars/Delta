@@ -79,9 +79,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; initialize({host, username, password}) async {
-  print(&quot;Initializing RabbitMQClient&quot;);
-
   if (!isInitializing &amp;&amp; !isInitialized) {
+    print(&quot;Initializing RabbitMQClient&quot;);
+
     isInitializing = true;
     ConnectionSettings settings = ConnectionSettings(
       host: host ?? RMQHOST,
@@ -97,8 +97,6 @@
 
     await initialize(host: host, username: username, password: password);
   }
-
-  print(&quot;RabbitMQClient initialized&quot;);
 }</code></pre>
 </section>
 
