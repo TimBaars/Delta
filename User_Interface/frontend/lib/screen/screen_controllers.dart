@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/logic/logic_actuator_status.dart';
 import 'package:frontend/logic/logic_system_status.dart';
+import 'package:frontend/widgets/widget_ground_truth_image.dart';
+import 'package:frontend/widgets/widget_rrt_image.dart';
 import '../widgets/widget_start_stop.dart';
 
 class ControllerScreen extends StatelessWidget {
-  late final ActuatorStatusLogic logic = SystemStatusLogic().actuatorStatusLogic;
-
+  late final SystemStatusLogic logic = SystemStatusLogic();
   ControllerScreen({super.key});
 
   @override
@@ -17,15 +17,15 @@ class ControllerScreen extends StatelessWidget {
           Expanded(
             child: Column(
               children: <Widget>[
-                // Expanded(child: RrtImageWidget()),
-                Expanded(child: RobotStatusButtonWidget()),
+                Expanded(child: GroundTruthImageWidget(logic: logic.groundTruthImageLogic)),
+                Expanded(child: DeltaRobotStatusButtonWidget(logic: logic)),
               ],
             ),
           ),
           Expanded(
             child: Column(
               children: <Widget>[
-                // Expanded(child:), // Delta robot status
+                Expanded(child: RrtImageWidget(logic: logic.rrtImageLogic)),
                 // Expanded(child: ActuatorStatusWidget(logic: logic)), // Actuator status
               ],
             ),

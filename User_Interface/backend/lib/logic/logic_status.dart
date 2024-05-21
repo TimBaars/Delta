@@ -61,7 +61,7 @@ abstract class StatusLogic {
     if (lastDataReceived > timestamp) {
       return lastData;
     } else {
-      if (counter > 10) {
+      if (counter > 50) {
         return "";
       }
 
@@ -69,6 +69,17 @@ abstract class StatusLogic {
 
       return retrieveLastData(timestamp, counter: counter + 1);
     }
+  }
+
+  bool setData(String data, int timestamp) {
+    if (timestamp < lastDataReceived) {
+      return false;
+    }
+
+    lastData = data;
+    lastDataReceived = timestamp;
+
+    return true;
   }
 
   void listener(AmqpMessage message) {

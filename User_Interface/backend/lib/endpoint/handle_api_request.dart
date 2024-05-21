@@ -35,6 +35,9 @@ Future<Response> HandleApiRequests(Request request) async {
   if (urlPath == 'ground_truth') {
     jsonData = await Application().getGroundTruthImage(timestamp);
   }
+  if (urlPath == 'post') {
+    jsonData = await Application().putData(request);
+  }
 
   if (jsonData != null && jsonData != "") {
     return Response.ok(jsonData, headers: {'Content-Type': 'application/json'});

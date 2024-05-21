@@ -63,8 +63,10 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">retrieveLastData</span>(<wbr>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+<span class="name ">retrieveLastData</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="retrieveLastData-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span>, </span></li>
+<li><span class="parameter" id="retrieveLastData-param-counter">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">counter</span> = <span class="default-value">0</span>}</span></li>
+</ol>)
 
       
 
@@ -75,8 +77,18 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String retrieveLastData() {
-  return lastData;
+  <pre class="language-dart"><code class="language-dart">Future&lt;String&gt; retrieveLastData(int timestamp, {int counter = 0}) async {
+  if (lastDataReceived &gt; timestamp) {
+    return lastData;
+  } else {
+    if (counter &gt; 50) {
+      return &quot;&quot;;
+    }
+
+    await Future.delayed(Duration(milliseconds: 500));
+
+    return retrieveLastData(timestamp, counter: counter + 1);
+  }
 }</code></pre>
 </section>
 

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,14 +21,20 @@ class apiManager {
     return response;
   }
 
-  static Future<void> sendData(String endpointAddition, String data) async {
+  static Future<void> sendData(String endpointAddition, Map<String, dynamic> data) async {
     var host = kDebugMode ? WSHOSTDEBUG : WSHOST;
-    var endpoint = "$host/$endpointAddition";
+    var endpoint = "$host/post";
 
-    var body = data;
+    var body = jsonEncode(data);
 
     http.Response response = await http.post(
       Uri.parse(endpoint),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Endpoint': endpointAddition,
+        'Timestamp': DateTime.now().toUtc().millisecondsSinceEpoch.toString(),
+      },
       body: body,
     );
 
