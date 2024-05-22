@@ -116,7 +116,7 @@ class RRT:
                     cv2.line(self.img2, (int(self.node_list[i].parent_x[j]), int(self.node_list[i].parent_y[j])), (int(self.node_list[i].parent_x[j + 1]), int(self.node_list[i].parent_y[j + 1])), (255, 0, 0), thickness=2, lineType=8)
 
                 #cv2.imwrite("Pathplanning/media/" + str(i) + ".jpg", self.img2)
-                cv2.imwrite("Pathplanning/out.jpg", self.img2)
+                cv2.imwrite("/var/www/html/images/planned_path.jpg", self.img2)
 
                 return self.node_list, self.x_list, self.y_list
 
