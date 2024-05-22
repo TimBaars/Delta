@@ -15,8 +15,8 @@ from Delta_Control.Deltacontroldriver import DeltaRobotDriver
 from Pathplanning.PathOptimize import PathOptimizer
 from functions import convert_nodes_to_flat_list, convert_to_tuples
 
-target_width = 200
-target_height = 200
+target_width = 250
+target_height = 250
 
 class Controller_RRT:
     def __init__(self):
@@ -73,7 +73,7 @@ class Controller_RRT:
                         x, y = position
                         print(f"Moving to: {x}, {y}")
                         time.sleep(1)
-                        self.robot_driver.drive_to_location_and_wait(x, y, 100, self.robot_velocity)
+                        self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                     # Update the start coordinates to the current weed center
                     self.start_x, self.start_y = weed_center
