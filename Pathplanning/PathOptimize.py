@@ -114,7 +114,7 @@ class PathOptimizer:
         #plt.imshow(cv2.cvtColor(image_color, cv2.COLOR_BGR2RGB))
         #plt.axis("off")
         #plt.show()
-        cv2.imwrite("Pathplanning/optimized_path.jpg", image_color)
+        cv2.imwrite("/var/www/html/images/optimized_path.jpg", image_color)
 
 # # Example usage
 # if __name__ == "__main__":
