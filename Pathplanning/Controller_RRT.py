@@ -46,46 +46,49 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         try:
-            print("Starting the process")
+            if stop == True:
+                print("Starting the process")
 
-            # First, get the weed centers
-            weed_centers, image = self.processor.process_segmentation_file()
+                # First, get the weed centers
+                weed_centers, image = self.processor.process_segmentation_file()
 
-            # Iterate through each weed center, calculate the path, and move the robot
-            for weed_center in weed_centers:
-                # Update the coordinates for the current weed center
-                self.Calculating_Coords[0] = self.start_x
-                self.Calculating_Coords[1] = self.start_y
-                self.Calculating_Coords[2] = int(weed_center[0])
-                self.Calculating_Coords[3] = int(weed_center[1])
+                # Iterate through each weed center, calculate the path, and move the robot
+                for weed_center in weed_centers:
+                    # Update the coordinates for the current weed center
+                    self.Calculating_Coords[0] = self.start_x
+                    self.Calculating_Coords[1] = self.start_y
+                    self.Calculating_Coords[2] = int(weed_center[0])
+                    self.Calculating_Coords[3] = int(weed_center[1])
 
-                # Calculate the path to the current weed center
-                path = self.calculate_path(self.Calculating_Coords, image)
+                    # Calculate the path to the current weed center
+                    path = self.calculate_path(self.Calculating_Coords, image)
+                    'Path ready'
+                    # If a path is found, scale the coordinates and move the robot
+                    if path:
+                        # Scale the coordinates
+                        scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
+                        #print(f"Scaled path: {scaled_path}")
+                        'optimized path ready'
+                        # TODO add wait for go to next path
+                        # Move the robot to each point in the scaled path
+                        # TODO addition of the time
+                        for position in scaled_path:
+                            x, y = position
+                            x = x - (target_width/2)
+                            y = y - (target_height/2)
+                            print(f"Moving to: {x}, {y}")
+                            time.sleep(1)
+                            self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
-                # If a path is found, scale the coordinates and move the robot
-                if path:
-                    # Scale the coordinates
-                    scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
-                    #print(f"Scaled path: {scaled_path}")
+                        # Update the start coordinates to the current weed center
+                        self.start_x, self.start_y = weed_center
 
-                    # Move the robot to each point in the scaled path
-                    for position in scaled_path:
-                        x, y = position
-                        x = x - (target_width/2)
-                        y = y - (target_height/2)
-                        print(f"Moving to: {x}, {y}")
-                        time.sleep(1)
-                        self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
-
-                    # Update the start coordinates to the current weed center
-                    self.start_x, self.start_y = weed_center
-
-                    # TODO Wait for feedback before continuing to the next path
-                    # while not self.robot_driver.get_feedback_ready():
-                    #     print("Waiting for feedback...")
-                    #     time.sleep(1)
-                    print("Point traversal complete.")
-            print("Path traversal complete.")
+                        # TODO Wait for feedback before continuing to the next path
+                        # while not self.robot_driver.get_feedback_ready():
+                        #     print("Waiting for feedback...")
+                        #     time.sleep(1)
+                        print("Point traversal complete.")
+                print("Path traversal complete.")
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info
