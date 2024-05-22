@@ -11,12 +11,14 @@ class DataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data Screen'),
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(child: DataPointsWidget(logic: logic)),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(child: DataPointsWidget(logic: logic)),
+          ],
+        ),
       ),
     );
   }

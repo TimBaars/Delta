@@ -127,7 +127,7 @@ class Controller_RRT:
             flat_nodes = convert_to_tuples(x_list, y_list)
             #print(f"Flat Path: {flat_nodes}")
 
-            # Optimize the path
+            # OPTIMIZE the path
             self.optimizer.load_image("Pathplanning/out.jpg")
             optimized_nodes = self.optimizer.optimize_path(flat_nodes)
             self.optimizer.visualize_path(flat_nodes, optimized_nodes)

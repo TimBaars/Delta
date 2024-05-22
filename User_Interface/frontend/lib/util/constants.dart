@@ -4,4 +4,4 @@ final String RMQUSERNAME = "rabbitmq";
 final String RMQPASSWORD = "orangepi";
 final String WSHOST = "http://192.168.178.107/api";
 
-final String WSHOSTDEBUG = "http://localhost:8080";
+final String WSHOSTDEBUG = "http://192.168.201.78/api";
