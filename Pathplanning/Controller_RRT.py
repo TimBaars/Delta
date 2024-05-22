@@ -15,8 +15,8 @@ from Delta_Control.Deltacontroldriver import DeltaRobotDriver
 from Pathplanning.PathOptimize import PathOptimizer
 from functions import convert_nodes_to_flat_list, convert_to_tuples
 
-target_width = 300
-target_height = 300
+target_width = 200
+target_height = 200
 
 class Controller_RRT:
     def __init__(self):
