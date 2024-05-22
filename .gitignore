@@ -1,5 +1,4 @@
 *.pyc
 Pathplanning/media/*
 orange_pi_3/prebuilt_image/setup_32gb_orangepi.img
-User_Interface/frontend/build/*
 **/constants.dart
