@@ -71,6 +71,8 @@ class Controller_RRT:
                     # Move the robot to each point in the scaled path
                     for position in scaled_path:
                         x, y = position
+                        x = x - (target_width/2)
+                        y = y - (target_height/2)
                         print(f"Moving to: {x}, {y}")
                         time.sleep(1)
                         self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
