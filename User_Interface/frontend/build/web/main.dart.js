@@ -21449,7 +21449,7 @@ SU:function SU(a,b,c){this.b=a
 this.c=b
 this.d=c},
 SV:function SV(){},
-arc(){var s=new A.VG(A.a([],t.gG),new A.VH(),A.ay(["url","http://localhost/images/ground_truth_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
+arc(){var s=new A.VG(A.a([],t.gG),new A.VH(),A.ay(["url","http://192.168.201.78/images/ground_truth_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
 s.jS()
 return s},
 VG:function VG(a,b,c,d){var _=this
@@ -21459,7 +21459,7 @@ _.d=c
 _.e=d},
 VH:function VH(){},
 VI:function VI(a){this.a=a},
-arI(){var s=new A.XV(A.a([],t.gG),new A.XW(),A.ay(["url","http://localhost/images/masked_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
+arI(){var s=new A.XV(A.a([],t.gG),new A.XW(),A.ay(["url","http://192.168.201.78/images/masked_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
 s.jS()
 return s},
 XV:function XV(a,b,c,d){var _=this
@@ -21469,7 +21469,7 @@ _.d=c
 _.e=d},
 XW:function XW(){},
 XX:function XX(a){this.a=a},
-atc(){var s=new A.a0A(A.a([],t.gG),new A.a0B(),A.ay(["url","http://localhost/images/rrt_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
+atc(){var s=new A.a0A(A.a([],t.gG),new A.a0B(),A.ay(["url","http://192.168.201.78/images/rrt_image.png","time",0],t.N,t.z),new A.tX(A.a([],t.XE)))
 s.jS()
 return s},
 a0A:function a0A(a,b,c,d){var _=this
@@ -22296,7 +22296,7 @@ var $async$ld=A.W(function(c,d){if(c===1)return A.S(d,r)
 while(true)switch(s){case 0:p=b!=null?b.a:0
 o=t.N
 s=3
-return A.Q(A.abo(A.dU("http://localhost/api/"+a),A.ay(["Content-Type","application/json","Accept","application/json","Timestamp",B.f.i(p)],o,o)),$async$ld)
+return A.Q(A.abo(A.dU("http://192.168.201.78/api/"+a),A.ay(["Content-Type","application/json","Accept","application/json","Timestamp",B.f.i(p)],o,o)),$async$ld)
 case 3:q=d
 s=1
 break
@@ -22309,7 +22309,7 @@ p=t.N
 o=A
 n="Response status code: "
 s=2
-return A.Q(A.az6(A.dU("http://localhost/api/post"),q,A.ay(["Content-Type","application/json","Accept","application/json","Endpoint",a,"Timestamp",B.f.i(new A.cZ(Date.now(),!1).a7L().a)],p,p)),$async$aaZ)
+return A.Q(A.az6(A.dU("http://192.168.201.78/api/post"),q,A.ay(["Content-Type","application/json","Accept","application/json","Endpoint",a,"Timestamp",B.f.i(new A.cZ(Date.now(),!1).a7L().a)],p,p)),$async$aaZ)
 case 2:o.e0(n+d.b)
 return A.T(null,r)}})
 return A.U($async$aaZ,r)},
