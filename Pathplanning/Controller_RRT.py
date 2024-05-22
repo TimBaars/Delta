@@ -62,14 +62,14 @@ class Controller_RRT:
 
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
-                    'Path ready'
+                    ### Communication.send('topic', message)
                     # If a path is found, scale the coordinates and move the robot
                     if path:
                         # Scale the coordinates
                         scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
                         #print(f"Scaled path: {scaled_path}")
                         'optimized path ready'
-                        # TODO add wait for go to next path
+                        # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
                         # TODO addition of the time
                         for position in scaled_path:
