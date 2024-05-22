@@ -1,7 +1,7 @@
-final String RMQHOST = "192.168.178.170";
-final String IMAGEHOST = "http://192.168.178.170/images";
+final String RMQHOST = "localhost";
+final String IMAGEHOST = "http://localhost/images";
 final String RMQUSERNAME = "rabbitmq";
 final String RMQPASSWORD = "orangepi";
-final String WSHOST = "http://192.168.178.107/api";
+final String WSHOST = "http://localhost/api";
 
 final String WSHOSTDEBUG = "http://localhost:8080";
