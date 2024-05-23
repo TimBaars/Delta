@@ -11,7 +11,7 @@ if __name__ == "__main__":
             controller.run()
             print("------------------------- Sleeping for 5 seconds -------------------------")
             time.sleep(5)
-        except KeyboardInterrupt or Noodstop == True:
+        except KeyboardInterrupt: ## TODO or Noodstop == True:
             print("Exiting")
             controller.robot_driver.shutdown_robot()
             break

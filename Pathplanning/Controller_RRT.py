@@ -25,6 +25,7 @@ class Controller_RRT:
         except:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
+
         # Placeholders for testing replace with actual implementation with another group
         self.number = 4  # random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
@@ -46,7 +47,7 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         try:
-            if stop == True:
+            if True: # TODO stop == False:
                 print("Starting the process")
 
                 # First, get the weed centers
@@ -62,7 +63,7 @@ class Controller_RRT:
 
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
-                    ### Communication.send('topic', message)
+                    # TODO Communication.send('topic', message)
                     # If a path is found, scale the coordinates and move the robot
                     if path:
                         # Scale the coordinates
@@ -71,13 +72,11 @@ class Controller_RRT:
                         'optimized path ready'
                         # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
-                        # TODO addition of the time
                         for position in scaled_path:
                             x, y = position
                             x = x - (target_width/2)
                             y = y - (target_height/2)
                             print(f"Moving to: {x}, {y}")
-                            time.sleep(1)
                             self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                         # Update the start coordinates to the current weed center
@@ -112,7 +111,7 @@ class Controller_RRT:
             path_coordinates = []
             cv2.imwrite("Pathplanning/temp.jpg", img_color)
 
-            print(f"Planning algorithm from {coords[0]}, {coords[1]} to {coords[2]}, {coords[3]}")
+            print(f"Planning algorithm from {int(coords[0])}, {int(coords[1])} to {int(coords[2])}, {int(coords[3])}")
             x_list = []
             y_list = []
             # Ensure coordinates are integers
@@ -136,7 +135,6 @@ class Controller_RRT:
             self.optimizer.load_image("Pathplanning/out.jpg")
             optimized_nodes = self.optimizer.optimize_path(flat_nodes)
             self.optimizer.visualize_path(flat_nodes, optimized_nodes)
-            #print(f"Optimized Path: {optimized_nodes}")
 
             return optimized_nodes
 

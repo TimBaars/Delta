@@ -8,6 +8,11 @@ class SegmentationProcessor:
         self.output_dir = output_dir
 
     def process_segmentation_file(self):
+        """"
+        Process the segmentation file and return the weed centers
+        :return: List of weed centers and the black and white image
+        """
+
         original_img = cv2.imread(self.img_path)
         height, width = original_img.shape[:2]
 
@@ -32,12 +37,12 @@ class SegmentationProcessor:
                     weed_centers.append([center_x, center_y])
 
         # Save the black and white image to the specified directory
-        #bw_output_path = f"{self.output_dir}/bw_output.png"
+        # bw_output_path = f"{self.output_dir}/bw_output.png"
         #cv2.imwrite(bw_output_path, bw_img)
 
         # Optionally, create and save a composite image
-        composite_img = np.hstack((original_img, bw_img))
-        composite_output_path = f"{self.output_dir}/composite_output.png"
-        cv2.imwrite(composite_output_path, composite_img)
+        # composite_img = np.hstack((original_img, bw_img))
+        # composite_output_path = f"{self.output_dir}/composite_output.png"
+        # cv2.imwrite(composite_output_path, composite_img)
 
         return weed_centers, bw_img  # Return the list of weed centers

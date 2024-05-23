@@ -131,7 +131,7 @@ class RRT:
 
                 cv2.circle(self.img2, (int(tx), int(ty)), 2, (0, 0, 255), thickness=3, lineType=8)
                 cv2.line(self.img2, (int(tx), int(ty)), (int(self.node_list[nearest_ind].x), int(self.node_list[nearest_ind].y)), (0, 255, 0), thickness=1, lineType=8)
-                cv2.imwrite("Pathplanning/media/" + str(i) + ".jpg", self.img2)
+                # cv2.imwrite("Pathplanning/media/" + str(i) + ".jpg", self.img2)
                 continue
 
             else:

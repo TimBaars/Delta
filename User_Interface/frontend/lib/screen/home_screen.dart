@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/logic/logic_system_status.dart';
-import 'package:frontend/widgets/widget_data_points.dart';
+// import 'package:frontend/widgets/widget_data_points.dart';
 
 class HomeScreen extends StatelessWidget {
   final SystemStatusLogic logic = SystemStatusLogic();
@@ -30,8 +30,9 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 8),
                   Center(
                     child: Text(
-                      'This project was realised for the Fontys A-systems minor ',
+                      'This project was realised for the Fontys A-systems minor, the project was an assignment for the company Compas agro. This application drives an delta robot based on the current location',
                       style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],
@@ -52,6 +53,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Text('Start'),
                 ),
+                Text('System in stopped state', style: TextStyle(fontSize: 16)),
                 ElevatedButton(
                   onPressed: () {
                     // Stop button functionality
@@ -63,6 +65,20 @@ class HomeScreen extends StatelessWidget {
                   child: Text('Stop'),
                 ),
               ],
+            ),
+            SizedBox(height: 20),
+            Container(
+              height: 200,
+              color: Colors.grey[300],
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Current status', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green[700])),
+                    Text('Fetching status...', style: TextStyle(fontSize: 24, color: Colors.green[700])),
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 20),
             Container(
