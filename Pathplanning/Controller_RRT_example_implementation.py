@@ -26,6 +26,7 @@ class Controller_RRT:
         print(f" [Python] Received from system_exchange: {body}")
 
         self.stop = json.loads(body)['running'] != "true"
+        self.status = "shutdown"
 
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
@@ -38,7 +39,7 @@ class Controller_RRT:
         mapping = ["x", "y", "z"]
         position = {mapping[i]: current_position[i] for i in range(3)}
 
-        status = "idle" # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
+        status = self.status # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
         velocity = self.robot_velocity # TODO get actual velocity
         
         mapping = ["from_x", "from_y", "to_x", "to_y"]
@@ -71,6 +72,7 @@ class Controller_RRT:
             time.sleep(0.1)
 
     def __init__(self):
+        self.status = "shutdown"
         self.stop = True
         self.manager = RabbitMQManager(host='192.168.201.78', username='python', password='python')
         self.manager.setup_consumer('system', self.system_callback)
@@ -117,6 +119,7 @@ class Controller_RRT:
 
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
+                    self.status = "searching_path"
                     # 'planned path ready'
                     self.sendMessages("planned_path")
                     
@@ -131,7 +134,11 @@ class Controller_RRT:
                         # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
                         # TODO addition of the time
+                        self.status = "awaiting_actuator"
+
                         await self.receiveActuator()
+
+                        self.status = "moving"
 
                         for position in scaled_path:
                             x, y = position

@@ -10,6 +10,6 @@ class OptimizedPathImageLogic extends StatusLogic {
   void listener(AmqpMessage message) {
     super.listener(message);
 
-    // print(" [R] Received string: ${message.payloadAsString}");
+    // print(" [O] Received string: ${message.payloadAsString}");
   }
 }
