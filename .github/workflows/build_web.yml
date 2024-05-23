@@ -45,7 +45,7 @@ jobs:
           git merge --no-edit temp-branch
           
       - name: Delete temporary branch
-        run: git branch -rD temp-branch
+        run: git branch -rD origin/temp-branch
 
       - name: Update main branch
         run: |
