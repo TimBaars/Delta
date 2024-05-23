@@ -1,3 +1,5 @@
+import 'package:backend/logic/logic_received_optimized_path_image.dart';
+import 'package:backend/logic/logic_received_planned_path_image.dart';
 import 'package:backend/rabbitmq/client.dart';
 
 import '../logic/logic_delta_status.dart';
@@ -27,6 +29,8 @@ class Application {
   final StatusLogic deltaStatusLogic = DeltaStatusLogic();
   final StatusLogic maskedImageLogic = MaskedImageLogic();
   final StatusLogic rrtImageLogic = RrtImageLogic();
+  final StatusLogic plannedPathImageLogic = PlannedPathImageLogic();
+  final StatusLogic optimizedPathImageLogic = OptimizedPathImageLogic();
   final StatusLogic systemStatusLogic = SystemStatusLogic();
   final StatusLogic groundTruthImageLogic = GroundTruthImageLogic();
 
@@ -57,7 +61,15 @@ class Application {
   }
 
   Future<String> getGroundTruthImage(int timestamp) async {
-    return systemStatusLogic.retrieveLastData(timestamp);
+    return groundTruthImageLogic.retrieveLastData(timestamp);
+  }
+
+  Future<String> getOptimizedPathStatus(int timestamp) async {
+    return optimizedPathImageLogic.retrieveLastData(timestamp);
+  }
+
+  Future<String> getPlannedPathImage(int timestamp) async {
+    return plannedPathImageLogic.retrieveLastData(timestamp);
   }
 
   Future<String> putData(Request request) async {
@@ -97,6 +109,12 @@ class Application {
       }
       if (endpoint == "ground_truth") {
         updated = groundTruthImageLogic.setData(data, timestamp);
+      }
+      if (endpoint == "optimized_path") {
+        updated = optimizedPathImageLogic.setData(data, timestamp);
+      }
+      if (endpoint == "planned_path") {
+        updated = plannedPathImageLogic.setData(data, timestamp);
       }
 
       if (updated) RabbitMQClient().publish(endpoint!, "", data);

@@ -12,7 +12,7 @@ void main() {
 class MaskedImageLogic {
   final String endpointAddition = "masked";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = () => {};
+  var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
     "url": "$IMAGEHOST/masked_image.png",
     "time": 0,
@@ -30,7 +30,7 @@ class MaskedImageLogic {
       if (response.statusCode == 200) {
         imageCache.addImage(response.bodyBytes.buffer.asUint8List());
 
-        function();
+        function.forEach((fn) => fn());
       }
     });
   }

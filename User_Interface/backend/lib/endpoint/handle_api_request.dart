@@ -35,6 +35,12 @@ Future<Response> HandleApiRequests(Request request) async {
   if (urlPath == 'ground_truth') {
     jsonData = await Application().getGroundTruthImage(timestamp);
   }
+  if (urlPath == 'planned_path') {
+    jsonData = await Application().getPlannedPathImage(timestamp);
+  }
+  if (urlPath == 'optimized_path') {
+    jsonData = await Application().getOptimizedPathStatus(timestamp);
+  }
   if (urlPath == 'post') {
     jsonData = await Application().putData(request);
   }

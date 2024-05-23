@@ -16,10 +16,11 @@ class _DataPointsDeltaWidgetState extends State<DataPointsDeltaWidget> {
   @override
   void initState() {
     super.initState();
-    widget.logic.function = () {
+
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   @override
@@ -45,7 +46,13 @@ class _DataPointsDeltaWidgetState extends State<DataPointsDeltaWidget> {
                   Text('Position',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 18.0)),
-                  Text('Moving',
+                  Text('Status',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18.0)),
+                  Text('Velocity',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18.0)),
+                  Text('Direction',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 18.0)),
                   Text('json',
@@ -60,7 +67,11 @@ class _DataPointsDeltaWidgetState extends State<DataPointsDeltaWidget> {
                 children: [
                   Text("${widget.logic.json['position']}",
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text("${widget.logic.json['moving']}",
+                  Text("${widget.logic.json['status']}",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("${widget.logic.json['velocity']}",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("${widget.logic.json['direction']}",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text("${widget.logic.json}",
                       style: TextStyle(fontWeight: FontWeight.bold)),
@@ -99,12 +110,11 @@ class _DataPointsDeltaWidgetState extends State<DataPointsDeltaWidget> {
                                 )
                               : BoxDecoration(),
                           children: [
-                            Text(
-                                "${widget.logic.historicalData[size - index]['position']}"),
-                            Text(
-                                "${widget.logic.historicalData[size - index]['moving']}"),
-                            Text(
-                                "${widget.logic.historicalData[size - index]}"),
+                            Text("${widget.logic.historicalData[size - index]['position']}"),
+                            Text("${widget.logic.json['status']}", style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("${widget.logic.json['velocity']}", style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("${widget.logic.json['direction']}", style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("${widget.logic.historicalData[size - index]}"),
                           ],
                         ),
                       ],

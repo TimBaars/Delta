@@ -15,10 +15,10 @@ class _RrtImageWidgetState extends State<RrtImageWidget> {
   void initState() {
     super.initState();
 
-    widget.logic.function = () {
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   @override

@@ -15,10 +15,10 @@ class _GroundTruthImageWidgetState extends State<GroundTruthImageWidget> {
   void initState() {
     super.initState();
 
-    widget.logic.function = () {
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   @override

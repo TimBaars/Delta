@@ -18,10 +18,10 @@ class _DeltaRobotStatusButtonWidgetState extends State<DeltaRobotStatusButtonWid
   void initState() {
     super.initState();
 
-    widget.logic.function = () {
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   void _onButtonClick() {

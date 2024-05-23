@@ -12,7 +12,7 @@ class ActuatorStatusLogic {
   final String endpointAddition = "actuator";
   final List<Map<String, dynamic>> historicalData = [];
   var running = false;
-  var function = () => {};
+  var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
     "drilling": false,
     "extended": false,
@@ -44,7 +44,7 @@ class ActuatorStatusLogic {
 
               setJson(jsonResult);
 
-              function();
+              function.forEach((fn) => fn());
             }
           }
 

@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/logic/logic_system_status.dart';
 import 'package:frontend/widgets/widget_data_points.dart';
+import 'package:frontend/widgets/widget_start_stop.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
+
+  @override
+  _HomeScreen createState() => _HomeScreen();
+}
+
+class _HomeScreen extends State<HomeScreen> {
   final SystemStatusLogic logic = SystemStatusLogic();
 
-  HomeScreen({super.key});
+  _HomeScreen();
+
+  @override
+  void initState() {
+    super.initState();
+    logic.function.add(() {
+      setState(() {});
+      return {};
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,26 +59,27 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    // Start button functionality
-                    //logic.startSystem();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.green[700], // Background color
-                  ),
-                  child: Text('Start'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Stop button functionality
-                    //logic.stopSystem();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.brown[700], // Background color
-                  ),
-                  child: Text('Stop'),
-                ),
+                DeltaRobotStatusButtonWidget(logic: logic),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Start button functionality
+                //     //logic.startSystem();
+                //   },
+                //   style: ElevatedButton.styleFrom(
+                //     foregroundColor: Colors.green[700], // Background color
+                //   ),
+                //   child: Text('Start'),
+                // ),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Stop button functionality
+                //     //logic.stopSystem();
+                //   },
+                //   style: ElevatedButton.styleFrom(
+                //     foregroundColor: Colors.brown[700], // Background color
+                //   ),
+                //   child: Text('Stop'),
+                // ),
               ],
             ),
             SizedBox(height: 20),

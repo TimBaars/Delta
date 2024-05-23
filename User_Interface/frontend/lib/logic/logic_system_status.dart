@@ -5,6 +5,8 @@ import 'package:frontend/logic/logic_actuator_status.dart';
 import 'package:frontend/logic/logic_delta_status.dart';
 import 'package:frontend/logic/logic_ground_truth_logic.dart';
 import 'package:frontend/logic/logic_masked_image.dart';
+import 'package:frontend/logic/logic_optimized_path_image.dart';
+import 'package:frontend/logic/logic_planned_path_image.dart';
 import 'package:frontend/logic/logic_rrt_image.dart';
 import 'package:http/http.dart' as http;
 
@@ -23,11 +25,13 @@ class SystemStatusLogic {
   final MaskedImageLogic maskedImageLogic = MaskedImageLogic();
   final RrtImageLogic rrtImageLogic = RrtImageLogic();
   final GroundTruthImageLogic groundTruthImageLogic = GroundTruthImageLogic();
+  final PlannedPathImageLogic plannedPathImageLogic = PlannedPathImageLogic();
+  final OptimizedPathImageLogic optimizedPathImageLogic = OptimizedPathImageLogic();
 
   final String endpointAddition = "system";
   var running = false;
   var initialized = false;
-  var function = () => {};
+  var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
     "running": "false",
   };
@@ -77,7 +81,7 @@ class SystemStatusLogic {
 
             setJson(jsonResult);
 
-            function();
+            function.forEach((fn) => fn());
           }
         }
 
@@ -97,6 +101,8 @@ class SystemStatusLogic {
     running = runningOverride != null ? runningOverride : !running;
 
     json["running"] = running ? "true" : "false";
+
+    function.forEach((fn) => fn());
 
     apiManager.sendData(endpointAddition, json);
   }

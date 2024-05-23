@@ -11,10 +11,12 @@ void main() {
 class DeltaStatusLogic {
   final String endpointAddition = "delta";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = () => {};
+  var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
     "position": {"x": 0, "y": 0, "z": 0},
-    "moving": false,
+    "status": "stopped",
+    "velocity": 0,
+    "direction": {"from_x": 0, "from_y": 0, "to_x": 0, "to_y": 0},
   };
 
   DeltaStatusLogic();
@@ -42,7 +44,7 @@ class DeltaStatusLogic {
 
               setJson(jsonResult);
 
-              function();
+              function.forEach((fn) => fn());
             }
           }
 

@@ -18,10 +18,10 @@ class _DataPointsActuatorWidgetState extends State<DataPointsActuatorWidget> {
   @override
   void initState() {
     super.initState();
-    widget.logic.function = () {
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   @override

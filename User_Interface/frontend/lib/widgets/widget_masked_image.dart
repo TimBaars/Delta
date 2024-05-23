@@ -16,10 +16,10 @@ class _MaskedImageWidgetState extends State<MaskedImageWidget> {
   void initState() {
     super.initState();
 
-    widget.logic.function = () {
+    widget.logic.function.add(() {
       setState(() {});
       return {};
-    };
+    });
   }
 
   @override

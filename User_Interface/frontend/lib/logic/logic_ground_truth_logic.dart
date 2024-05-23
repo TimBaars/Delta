@@ -12,7 +12,7 @@ void main() {
 class GroundTruthImageLogic {
   final String endpointAddition = "ground_truth";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = () => {};
+  var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
     "url": "$IMAGEHOST/ground_truth_image.png",
     "time": 0,
@@ -30,7 +30,7 @@ class GroundTruthImageLogic {
       if (response.statusCode == 200) {
         imageCache.addImage(response.bodyBytes.buffer.asUint8List());
 
-        function();
+        function.forEach((fn) => fn());
       }
     });
   }

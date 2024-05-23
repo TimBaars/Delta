@@ -48,13 +48,11 @@ class RabbitMQClient {
     }
   }
 
-  Future<Consumer> setupConsumer(String queueName) async {
-    // print("Setup consumer for $queueName");
+  Future<Consumer> setupConsumer(String exchangeName) async {
     await clientIsInitialized();
 
-    Exchange exchange = await _channel.exchange(queueName, ExchangeType.FANOUT);
-    Queue queue = await _channel.queue(queueName);
-    // print("Queue $queueName declared");
+    Exchange exchange = await _channel.exchange(exchangeName, ExchangeType.FANOUT);
+    Queue queue = await _channel.queue('', autoDelete: true); 
     await queue.bind(exchange, "");
     return await queue.consume();
   }

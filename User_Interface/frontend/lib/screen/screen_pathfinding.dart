@@ -1,13 +1,29 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/logic/logic_system_status.dart';
-import 'package:frontend/widgets/widget_ground_truth_image.dart';
-import 'package:frontend/widgets/widget_masked_image.dart';
-import 'package:frontend/widgets/widget_rrt_image.dart';
+import 'package:frontend/widgets/widget_optimized_path_image.dart';
+import 'package:frontend/widgets/widget_planned_path_image.dart';
 
-class PathFindingScreen extends StatelessWidget {
+class PathFindingScreen extends StatefulWidget {
+  PathFindingScreen({super.key});
+
+  @override
+  _PathFindingScreenState createState() => _PathFindingScreenState();
+}
+
+class _PathFindingScreenState extends State<PathFindingScreen> {
   final SystemStatusLogic logic = SystemStatusLogic();
 
-  PathFindingScreen({super.key});
+  @override
+  void initState() {
+    super.initState();
+
+    logic.deltaStatusLogic.function.add(() {
+      setState(() {});
+      return {};
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +68,9 @@ class PathFindingScreen extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: <Widget>[
-                        Expanded(child: GroundTruthImageWidget(logic: logic.groundTruthImageLogic)), // TODO edit the image
+                        Expanded(child: OptimizedPathImageWidget(logic: logic.optimizedPathImageLogic)),
                         SizedBox(width: 8),
-                        Expanded(child: MaskedImageWidget(logic: logic.maskedImageLogic)), // TODO edit the image
+                        Expanded(child: PlannedPathImageWidget(logic: logic.plannedPathImageLogic)),
                       ],
                     ),
                   ),
@@ -70,17 +86,17 @@ class PathFindingScreen extends StatelessWidget {
   Widget getContainerContent(int index) {
     switch (index) {
       case 0:
-        return LocationContainer(title: 'X location', value: 'Fetching data...');
+        return LocationContainer(title: 'X location', value: logic.deltaStatusLogic.json["position"]["x"].toString());
       case 1:
-        return LocationContainer(title: 'Status', value: 'Fetching data...');
+        return LocationContainer(title: 'Status', value: logic.deltaStatusLogic.json["status"].toString());
       case 2:
-        return LocationContainer(title: 'Y location', value: 'Fetching data...');
+        return LocationContainer(title: 'Y location', value: logic.deltaStatusLogic.json["position"]["y"].toString());
       case 3:
-        return LocationContainer(title: 'Speed', value: 'Fetching data...');
+        return LocationContainer(title: 'Speed', value: logic.deltaStatusLogic.json["velocity"].toString());
       case 4:
-        return LocationContainer(title: 'Z location', value: 'Fetching data...');
+        return LocationContainer(title: 'Z location', value: logic.deltaStatusLogic.json["position"]["z"].toString());
       case 5:
-        return LocationContainer(title: 'Direction', value: 'Fetching data...');
+        return LocationContainer(title: 'Direction', value: logic.deltaStatusLogic.json["direction"].toString());
       default:
         return Text('Container ${index + 1}');
     }
