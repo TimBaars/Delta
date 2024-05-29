@@ -1,9 +1,12 @@
+import json
 import logging
 import traceback
 import cv2
 import os
 import sys
 import time
+
+from Pathplanning.RabbitMQManager import RabbitMQManager
 
 # Configure logging
 logging.basicConfig(filename='errors.log', level=logging.ERROR, format='%(asctime)s, %(filename)s, %(lineno)d, %(message)s')
@@ -19,7 +22,61 @@ target_width = 250
 target_height = 250
 
 class Controller_RRT:
+    def system_callback(self, ch, method, properties, body):
+        print(f" [Python] Received from system_exchange: {body}")
+
+        self.stop = json.loads(body)['running'] != "true"
+        self.status = "shutdown"
+
+    def actuator_callback(self, ch, method, properties, body):
+        print(f" [Python] Received from actuator_exchange: {body}")
+        
+        self.await_actuator = False
+        ch.stop_consuming()
+    
+    def sendRobotUpdate(self):
+        current_position = self.robot_driver.get_current_position()
+        mapping = ["x", "y", "z"]
+        position = {mapping[i]: current_position[i] for i in range(3)}
+
+        status = self.status # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
+        velocity = self.robot_velocity # TODO get actual velocity
+        
+        mapping = ["from_x", "from_y", "to_x", "to_y"]
+        direction = {mapping[i]: self.Calculating_Coords[i] for i in range(4)} # TODO get actual direction
+
+        # turn message into JSON
+        message = json.dumps({"position": position, "status": status, "velocity": velocity, "direction": direction})
+
+        self.manager.send_message('delta', message)
+    
+    def sendImageUpdate(self, location):
+        date = time.gmtime()
+        endpoint = f"http://192.168.201.78/images/{location}.jpg"
+
+        # turn message into JSON
+        message = json.dumps({"url": endpoint, "date": date})
+
+        self.manager.send_message(location, message)
+    
+    def sendMessages(self, image_name):
+        self.sendRobotUpdate()
+        self.sendImageUpdate(image_name)
+
+    def receiveActuator(self):
+        self.await_actuator = True
+        self.manager.setup_consumer('actuator', self.actuator_callback)
+
+        while (self.await_actuator):
+            print("Waiting for actuator...")
+            time.sleep(0.1)
+
     def __init__(self):
+        self.status = "shutdown"
+        self.stop = True
+        self.manager = RabbitMQManager(host='192.168.201.78', username='python', password='python')
+        self.manager.setup_consumer('system', self.system_callback)
+        
         try:
             os.system("rm -rf Pathplanning/media")
         except:
@@ -43,10 +100,10 @@ class Controller_RRT:
         self.optimizer = PathOptimizer()
         self.robot_driver = DeltaRobotDriver(ip_address="192.168.3.11")
 
-    def run(self):
+    async def run(self):
         """Starting the process"""
         try:
-            if stop == True:
+            if self.stop == True:
                 print("Starting the process")
 
                 # First, get the weed centers
@@ -62,22 +119,33 @@ class Controller_RRT:
 
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
-                    ### Communication.send('topic', message)
+                    self.status = "searching_path"
+                    # 'planned path ready'
+                    self.sendMessages("planned_path")
+                    
                     # If a path is found, scale the coordinates and move the robot
                     if path:
                         # Scale the coordinates
                         scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
                         #print(f"Scaled path: {scaled_path}")
-                        'optimized path ready'
+                        # 'optimized path ready'
+                        self.sendMessages("optimized_path")
+
                         # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
                         # TODO addition of the time
+                        self.status = "awaiting_actuator"
+
+                        await self.receiveActuator()
+
+                        self.status = "moving"
+
                         for position in scaled_path:
                             x, y = position
                             x = x - (target_width/2)
                             y = y - (target_height/2)
                             print(f"Moving to: {x}, {y}")
-                            time.sleep(1)
+                            time.sleep(1) # TODO remove the sleep
                             self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                         # Update the start coordinates to the current weed center
@@ -163,6 +231,6 @@ class Controller_RRT:
         return []
 
 # Example run
-if __name__ == "__main__":
-    controller = Controller_RRT()
-    controller.run()
+# if __name__ == "__main__":
+#     controller = Controller_RRT()
+#     controller.run()

@@ -6,18 +6,16 @@ class RabbitMQManager:
 
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
-            cls._instance = super(RabbitMQManager, cls).__new__(cls, *args, **kwargs)
-            cls._instance._connection = None
-            cls._instance._channel = None
+            cls._instance = super(RabbitMQManager, cls).__new__(cls)
+            cls._instance.initialize(*args, **kwargs)
         return cls._instance
 
-    def __init__(self, host='localhost', username='guest', password='guest'):
-        if self._connection is None:
-            self._connection = pika.BlockingConnection(pika.ConnectionParameters(
-                host=host,
-                credentials=pika.PlainCredentials(username, password)
-            ))
-            self._channel = self._connection.channel()
+    def initialize(self, host='localhost', username='guest', password='guest'):
+        self._connection = pika.BlockingConnection(pika.ConnectionParameters(
+            host=host,
+            credentials=pika.PlainCredentials(username, password)
+        ))
+        self._channel = self._connection.channel()
 
     def setup_consumer(self, exchange_name, callback):
         # Declare a unique, auto-delete queue

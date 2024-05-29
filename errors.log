@@ -2710,3 +2710,12 @@ Traceback (most recent call last):
   File "/home/koen/git/Delta/Pathplanning/RRT/rrt.py", line 22, in collision
     x = list(np.arange(x1, x2, (x2 - x1) / 100))
 ValueError: arange: cannot compute length
+2024-05-29 14:13:27,638, connection_workflow.py, 291, AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: TimeoutError("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))")
+2024-05-29 14:13:27,639, connection_workflow.py, 746, AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: TimeoutError("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None.
+2024-05-29 14:13:27,640, connection_workflow.py, 723, AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: TimeoutError("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None
+2024-05-29 14:13:27,640, blocking_connection.py, 450, Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: TimeoutError("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None
+2024-05-29 14:13:27,640, blocking_connection.py, 457, Error in _create_connection().
+Traceback (most recent call last):
+  File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
