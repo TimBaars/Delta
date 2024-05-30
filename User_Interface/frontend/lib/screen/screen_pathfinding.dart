@@ -22,12 +22,7 @@ class _PathFindingScreenState extends State<PathFindingScreen> {
       setState(() {});
       return {};
     };
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    logic.function = () => {};
+    logic.updateFunctions();
   }
 
   @override

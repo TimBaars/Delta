@@ -20,14 +20,9 @@ class _HomeScreen extends State<HomeScreen> {
       setState(() {});
       return {};
     };
+    logic.updateFunctions();
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    logic.function = () => {};
-  }
-
+  
   _HomeScreen();
 
   @override

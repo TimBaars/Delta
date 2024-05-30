@@ -120,6 +120,8 @@ class Controller_RRT:
 
                 # First, get the weed centers
                 weed_centers, image = self.processor.process_segmentation_file()
+                self.status = "searching_path"
+                self.sendRobotUpdate()
 
                 # Iterate through each weed center, calculate the path, and move the robot
                 for weed_center in weed_centers:
@@ -131,7 +133,7 @@ class Controller_RRT:
 
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
-                    self.status = "searching_path"
+                    self.status = "optimizing_path"
                     # 'planned path ready'
                     self.sendMessages("planned_path")
                     
@@ -150,6 +152,7 @@ class Controller_RRT:
 
                         if self.receiveActuator():
                             self.status = "moving"
+                            self.sendRobotUpdate()
 
                             for position in scaled_path:
                                 x, y = position

@@ -36,7 +36,7 @@ class SystemStatusLogic {
     "running": "false",
   };
 
-  void updateFunction() {
+  void updateFunctions() {
     actuatorStatusLogic.function = function;
     deltaStatusLogic.function = function;
     maskedImageLogic.function = function;
