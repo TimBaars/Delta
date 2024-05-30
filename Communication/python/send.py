@@ -4,7 +4,7 @@ import pika
 
 # Establish a connection to RabbitMQ server
 host = '192.168.201.78'
-exchange_name = "system"
+exchange_name = "actuator"
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, credentials=pika.PlainCredentials('rabbitmq', 'pi')))
 
 # Create a channel
@@ -26,16 +26,12 @@ def generate_random_message():
     }
     running = random.choice(('true', 'false'))
     return {
-        "position": position,
-        "drilling": drilling,
-        "extended": extended,
-        "angle": angle,
-        "running": running
+        "running": False
     }
 
-# Main loop to send messages every 0.5 seconds
+# Main loop to send messages every 1.5 seconds
 x = 0
-while x < 20:
+while x < 1:
     message = generate_random_message()
     channel.basic_publish(exchange=exchange_name, routing_key='#*', body=str(message), properties=pika.BasicProperties(delivery_mode=2))
 

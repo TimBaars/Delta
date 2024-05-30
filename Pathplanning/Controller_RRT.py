@@ -100,7 +100,7 @@ class Controller_RRT:
         self.optimizer = PathOptimizer()
         self.robot_driver = DeltaRobotDriver(ip_address="192.168.3.11")
 
-    async def run(self):
+    def run(self):
         """Starting the process"""
         try:
             if self.stop == True:
@@ -136,26 +136,25 @@ class Controller_RRT:
                         # TODO addition of the time
                         self.status = "awaiting_actuator"
 
-                        await self.receiveActuator()
+                        if self.receiveActuator():
+                            self.status = "moving"
 
-                        self.status = "moving"
+                            for position in scaled_path:
+                                x, y = position
+                                x = x - (target_width/2)
+                                y = y - (target_height/2)
+                                print(f"Moving to: {x}, {y}")
+                                # time.sleep(1) # TODO remove the sleep
+                                self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
-                        for position in scaled_path:
-                            x, y = position
-                            x = x - (target_width/2)
-                            y = y - (target_height/2)
-                            print(f"Moving to: {x}, {y}")
-                            # time.sleep(1) # TODO remove the sleep
-                            self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
+                            # Update the start coordinates to the current weed center
+                            self.start_x, self.start_y = weed_center
 
-                        # Update the start coordinates to the current weed center
-                        self.start_x, self.start_y = weed_center
-
-                        # TODO Wait for feedback before continuing to the next path
-                        # while not self.robot_driver.get_feedback_ready():
-                        #     print("Waiting for feedback...")
-                        #     time.sleep(1)
-                        print("Point traversal complete.")
+                            # TODO Wait for feedback before continuing to the next path
+                            # while not self.robot_driver.get_feedback_ready():
+                            #     print("Waiting for feedback...")
+                            #     time.sleep(1)
+                            print("Point traversal complete.")
                 print("Path traversal complete.")
 
         except Exception:
