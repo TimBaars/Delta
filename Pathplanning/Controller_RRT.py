@@ -69,16 +69,19 @@ class Controller_RRT:
         self.manager.setup_consumer('actuator', self.actuator_callback)
         self.manager.start_consuming()
 
-        while (self.await_actuator):
-            print("Waiting for actuator...")
-            time.sleep(0.1)
+        # while (self.await_actuator):
+        #     print("Waiting for actuator...")
+        #     time.sleep(0.1)
+
+        # ToDo threading and listening
+        # self.actuator_callback(None, None, None, None)
+        return True
 
     def __init__(self):
         self.status = "shutdown"
         self.stop = True
         self.manager = RabbitMQManager(host='192.168.201.78', username='python', password='python')
         self.manager.setup_consumer('system', self.system_callback)
-        self.manager.start_consuming()
         
         try:
             os.system("rm -rf Pathplanning/media")
