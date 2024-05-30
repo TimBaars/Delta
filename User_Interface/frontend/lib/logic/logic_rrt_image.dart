@@ -12,7 +12,7 @@ void main() {
 class RrtImageLogic {
   final String endpointAddition = "rrt";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = List<Function>.empty(growable: true);
+  var function = () => {};
   Map<String, dynamic> json = {
     "url": "$IMAGEHOST/rrt_image.png",
     "time": 0,
@@ -30,7 +30,7 @@ class RrtImageLogic {
       if (response.statusCode == 200) {
         imageCache.addImage(response.bodyBytes.buffer.asUint8List());
 
-        function.forEach((fn) => fn());
+        function();
       }
     });
   }

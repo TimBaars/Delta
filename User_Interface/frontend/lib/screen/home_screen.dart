@@ -16,15 +16,6 @@ class _HomeScreen extends State<HomeScreen> {
   _HomeScreen();
 
   @override
-  void initState() {
-    super.initState();
-    logic.function.add(() {
-      setState(() {});
-      return {};
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(

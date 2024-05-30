@@ -14,15 +14,16 @@ class _DataPointsSystemWidgetState extends State<DataPointsSystemWidget> {
   @override
   void initState() {
     super.initState();
-    widget.logic.function.add(() {
+    widget.logic.function = () {
       setState(() {});
       return {};
-    });
+    };
   }
 
   @override
   void dispose() {
     super.dispose();
+    widget.logic.function = () => {};
   }
 
   @override

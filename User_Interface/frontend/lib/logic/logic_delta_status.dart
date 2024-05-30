@@ -11,7 +11,7 @@ void main() {
 class DeltaStatusLogic {
   final String endpointAddition = "delta";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = List<Function>.empty(growable: true);
+  var function = () => {};
   Map<String, dynamic> json = {
     "position": {"x": 0, "y": 0, "z": 0},
     "status": "stopped",
@@ -42,14 +42,11 @@ class DeltaStatusLogic {
             
             if (jsonResult.toString() != json.toString()) {
               if (historicalData.length > 10) historicalData.removeAt(0);
-              print("dumbPrint1");
               historicalData.add(json);
-              print("dumbPrint2");
 
               setJson(jsonResult);
-              print("dumbPrint3");
 
-              function.forEach((fn) => fn());
+              function();
             }
           }
 
