@@ -31,7 +31,7 @@ class SystemStatusLogic {
   final String endpointAddition = "system";
   var running = false;
   var initialized = false;
-  var function = List<Function>.empty(growable: true);
+  var function = () => {};
   Map<String, dynamic> json = {
     "running": "false",
   };
@@ -81,7 +81,7 @@ class SystemStatusLogic {
 
             setJson(jsonResult);
 
-            function.forEach((fn) => fn());
+            function();
           }
         }
 
@@ -102,7 +102,7 @@ class SystemStatusLogic {
 
     json["running"] = running ? "true" : "false";
 
-    function.forEach((fn) => fn());
+    function();
 
     apiManager.sendData(endpointAddition, json);
   }

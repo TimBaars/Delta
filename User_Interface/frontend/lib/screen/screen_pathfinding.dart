@@ -16,16 +16,6 @@ class _PathFindingScreenState extends State<PathFindingScreen> {
   final SystemStatusLogic logic = SystemStatusLogic();
 
   @override
-  void initState() {
-    super.initState();
-
-    logic.deltaStatusLogic.function.add(() {
-      setState(() {});
-      return {};
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(

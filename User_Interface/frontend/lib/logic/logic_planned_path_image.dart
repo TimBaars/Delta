@@ -12,7 +12,7 @@ void main() {
 class PlannedPathImageLogic {
   final String endpointAddition = "planned_path";
   final List<Map<String, dynamic>> historicalData = [];
-  var function = List<Function>.empty(growable: true);
+  var function = () => {};
   Map<String, dynamic> json = {
     "url": "$IMAGEHOST/planned_path.jpg",
     "time": 0,
@@ -30,7 +30,7 @@ class PlannedPathImageLogic {
       if (response.statusCode == 200) {
         imageCache.addImage(response.bodyBytes.buffer.asUint8List());
 
-        function.forEach((fn) => fn());
+        function();
       }
     });
   }
