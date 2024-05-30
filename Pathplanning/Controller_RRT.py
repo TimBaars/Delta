@@ -36,6 +36,7 @@ class Controller_RRT:
     
     def sendRobotUpdate(self):
         current_position = self.robot_driver.get_current_position()
+        print(f"Current position: {current_position}")
         mapping = ["x", "y", "z"]
         position = {mapping[i]: current_position[i] for i in range(3)}
 
