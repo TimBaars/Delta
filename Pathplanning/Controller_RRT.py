@@ -1,5 +1,6 @@
 import json
 import logging
+import threading
 import traceback
 import cv2
 import os
@@ -81,6 +82,10 @@ class Controller_RRT:
         # ToDo threading and listening
         # self.actuator_callback(None, None, None, None)
         return True
+    
+    def sendDataUpdate(self):
+        time.sleep(0.1)
+        self.sendRobotUpdate()
 
     def __init__(self):
         self.status = "shutdown"
@@ -114,6 +119,9 @@ class Controller_RRT:
 
     def run(self):
         """Starting the process"""
+
+        threading.Thread(target=self.sendDataUpdate).start()
+
         try:
             if self.stop == True:
                 print("Starting the process")
