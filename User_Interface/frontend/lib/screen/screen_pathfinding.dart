@@ -14,6 +14,21 @@ class PathFindingScreen extends StatefulWidget {
 
 class _PathFindingScreenState extends State<PathFindingScreen> {
   final SystemStatusLogic logic = SystemStatusLogic();
+  
+  @override
+  void initState() {
+    super.initState();
+    logic.function = () {
+      setState(() {});
+      return {};
+    };
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    logic.function = () => {};
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -12,21 +12,6 @@ class OptimizedPathImageWidget extends StatefulWidget {
 
 class _OptimizedPathImageWidgetState extends State<OptimizedPathImageWidget> {
   @override
-  void initState() {
-    super.initState();
-    widget.logic.function = () {
-      setState(() {});
-      return {};
-    };
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.logic.function = () => {};
-  }
-  
-  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [

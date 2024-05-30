@@ -14,21 +14,6 @@ class DeltaRobotStatusButtonWidget extends StatefulWidget {
 class _DeltaRobotStatusButtonWidgetState extends State<DeltaRobotStatusButtonWidget> {
   final TextEditingController _buttonTextController = TextEditingController();
   
-  @override
-  void initState() {
-    super.initState();
-    widget.logic.function = () {
-      setState(() {});
-      return {};
-    };
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.logic.function = () => {};
-  }
-
   void _onButtonClick() {
     if (widget.logic.running) {
       widget.logic.stop();

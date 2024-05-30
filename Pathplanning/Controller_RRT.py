@@ -50,7 +50,8 @@ class Controller_RRT:
         # turn message into JSON
         message = json.dumps({"position": position, "status": status, "velocity": velocity, "direction": direction})
 
-        self.manager.send_message('delta', message)
+        self.sender.send_message('delta', message)
+        self.sender.send_message('delta', message)
     
     def sendImageUpdate(self, location):
         date = time.gmtime()
@@ -59,7 +60,8 @@ class Controller_RRT:
         # turn message into JSON
         message = json.dumps({"url": endpoint, "date": date})
 
-        self.manager.send_message(location, message)
+        self.sender.send_message(location, message)
+        self.sender.send_message(location, message)
     
     def sendMessages(self, image_name):
         self.sendRobotUpdate()
@@ -67,8 +69,8 @@ class Controller_RRT:
 
     def receiveActuator(self):
         self.await_actuator = True
-        self.manager.setup_consumer('actuator', self.actuator_callback)
-        self.manager.start_consuming()
+        self.receiver.setup_consumer('actuator', self.actuator_callback)
+        self.receiver.start_consuming()
 
         # while (self.await_actuator):
         #     print("Waiting for actuator...")
@@ -81,8 +83,9 @@ class Controller_RRT:
     def __init__(self):
         self.status = "shutdown"
         self.stop = True
-        self.manager = RabbitMQManager(host='192.168.201.78', username='python', password='python')
-        self.manager.setup_consumer('system', self.system_callback)
+        self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
+        self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+        self.receiver.setup_consumer('system', self.system_callback)
         
         try:
             os.system("rm -rf Pathplanning/media")
@@ -136,12 +139,12 @@ class Controller_RRT:
                         scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
                         #print(f"Scaled path: {scaled_path}")
                         # 'optimized path ready'
-                        self.sendMessages("optimized_path")
-
+                        self.status = "awaiting_actuator"
                         # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
                         # TODO addition of the time
-                        self.status = "awaiting_actuator"
+                        self.sendMessages("optimized_path")
+
 
                         if self.receiveActuator():
                             self.status = "moving"

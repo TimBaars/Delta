@@ -36,6 +36,16 @@ class SystemStatusLogic {
     "running": "false",
   };
 
+  void updateFunction() {
+    actuatorStatusLogic.function = function;
+    deltaStatusLogic.function = function;
+    maskedImageLogic.function = function;
+    rrtImageLogic.function = function;
+    groundTruthImageLogic.function = function;
+    plannedPathImageLogic.function = function;
+    optimizedPathImageLogic.function = function;
+  }
+
   factory SystemStatusLogic() {
     return _singleton;
   }

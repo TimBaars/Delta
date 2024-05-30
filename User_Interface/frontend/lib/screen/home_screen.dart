@@ -12,6 +12,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
   final SystemStatusLogic logic = SystemStatusLogic();
+  
+  @override
+  void initState() {
+    super.initState();
+    logic.function = () {
+      setState(() {});
+      return {};
+    };
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    logic.function = () => {};
+  }
 
   _HomeScreen();
 

@@ -16,21 +16,6 @@ class DataPointsWidget extends StatefulWidget {
 
 class _DataPointsWidgetState extends State<DataPointsWidget> {
   @override
-  void initState() {
-    super.initState();
-    widget.logic.function = () {
-      setState(() {});
-      return {};
-    };
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.logic.function = () => {};
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[

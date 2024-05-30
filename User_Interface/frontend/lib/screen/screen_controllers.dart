@@ -4,9 +4,32 @@ import 'package:frontend/widgets/widget_ground_truth_image.dart';
 import 'package:frontend/widgets/widget_rrt_image.dart';
 import '../widgets/widget_start_stop.dart';
 
-class ControllerScreen extends StatelessWidget {
-  late final SystemStatusLogic logic = SystemStatusLogic();
+class ControllerScreen extends StatefulWidget {
   ControllerScreen({super.key});
+
+  @override
+  _ControllerScreen createState() => _ControllerScreen();
+}
+
+class _ControllerScreen extends State<ControllerScreen> {
+  late final SystemStatusLogic logic = SystemStatusLogic();
+  _ControllerScreen();
+  
+  @override
+  void initState() {
+    super.initState();
+    logic.function = () {
+      setState(() {});
+      return {};
+    };
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    logic.function = () => {};
+  }
+
 
   @override
   Widget build(BuildContext context) {

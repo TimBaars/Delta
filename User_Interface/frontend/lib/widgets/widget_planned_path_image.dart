@@ -12,21 +12,6 @@ class PlannedPathImageWidget extends StatefulWidget {
 
 class _PlannedPathImageWidgetState extends State<PlannedPathImageWidget> {
   @override
-  void initState() {
-    super.initState();
-    widget.logic.function = () {
-      setState(() {});
-      return {};
-    };
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.logic.function = () => {};
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
