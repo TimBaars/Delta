@@ -29,10 +29,6 @@ class Controller_RRT:
         self.stop = json.loads(body)['running'] != "true"
         self.status = "shutdown"
 
-    def system_callback_thread(self):
-        self.receiver.setup_consumer('system', self.system_callback)
-        self.receiver.start_consuming()
-
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
         self.await_actuator = False
@@ -68,8 +64,8 @@ class Controller_RRT:
 
     def receiveActuator(self):
         self.await_actuator = True
-        self.sender.setup_consumer('actuator', self.actuator_callback)
-        self.sender.start_consuming()
+        self.receiver.setup_consumer('actuator', self.actuator_callback)
+        self.receiver.start_consuming()
 
     def sendDataUpdate(self):
         while not self.stop:
@@ -109,9 +105,8 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         data_update_thread = threading.Thread(target=self.sendDataUpdate)
-        data_thread = threading.Thread(target=self.system_callback_thread)
+        data_
         data_update_thread.start()
-        data_thread.start()
 
         try:
             self.number = random.randint(1, 4)
