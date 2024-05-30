@@ -16,7 +16,7 @@ class DeltaStatusLogic {
     "position": {"x": 0, "y": 0, "z": 0},
     "status": "stopped",
     "velocity": 0,
-    "direction": {"from_x": 0, "from_y": 0, "to_x": 0, "to_y": 0},
+    "direction": {"from x": 0, "from y": 0, "to x": 0, "to y": 0},
   };
 
   DeltaStatusLogic();
@@ -36,13 +36,18 @@ class DeltaStatusLogic {
           String body = result.body;
 
           if (body != "") {
-            var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
-
+            print(body);
+            var tempResult = jsonDecode(body.toLowerCase().replaceAll("\'", "\""));
+            var jsonResult = jsonDecode(tempResult);
+            
             if (jsonResult.toString() != json.toString()) {
               if (historicalData.length > 10) historicalData.removeAt(0);
+              print("dumbPrint1");
               historicalData.add(json);
+              print("dumbPrint2");
 
               setJson(jsonResult);
+              print("dumbPrint3");
 
               function.forEach((fn) => fn());
             }
