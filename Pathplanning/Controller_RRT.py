@@ -115,6 +115,7 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         try:
+            self.status = "waiting for start"
             if self.stop == True:
                 print("Starting the process")
 
@@ -134,6 +135,7 @@ class Controller_RRT:
                     # Calculate the path to the current weed center
                     path = self.calculate_path(self.Calculating_Coords, image)
                     self.status = "optimizing_path"
+                    self.sendRobotUpdate()
                     # 'planned path ready'
                     self.sendMessages("planned_path")
                     
@@ -144,6 +146,7 @@ class Controller_RRT:
                         #print(f"Scaled path: {scaled_path}")
                         # 'optimized path ready'
                         self.status = "awaiting_actuator"
+                        self.sendRobotUpdate()
                         # TODO add wait for go to next path message = Communication.recieve('topic')
                         # Move the robot to each point in the scaled path
                         # TODO addition of the time
