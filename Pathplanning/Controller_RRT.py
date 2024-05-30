@@ -6,6 +6,7 @@ import cv2
 import os
 import sys
 import time
+import random
 
 from Pathplanning.RabbitMQManager import RabbitMQManager
 
@@ -99,7 +100,7 @@ class Controller_RRT:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implementation with another group
-        self.number = 4  # random.randint(1, 18)
+        self.number =  # random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
         img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
         self.start_x = 0  # Needs to be determined when working with the robot.
@@ -122,6 +123,11 @@ class Controller_RRT:
         threading.Thread(target=self.sendDataUpdate).start()
 
         try:
+            self.number =  random.randint(1, 4)
+            txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
+            img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
+            self.processor = SegmentationProcessor(txt_path, img_path)
+
             self.status = "waiting for start"
             if self.stop == True:
                 # First, get the weed centers
