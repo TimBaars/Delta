@@ -9,8 +9,6 @@ if __name__ == "__main__":
     while True:
         try: 
             controller.run()
-            print("------------------------- Sleeping for 5 seconds -------------------------")
-            time.sleep(5)
         except KeyboardInterrupt:
             print("Exiting")
             controller.robot_driver.shutdown_robot()
