@@ -24,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     'Controllers',
     'Data',
     'Pathfinding',
+    'Override',
   ];
 
   void _onItemTapped(int index) {
@@ -70,6 +71,11 @@ class _MainScreenState extends State<MainScreen> {
                 icon: Icon(Icons.pattern),
                 selectedIcon: Icon(Icons.pattern_outlined),
                 label: Text('Pathfinding'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.admin_panel_settings),
+                selectedIcon: Icon(Icons.admin_panel_settings_outlined),
+                label: Text('Override'),
               ),
             ],
           ),

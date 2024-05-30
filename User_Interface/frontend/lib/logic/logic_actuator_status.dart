@@ -36,7 +36,8 @@ class ActuatorStatusLogic {
           String body = result.body;
 
           if (body != "") {
-            var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
+            var tempResult = jsonDecode(body.replaceAll("\'", "\""));
+            var jsonResult = jsonDecode(tempResult);
 
             if (jsonResult.toString() != json.toString()) {
               if (historicalData.length > 10) historicalData.removeAt(0);
