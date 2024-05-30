@@ -100,7 +100,7 @@ class Controller_RRT:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implementation with another group
-        self.number =  # random.randint(1, 18)
+        self.number = 4 # random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
         img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
         self.start_x = 0  # Needs to be determined when working with the robot.
