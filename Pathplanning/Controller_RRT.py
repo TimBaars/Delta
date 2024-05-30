@@ -26,46 +26,38 @@ target_height = 300
 class Controller_RRT:
     def system_callback(self, ch, method, properties, body):
         print(f" [Python] Received from system_exchange: {body}")
-
         self.stop = json.loads(body)['running'] != "true"
         self.status = "shutdown"
 
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
-        
         self.await_actuator = False
         ch.stop_consuming()
-    
+
     def sendRobotUpdate(self):
         current_position = self.robot_driver.get_current_position()
-        length = len(current_position)
-        if length < 3:
+        if current_position is None or len(current_position) < 3:
             current_position = [9999, 9999, 9999]
         mapping = ["x", "y", "z"]
         position = {mapping[i]: current_position[i] for i in range(3)}
         print(f"status = {self.status}")
-        status = self.status # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
-        velocity = self.robot_velocity # TODO get actual velocity
-        
+        status = self.status  # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
+        velocity = self.robot_velocity  # TODO get actual velocity
         mapping = ["from_x", "from_y", "to_x", "to_y"]
-        direction = {mapping[i]: self.Calculating_Coords[i] for i in range(4)} # TODO get actual direction
+        direction = {mapping[i]: self.Calculating_Coords[i] for i in range(4)}  # TODO get actual direction
 
         # turn message into JSON
         message = json.dumps({"position": position, "status": status, "velocity": velocity, "direction": direction})
+        self.sender.send_message('delta', message)
 
-        self.sender.send_message('delta', message)
-        self.sender.send_message('delta', message)
-    
     def sendImageUpdate(self, location):
         date = time.gmtime()
         endpoint = f"http://192.168.201.78/images/{location}.jpg"
 
         # turn message into JSON
         message = json.dumps({"url": endpoint, "date": date})
+        self.sender.send_message(location, message)
 
-        self.sender.send_message(location, message)
-        self.sender.send_message(location, message)
-    
     def sendMessages(self, image_name):
         self.sendRobotUpdate()
         self.sendImageUpdate(image_name)
@@ -75,17 +67,10 @@ class Controller_RRT:
         self.receiver.setup_consumer('actuator', self.actuator_callback)
         self.receiver.start_consuming()
 
-        # while (self.await_actuator):
-        #     print("Waiting for actuator...")
-        #     time.sleep(0.1)
-
-        # ToDo threading and listening
-        # self.actuator_callback(None, None, None, None)
-        return True
-    
     def sendDataUpdate(self):
-        time.sleep(0.1)
-        self.sendRobotUpdate()
+        while not self.stop:
+            time.sleep(0.1)
+            self.sendRobotUpdate()
 
     def __init__(self):
         self.status = "shutdown"
@@ -93,14 +78,14 @@ class Controller_RRT:
         self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
         self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
         self.receiver.setup_consumer('system', self.system_callback)
-        
+
         try:
             os.system("rm -rf Pathplanning/media")
         except:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implementation with another group
-        self.number = 4 # random.randint(1, 18)
+        self.number = 4  # random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
         img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
         self.start_x = 0  # Needs to be determined when working with the robot.
@@ -119,11 +104,11 @@ class Controller_RRT:
 
     def run(self):
         """Starting the process"""
-
-        threading.Thread(target=self.sendDataUpdate).start()
+        data_update_thread = threading.Thread(target=self.sendDataUpdate)
+        data_update_thread.start()
 
         try:
-            self.number =  random.randint(1, 4)
+            self.number = random.randint(1, 4)
             txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
             img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
             self.processor.txt_path = txt_path
@@ -150,39 +135,31 @@ class Controller_RRT:
                     self.sendRobotUpdate()
                     # 'planned path ready'
                     self.sendMessages("planned_path")
-                    
+
                     # If a path is found, scale the coordinates and move the robot
                     if path:
                         # Scale the coordinates
                         scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
-                        #print(f"Scaled path: {scaled_path}")
-                        # 'optimized path ready'
                         self.status = "awaiting_actuator"
                         self.sendRobotUpdate()
-                        # TODO add wait for go to next path message = Communication.recieve('topic')
-                        # Move the robot to each point in the scaled path
-                        # TODO addition of the time
                         self.sendMessages("optimized_path")
 
+                        actuator_thread = threading.Thread(target=self.receiveActuator)
+                        actuator_thread.start()
+                        actuator_thread.join()
 
-                        if self.receiveActuator():
+                        if self.await_actuator == False:
                             self.status = "moving"
                             self.sendRobotUpdate()
 
                             for position in scaled_path:
                                 x, y = position
-                                x = x - (target_width/2)
-                                y = y - (target_height/2)
-                                # time.sleep(1) # TODO remove the sleep
+                                x = x - (target_width / 2)
+                                y = y - (target_height / 2)
                                 self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                             # Update the start coordinates to the current weed center
                             self.start_x, self.start_y = weed_center
-
-                            # TODO Wait for feedback before continuing to the next path
-                            # while not self.robot_driver.get_feedback_ready():
-                            #     print("Waiting for feedback...")
-                            #     time.sleep(1)
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info
@@ -206,9 +183,6 @@ class Controller_RRT:
             path_coordinates = []
             cv2.imwrite("Pathplanning/temp.jpg", img_color)
 
-            #print(f"Planning algorithm from {coords[0]}, {coords[1]} to {coords[2]}, {coords[3]}")
-            x_list = []
-            y_list = []
             # Ensure coordinates are integers
             int_coords = list(map(int, coords))
             # Run the RRT algorithm
@@ -224,13 +198,11 @@ class Controller_RRT:
 
             # Convert nodes to flat list
             flat_nodes = convert_to_tuples(x_list, y_list)
-            #print(f"Flat Path: {flat_nodes}")
 
             # OPTIMIZE the path
             self.optimizer.load_image("Pathplanning/out.jpg")
             optimized_nodes = self.optimizer.optimize_path(flat_nodes)
             self.optimizer.visualize_path(flat_nodes, optimized_nodes)
-            #print(f"Optimized Path: {optimized_nodes}")
 
             return optimized_nodes
 
