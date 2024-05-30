@@ -126,11 +126,11 @@ class Controller_RRT:
             if self.stop == True:
                 # First, get the weed centers
                 weed_centers, image = self.processor.process_segmentation_file()
-                self.status = "searching_path"
-                self.sendRobotUpdate()
 
                 # Iterate through each weed center, calculate the path, and move the robot
                 for weed_center in weed_centers:
+                    self.status = "searching_path"
+                    self.sendRobotUpdate()
                     # Update the coordinates for the current weed center
                     self.Calculating_Coords[0] = self.start_x
                     self.Calculating_Coords[1] = self.start_y
