@@ -6,6 +6,7 @@ import cv2
 import os
 import sys
 import time
+import random
 
 from Pathplanning.RabbitMQManager import RabbitMQManager
 
@@ -40,10 +41,9 @@ class Controller_RRT:
         length = len(current_position)
         if length < 3:
             current_position = [9999, 9999, 9999]
-        print(current_position)
         mapping = ["x", "y", "z"]
         position = {mapping[i]: current_position[i] for i in range(3)}
-
+        print(f"status = {self.status}")
         status = self.status # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
         velocity = self.robot_velocity # TODO get actual velocity
         
@@ -100,7 +100,7 @@ class Controller_RRT:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implementation with another group
-        self.number = 4  # random.randint(1, 18)
+        self.number = 4 # random.randint(1, 18)
         txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
         img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
         self.start_x = 0  # Needs to be determined when working with the robot.
@@ -123,17 +123,21 @@ class Controller_RRT:
         threading.Thread(target=self.sendDataUpdate).start()
 
         try:
+            self.number =  random.randint(1, 4)
+            txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
+            img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
+            self.processor.txt_path = txt_path
+            self.processor.img_path = img_path
+
             self.status = "waiting for start"
             if self.stop == True:
-                print("Starting the process")
-
                 # First, get the weed centers
                 weed_centers, image = self.processor.process_segmentation_file()
-                self.status = "searching_path"
-                self.sendRobotUpdate()
 
                 # Iterate through each weed center, calculate the path, and move the robot
                 for weed_center in weed_centers:
+                    self.status = "searching_path"
+                    self.sendRobotUpdate()
                     # Update the coordinates for the current weed center
                     self.Calculating_Coords[0] = self.start_x
                     self.Calculating_Coords[1] = self.start_y
@@ -169,7 +173,6 @@ class Controller_RRT:
                                 x, y = position
                                 x = x - (target_width/2)
                                 y = y - (target_height/2)
-                                print(f"Moving to: {x}, {y}")
                                 # time.sleep(1) # TODO remove the sleep
                                 self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
@@ -180,8 +183,6 @@ class Controller_RRT:
                             # while not self.robot_driver.get_feedback_ready():
                             #     print("Waiting for feedback...")
                             #     time.sleep(1)
-                            print("Point traversal complete.")
-                print("Path traversal complete.")
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info
@@ -205,7 +206,7 @@ class Controller_RRT:
             path_coordinates = []
             cv2.imwrite("Pathplanning/temp.jpg", img_color)
 
-            print(f"Planning algorithm from {coords[0]}, {coords[1]} to {coords[2]}, {coords[3]}")
+            #print(f"Planning algorithm from {coords[0]}, {coords[1]} to {coords[2]}, {coords[3]}")
             x_list = []
             y_list = []
             # Ensure coordinates are integers
