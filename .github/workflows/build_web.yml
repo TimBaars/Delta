@@ -41,7 +41,7 @@ jobs:
       - name: Merge temporary branch into main
         run: |
           git checkout main
-          git merge --no-edit temp-branch
+          git merge --strategy-option theirs temp-branch
           git push origin main
 
       - name: Delete temporary branch
