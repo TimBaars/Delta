@@ -73,9 +73,9 @@ class _OverrideScreenState extends State<OverrideScreen> {
       case 3:
         return LocationButtonContainer(title: 'Delta Control', value: "...", endpointAddition: "delta", json: "");
       case 4:
-        return LocationButtonContainer(title: 'Delta Finished Moving', value: "Trigger Actuator", endpointAddition: "actuator", json: "{\"running\": \"true\"}");
+        return LocationButtonContainer(title: 'Delta Finished Moving', value: "Trigger Actuator", endpointAddition: "actuator", json: "{\"drilling\": \"true\", \"extended\": \"false\"}");
       case 5:
-        return LocationButtonContainer(title: 'Actuator Finished', value: "Trigger Delta", endpointAddition: "actuator", json: "{\"running\": \"false\"}");
+        return LocationButtonContainer(title: 'Actuator Finished', value: "Trigger Delta", endpointAddition: "actuator", json: "{\"drilling\": \"false\", \"extended\": \"true\"}");
       default:
         return Text('Container ${index + 1}');
     }

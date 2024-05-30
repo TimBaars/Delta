@@ -37,8 +37,11 @@ class DeltaStatusLogic {
 
           if (body != "") {
             print(body);
-            var tempResult = jsonDecode(body.toLowerCase().replaceAll("\'", "\""));
-            var jsonResult = jsonDecode(tempResult);
+            var jsonResult = jsonDecode(body.toLowerCase().replaceAll("\'", "\""));
+            
+            if (jsonResult is String) {
+              jsonResult = jsonDecode(jsonResult);
+            }
             
             if (jsonResult.toString() != json.toString()) {
               if (historicalData.length > 10) historicalData.removeAt(0);
