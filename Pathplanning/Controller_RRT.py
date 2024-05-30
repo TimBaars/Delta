@@ -126,7 +126,8 @@ class Controller_RRT:
             self.number =  random.randint(1, 4)
             txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
             img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
-            self.processor = SegmentationProcessor(txt_path, img_path)
+            self.processor.txt_path = txt_path
+            self.processor.img_path = img_path
 
             self.status = "waiting for start"
             if self.stop == True:
