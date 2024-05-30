@@ -145,7 +145,7 @@ class Controller_RRT:
                             x = x - (target_width/2)
                             y = y - (target_height/2)
                             print(f"Moving to: {x}, {y}")
-                            time.sleep(1) # TODO remove the sleep
+                            # time.sleep(1) # TODO remove the sleep
                             self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                         # Update the start coordinates to the current weed center
