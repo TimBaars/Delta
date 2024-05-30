@@ -69009,35 +69009,35 @@ A.a_W.prototype={}
 A.Rw.prototype={
 aQ(a,b){return this.a81(0,b)},
 hv(a){return this.aQ(0,null)},
-a81(a,b){var s=0,r=A.U(t.H),q=1,p,o=this,n,m,l,k,j,i,h,g,f
+a81(a,b){var s=0,r=A.U(t.H),q=1,p,o=this,n,m,l,k,j,i,h,g
 var $async$aQ=A.V(function(c,d){if(c===1){p=d
 s=q}while(true)switch(s){case 0:b=b
-i=t.z
+j=t.z
 s=2
-return A.Q(A.dL(A.bC(0,500,0),null,i),$async$aQ)
+return A.Q(A.dL(A.bC(0,500,0),null,j),$async$aQ)
 case 2:q=4
 s=$.lE().x?7:8
 break
 case 7:s=9
 return A.Q(A.lw("actuator",b),$async$aQ)
 case 9:n=d
-if(n.b===200){h=n
-m=A.AH(A.Ay(h.e).c.a.j(0,"charset")).cT(0,h.w)
+if(n.b===200){i=n
+m=A.AH(A.Ay(i.e).c.a.j(0,"charset")).cT(0,i.w)
 if(!J.e(m,"")){l=B.ai.hT(0,A.fu(m,"'",'"'),null)
-k=B.ai.hT(0,l,null)
-if(J.bH(k)!==J.bH(o.e)){h=o.b
-if(h.length>10)B.b.cI(h,0)
-h.push(o.e)
-o.e=k
+if(typeof l=="string")l=B.ai.hT(0,l,null)
+if(J.bH(l)!==J.bH(o.e)){i=o.b
+if(i.length>10)B.b.cI(i,0)
+i.push(o.e)
+o.e=l
 o.d.$0()}}b=new A.d4(Date.now(),!1)}case 8:q=1
 s=6
 break
 case 4:q=3
-f=p
-j=A.ag(f)
+g=p
+k=A.ag(g)
 s=10
-return A.Q(A.dL(A.bC(0,500,0),null,i),$async$aQ)
-case 10:A.d_("SystemStatusLogic request error: "+A.h(j))
+return A.Q(A.dL(A.bC(0,500,0),null,j),$async$aQ)
+case 10:A.d_("SystemStatusLogic request error: "+A.h(k))
 s=6
 break
 case 3:s=1
@@ -69053,37 +69053,37 @@ $S:7}
 A.TR.prototype={
 aQ(a,b){return this.a82(0,b)},
 hv(a){return this.aQ(0,null)},
-a82(a,b){var s=0,r=A.U(t.H),q=1,p,o=this,n,m,l,k,j,i,h,g,f
+a82(a,b){var s=0,r=A.U(t.H),q=1,p,o=this,n,m,l,k,j,i,h,g
 var $async$aQ=A.V(function(c,d){if(c===1){p=d
 s=q}while(true)switch(s){case 0:b=b
-i=t.z
+j=t.z
 s=2
-return A.Q(A.dL(A.bC(0,500,0),null,i),$async$aQ)
+return A.Q(A.dL(A.bC(0,500,0),null,j),$async$aQ)
 case 2:q=4
 s=$.lE().x?7:8
 break
 case 7:s=9
 return A.Q(A.lw("delta",b),$async$aQ)
 case 9:n=d
-if(n.b===200){h=n
-m=A.AH(A.Ay(h.e).c.a.j(0,"charset")).cT(0,h.w)
+if(n.b===200){i=n
+m=A.AH(A.Ay(i.e).c.a.j(0,"charset")).cT(0,i.w)
 if(!J.e(m,"")){A.d_(m)
-h=m.toLowerCase()
-l=B.ai.hT(0,A.fu(h,"'",'"'),null)
-k=B.ai.hT(0,l,null)
-if(J.bH(k)!==J.bH(o.d)){h=o.b
-if(h.length>10)B.b.cI(h,0)
-h.push(o.d)
-o.d=k
+i=m.toLowerCase()
+l=B.ai.hT(0,A.fu(i,"'",'"'),null)
+if(typeof l=="string")l=B.ai.hT(0,l,null)
+if(J.bH(l)!==J.bH(o.d)){i=o.b
+if(i.length>10)B.b.cI(i,0)
+i.push(o.d)
+o.d=l
 o.c.$0()}}b=new A.d4(Date.now(),!1)}case 8:q=1
 s=6
 break
 case 4:q=3
-f=p
-j=A.ag(f)
+g=p
+k=A.ag(g)
 s=10
-return A.Q(A.dL(A.bC(0,500,0),null,i),$async$aQ)
-case 10:A.d_("SystemStatusLogic request error: "+A.h(j))
+return A.Q(A.dL(A.bC(0,500,0),null,j),$async$aQ)
+case 10:A.d_("SystemStatusLogic request error: "+A.h(k))
 s=6
 break
 case 3:s=1
@@ -69427,14 +69427,14 @@ s.z=new A.a9u(this)
 s.qm()},
 O(a){var s=this,r=null,q=t.p
 return A.wh(r,A.ip(A.a([A.dK(A.pQ(A.a([new A.cG(r,A.a([s.eN(0),s.eN(1)],q)),new A.cG(r,A.a([s.eN(2),s.eN(3)],q)),new A.cG(r,A.a([s.eN(4),s.eN(5)],q))],t.xR),B.vT),1)],q),B.G,B.T,B.I))},
-eN(a){var s='{"running": "false"}',r=null,q='{"running": "true"}',p="Delta Control",o="actuator"
-switch(a){case 0:return new A.jb("System","Stop","system",s,r)
-case 1:return new A.jb("System","Start","system",q,r)
-case 2:return new A.jb(p,"...","delta","",r)
-case 3:return new A.jb(p,"...","delta","",r)
-case 4:return new A.jb("Delta Finished Moving","Trigger Actuator",o,q,r)
-case 5:return new A.jb("Actuator Finished","Trigger Delta",o,s,r)
-default:return A.b3("Container "+(a+1),r,r)}}}
+eN(a){var s=null,r="Delta Control",q="actuator"
+switch(a){case 0:return new A.jb("System","Stop","system",'{"running": "false"}',s)
+case 1:return new A.jb("System","Start","system",'{"running": "true"}',s)
+case 2:return new A.jb(r,"...","delta","",s)
+case 3:return new A.jb(r,"...","delta","",s)
+case 4:return new A.jb("Delta Finished Moving","Trigger Actuator",q,'{"drilling": "true", "extended": "false"}',s)
+case 5:return new A.jb("Actuator Finished","Trigger Delta",q,'{"drilling": "false", "extended": "true"}',s)
+default:return A.b3("Container "+(a+1),s,s)}}}
 A.a9u.prototype={
 $0(){this.a.ar(new A.a9t())
 var s=t.z
