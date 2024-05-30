@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screen/screen_controllers.dart';
 import 'package:frontend/screen/screen_data.dart';
+import 'package:frontend/screen/screen_override.dart';
 import 'package:frontend/screen/screen_pathfinding.dart';
 import 'package:frontend/screen/home_screen.dart';
 
@@ -17,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     ControllerScreen(),
     DataScreen(),
     PathFindingScreen(),
+    OverrideScreen(),
   ];
 
   final List<String> _titles = [

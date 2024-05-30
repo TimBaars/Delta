@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -32,7 +33,6 @@ class _OverrideScreenState extends State<OverrideScreen> {
       body: Row(
         children: <Widget>[
           Expanded(
-            flex: 1,
             child: Table(
               children: [
                 TableRow(
@@ -65,9 +65,9 @@ class _OverrideScreenState extends State<OverrideScreen> {
   Widget getContainerContent(int index) {
     switch (index) {
       case 0:
-        return LocationButtonContainer(title: 'System', value: "Stop", endpointAddition: "system", json: "{\"status\": \"false\"}");
+        return LocationButtonContainer(title: 'System', value: "Stop", endpointAddition: "system", json: "{\"running\": \"false\"}");
       case 1:
-        return LocationButtonContainer(title: 'System', value: "Start", endpointAddition: "system", json: "{\"status\": \"true\"}");
+        return LocationButtonContainer(title: 'System', value: "Start", endpointAddition: "system", json: "{\"running\": \"true\"}");
       case 2:
         return LocationButtonContainer(title: 'Delta Control', value: "...", endpointAddition: "delta", json: "");
       case 3:
@@ -93,21 +93,18 @@ class LocationButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       height: 200, // Set the height of the container
-      padding: EdgeInsets.all(8.0),
-      margin: EdgeInsets.all(4.0),
+      width: 200, // Set the height of the container
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           SizedBox(height: 8),
           // This is where you'd fetch and display data from the server
-          TextButton(
+          ElevatedButton(
             onPressed: () {
-              if (json == "") return
-              
-              OverrideStatusLogic().override(endpointAddition, json);
+              print("json: $json");
+              if (json != "") OverrideStatusLogic.override(endpointAddition, jsonDecode(json));
             },
             child: Text(value, style: TextStyle(fontSize: 16)),
           ),
