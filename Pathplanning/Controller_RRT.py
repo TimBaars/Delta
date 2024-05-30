@@ -72,7 +72,7 @@ class Controller_RRT:
         #     time.sleep(0.1)
 
         # ToDo threading and listening
-        self.actuator_callback()
+        self.actuator_callback(None, None, None, None)
 
     def __init__(self):
         self.status = "shutdown"
