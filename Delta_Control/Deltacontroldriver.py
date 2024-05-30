@@ -13,12 +13,11 @@ class DeltaRobotDriver:
 
         self.robot.enable()  # Make sure to enable the robot before any operations
         self.robot.set_override_velocity(100)
-        
+        print("------------------------- Enabling robot -------------------------")
         if self.robot.is_referenced() is False:
             self.robot.reference()
             print("------------------------- Referencing robot -------------------------")
-            time.sleep(2)
-            if self.robot.is_referenced():        
+            while self.robot.is_referenced() is False:        
                 print("Referenced robot")   
 
     def drive_to_location(self, x, y, z, velocity=None):

@@ -18,8 +18,8 @@ from Delta_Control.Deltacontroldriver import DeltaRobotDriver
 from Pathplanning.PathOptimize import PathOptimizer
 from functions import convert_nodes_to_flat_list, convert_to_tuples
 
-target_width = 250
-target_height = 250
+target_width = 300
+target_height = 300
 
 class Controller_RRT:
     def system_callback(self, ch, method, properties, body):
@@ -38,7 +38,8 @@ class Controller_RRT:
         current_position = self.robot_driver.get_current_position()
         length = len(current_position)
         if length < 3:
-            current_position = [0, 0, 0]
+            current_position = [9999, 9999, 9999]
+        print(current_position)
         mapping = ["x", "y", "z"]
         position = {mapping[i]: current_position[i] for i in range(3)}
 
