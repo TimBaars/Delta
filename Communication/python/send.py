@@ -31,7 +31,7 @@ def generate_random_message():
 
 # Main loop to send messages every 1.5 seconds
 x = 0
-while x < 20:
+while x < 1:
     message = generate_random_message()
     channel.basic_publish(exchange=exchange_name, routing_key='#*', body=str(message), properties=pika.BasicProperties(delivery_mode=2))
 

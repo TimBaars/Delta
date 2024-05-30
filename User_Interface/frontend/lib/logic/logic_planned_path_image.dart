@@ -14,7 +14,7 @@ class PlannedPathImageLogic {
   final List<Map<String, dynamic>> historicalData = [];
   var function = List<Function>.empty(growable: true);
   Map<String, dynamic> json = {
-    "url": "$IMAGEHOST/planned_path_image.png",
+    "url": "$IMAGEHOST/planned_path.jpg",
     "time": 0,
   };
   
