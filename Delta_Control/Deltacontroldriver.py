@@ -17,8 +17,7 @@ class DeltaRobotDriver:
         if self.robot.is_referenced() is False:
             self.robot.reference()
             print("------------------------- Referencing robot -------------------------")
-            while self.robot.is_referenced() is False:        
-                print("Referenced robot")   
+            time.sleep(25)  # Wait for the robot to finish referencing
 
     def drive_to_location(self, x, y, z, velocity=None):
         """
