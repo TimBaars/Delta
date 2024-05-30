@@ -66,13 +66,15 @@ class Controller_RRT:
     def receiveActuator(self):
         self.await_actuator = True
         self.manager.setup_consumer('actuator', self.actuator_callback)
+        self.manager.start_consuming()
 
         # while (self.await_actuator):
         #     print("Waiting for actuator...")
         #     time.sleep(0.1)
 
         # ToDo threading and listening
-        self.actuator_callback(None, None, None, None)
+        # self.actuator_callback(None, None, None, None)
+        return True
 
     def __init__(self):
         self.status = "shutdown"
