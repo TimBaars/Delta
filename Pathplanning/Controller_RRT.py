@@ -68,8 +68,8 @@ class Controller_RRT:
 
     def receiveActuator(self):
         self.await_actuator = True
-        self.receiver.setup_consumer('actuator', self.actuator_callback)
-        self.receiver.start_consuming()
+        self.sender.setup_consumer('actuator', self.actuator_callback)
+        self.sender.start_consuming()
 
     def sendDataUpdate(self):
         while not self.stop:
