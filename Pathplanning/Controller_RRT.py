@@ -105,7 +105,6 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         data_update_thread = threading.Thread(target=self.sendDataUpdate)
-        data_
         data_update_thread.start()
 
         try:
