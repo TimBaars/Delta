@@ -30,8 +30,8 @@ class Controller_RRT:
         self.status = "shutdown"
 
     def system_callback_thread(self):
-        self.reciever.setup_consumer('system', self.system_callback)
-        self.reciever.start_consuming()
+        self.receiver.setup_consumer('system', self.system_callback)
+        self.receiver.start_consuming()
 
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
