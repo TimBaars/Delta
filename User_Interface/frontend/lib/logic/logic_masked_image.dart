@@ -42,8 +42,6 @@ class MaskedImageLogic {
   }
 
   void request({DateTime? dateTime}) async {
-    await Future.delayed(Duration(seconds: 1));
-
     try {
       http.Response result = await apiManager.requestData(endpointAddition, dateTime: dateTime);
 

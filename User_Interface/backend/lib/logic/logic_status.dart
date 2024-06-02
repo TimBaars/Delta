@@ -58,14 +58,14 @@ abstract class StatusLogic {
   }
 
   Future<String> retrieveLastData(int timestamp, {int counter = 0}) async {
-    if (lastDataReceived > timestamp) {
+    if (lastDataReceived >= timestamp) {
       return lastData;
     } else {
-      if (counter > 50) {
+      if (counter > 100) {
         return "";
       }
 
-      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 50));
 
       return retrieveLastData(timestamp, counter: counter + 1);
     }
@@ -83,7 +83,12 @@ abstract class StatusLogic {
   }
 
   void listener(AmqpMessage message) {
-    lastData = message.payloadAsString;
-    lastDataReceived = DateTime.now().toUtc().millisecondsSinceEpoch;
+    if (lastData != message.payloadAsString) {
+      lastData = message.payloadAsString;
+      lastDataReceived = DateTime.now().toUtc().millisecondsSinceEpoch;
+
+      print("Data was new, re-uploaded the data to ensure all channels receive the data");
+      publish(lastData);
+    }
   }
 }

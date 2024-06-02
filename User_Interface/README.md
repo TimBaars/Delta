@@ -9,16 +9,16 @@
 - [x] Widget for the masked results image
 - [x] Widget for the RRT path image
 - [x] Auto-updating image data from specific file-path
-- [ ] Widget for Delta Robot location
-- [ ] Widget for Delta Robot test-based data
-- [ ] Widget for Delta Robot data visualization
-- [ ] Widget for Actuator status
+- [x] Widget for Delta Robot location
+- [x] Widget for Delta Robot test-based data
+- [x] Widget for Delta Robot data visualization
+- [x] Widget for Actuator status
 *HTTP connection to server - Test cases*
 - [x] Connection to the server using http
 - [x] Authorization over http using APIKEY
 *HTTP connection to server - Production Environment*
-- [ ] Connection to the server using http
-- [ ] Translating information from the server to the UI
+- [x] Connection to the server using http
+- [x] Translating information from the server to the UI
 
 ### Usage
 1. Go to User_Interface/windows

@@ -26,8 +26,6 @@ class DeltaStatusLogic {
   }
 
   void request({DateTime? dateTime}) async {
-    await Future.delayed(Duration(milliseconds: 500));
-
     try {
       if (SystemStatusLogic().isRunning()) {
         http.Response result = await apiManager.requestData(endpointAddition, dateTime: dateTime);

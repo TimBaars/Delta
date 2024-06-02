@@ -8,7 +8,9 @@ import sys
 import time
 import random
 
+from Pathplanning.RabbitMQConsumer import RabbitMQConsumer
 from Pathplanning.RabbitMQManager import RabbitMQManager
+from Pathplanning.StatusManager import StatusManager
 
 # Configure logging
 logging.basicConfig(filename='errors.log', level=logging.ERROR, format='%(asctime)s, %(filename)s, %(lineno)d, %(message)s')
@@ -24,14 +26,9 @@ target_width = 300
 target_height = 300
 
 class Controller_RRT:
-    def system_callback(self, ch, method, properties, body):
-        print(f" [Python] Received from system_exchange: {body}")
-        self.stop = json.loads(body)['running'] != "true"
-        self.status = "shutdown"
-
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
-        self.await_actuator = False
+        self.await_actuator = json.loads(body)['running'].lower() == 'true'
         ch.stop_consuming()
 
     def sendRobotUpdate(self):
@@ -68,9 +65,10 @@ class Controller_RRT:
         self.receiver.start_consuming()
 
     def sendDataUpdate(self):
-        while not self.stop:
+        while True:
+            if not self.stop:
+                self.sendRobotUpdate()
             time.sleep(0.1)
-            self.sendRobotUpdate()
 
     def __init__(self):
         self.status = "shutdown"
@@ -78,6 +76,13 @@ class Controller_RRT:
         self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
         self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
         self.receiver.setup_consumer('system', self.system_callback)
+        
+        self.status_manager = StatusManager()
+        
+        rabbitmq_consumer = RabbitMQConsumer(self.status_manager)
+        rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
+        rabbitmq_thread.daemon = True
+        rabbitmq_thread.start()
 
         try:
             os.system("rm -rf Pathplanning/media")
@@ -105,7 +110,10 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         data_update_thread = threading.Thread(target=self.sendDataUpdate)
+        data_update_thread.daemon = True
         data_update_thread.start()
+
+        self.status = "waiting for start"
 
         try:
             self.number = random.randint(1, 4)
@@ -114,52 +122,57 @@ class Controller_RRT:
             self.processor.txt_path = txt_path
             self.processor.img_path = img_path
 
-            self.status = "waiting for start"
-            if self.stop == True:
-                # First, get the weed centers
-                weed_centers, image = self.processor.process_segmentation_file()
+            # if self.stop == True:
+            # First, get the weed centers
+            weed_centers, image = self.processor.process_segmentation_file()
 
-                # Iterate through each weed center, calculate the path, and move the robot
-                for weed_center in weed_centers:
-                    self.status = "searching_path"
+            # Iterate through each weed center, calculate the path, and move the robot
+            for weed_center in weed_centers:
+                # Check if the system is running, otherwise wait till it does
+                status_thread = threading.Thread(target=self.status_manager.check_status, args=(False))
+                status_thread.daemon = True
+                status_thread.start()
+                status_thread.join()
+                
+                self.status = "searching_path"
+                self.sendRobotUpdate()
+                # Update the coordinates for the current weed center
+                self.Calculating_Coords[0] = self.start_x
+                self.Calculating_Coords[1] = self.start_y
+                self.Calculating_Coords[2] = int(weed_center[0])
+                self.Calculating_Coords[3] = int(weed_center[1])
+
+                # Calculate the path to the current weed center
+                path = self.calculate_path(self.Calculating_Coords, image)
+                self.status = "optimizing_path"
+                self.sendRobotUpdate()
+                # 'planned path ready'
+                self.sendMessages("planned_path")
+
+                # If a path is found, scale the coordinates and move the robot
+                if path:
+                    # Scale the coordinates
+                    scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
+                    self.status = "awaiting_actuator"
                     self.sendRobotUpdate()
-                    # Update the coordinates for the current weed center
-                    self.Calculating_Coords[0] = self.start_x
-                    self.Calculating_Coords[1] = self.start_y
-                    self.Calculating_Coords[2] = int(weed_center[0])
-                    self.Calculating_Coords[3] = int(weed_center[1])
+                    self.sendMessages("optimized_path")
 
-                    # Calculate the path to the current weed center
-                    path = self.calculate_path(self.Calculating_Coords, image)
-                    self.status = "optimizing_path"
-                    self.sendRobotUpdate()
-                    # 'planned path ready'
-                    self.sendMessages("planned_path")
+                    actuator_thread = threading.Thread(target=self.receiveActuator)
+                    actuator_thread.start()
+                    actuator_thread.join()
 
-                    # If a path is found, scale the coordinates and move the robot
-                    if path:
-                        # Scale the coordinates
-                        scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
-                        self.status = "awaiting_actuator"
+                    if self.await_actuator == False:
+                        self.status = "moving"
                         self.sendRobotUpdate()
-                        self.sendMessages("optimized_path")
 
-                        actuator_thread = threading.Thread(target=self.receiveActuator)
-                        actuator_thread.start()
-                        actuator_thread.join()
+                        for position in scaled_path:
+                            x, y = position
+                            x = x - (target_width / 2)
+                            y = y - (target_height / 2)
+                            self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
-                        if self.await_actuator == False:
-                            self.status = "moving"
-                            self.sendRobotUpdate()
-
-                            for position in scaled_path:
-                                x, y = position
-                                x = x - (target_width / 2)
-                                y = y - (target_height / 2)
-                                self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
-
-                            # Update the start coordinates to the current weed center
-                            self.start_x, self.start_y = weed_center
+                        # Update the start coordinates to the current weed center
+                        self.start_x, self.start_y = weed_center
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info

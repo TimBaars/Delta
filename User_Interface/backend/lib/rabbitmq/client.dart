@@ -62,5 +62,7 @@ class RabbitMQClient {
 
     Exchange exchange = await _channel.exchange(exchangeName, ExchangeType.FANOUT);
     exchange.publish(message, routingKey);
+    exchange.publish(message, routingKey);
+    exchange.publish(message, routingKey);
   }
 }
