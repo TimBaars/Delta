@@ -15,6 +15,7 @@ ccw_direction = 1
 ENA = 3
 IN1 = 8
 IN2 = 9
+buttonPin = 23
 
 # Stepper Motor Pin Definitions
 in1 = 13
@@ -41,6 +42,8 @@ gpio.setup(in3, gpio.OUT)
 gpio.setup(in4, gpio.OUT)
 gpio.setup(speedPinA, gpio.OUT)
 gpio.setup(speedPinB, gpio.OUT)
+
+gpio.setup(buttonPin, gpio.OUT)
 
 # Initial statesimport json
 import threading
@@ -164,7 +167,7 @@ try:
         # Disable drill
 
 # ToDo Make the actuator do above steps instead of manual input (after testing)
-        if (gpio.input(23)==gpio.HIGH):
+        if (buttonPin == gpio.HIGH):
                 stepper_up()
         signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down")
         if signal == '1':
