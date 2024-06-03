@@ -34,6 +34,7 @@ class RabbitMQManager:
         # Ensure the body is JSON encoded
         message = json.dumps(body)
         self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
+        self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
 
     def start_consuming(self):
         print(' [*] Waiting for messages. To exit press CTRL+C')

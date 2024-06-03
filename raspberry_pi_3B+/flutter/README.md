@@ -19,7 +19,7 @@ Follow the [official installation guide](https://docs.flutter.dev/get-started/in
 
 #### Installing Apache2
 
-Login as `orangepi` user
+Login as `pi` user
 Download and install Apache2
 
 ```ps

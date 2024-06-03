@@ -1,7 +1,7 @@
 import json
 import pika
 
-from testRabbitMQManager import RabbitMQManager
+from RabbitMQManager import RabbitMQManager
 
 class RabbitMQConsumer:
     def __init__(self, status_manager):
@@ -9,8 +9,7 @@ class RabbitMQConsumer:
 
     def start_consuming(self):
         print("Starting RabbitMQ consumer")
-        manager = RabbitMQManager()
-        manager.initialize(host='localhost', username='python', password='python')
+        manager = RabbitMQManager(host='192.168.201.78', username='actuator', password='actuator')
 
         def callback(ch, method, properties, body):
             print("received - " + str(body))
