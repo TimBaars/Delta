@@ -26,10 +26,11 @@ target_width = 300
 target_height = 300
 
 class Controller_RRT:
-    def actuator_callback(self, ch, method, properties, body):
-        print(f" [Python] Received from actuator_exchange: {body}")
-        self.await_actuator = json.loads(body)['running'].lower() == 'false'
-        ch.stop_consuming()
+    # ToDo remove old code
+    # def actuator_callback(self, ch, method, properties, body):
+    #     print(f" [Python] Received from actuator_exchange: {body}")
+    #     self.await_actuator = json.loads(body)['running'].lower() == 'false'
+    #     ch.stop_consuming()
 
     def sendRobotUpdate(self):
         current_position = self.robot_driver.get_current_position()
@@ -63,10 +64,11 @@ class Controller_RRT:
         self.sendRobotUpdate()
         self.sendImageUpdate(image_name)
 
-    def receiveActuator(self):
-        self.await_actuator = True
-        self.receiver.setup_consumer('actuator', self.actuator_callback)
-        self.receiver.start_consuming()
+    # ToDo remove old code
+    # def receiveActuator(self):
+    #     self.await_actuator = True
+    #     self.receiver.setup_consumer('actuator', self.actuator_callback)
+    #     self.receiver.start_consuming()
 
     def sendDataUpdate(self):
         while True:
@@ -77,16 +79,22 @@ class Controller_RRT:
     def __init__(self):
         self.status = "shutdown"
         self.stop = True
-        self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
+        # ToDo remove old data
+        # self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
         self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
-        self.receiver.setup_consumer('system', self.system_callback)
         
-        self.status_manager = StatusManager()
+        self.system_status_manager = StatusManager(name="system")
         
-        rabbitmq_consumer = RabbitMQConsumer(self.status_manager)
-        rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
-        rabbitmq_thread.daemon = True
-        rabbitmq_thread.start()
+        rabbitmq_system_consumer = RabbitMQConsumer(self.system_status_manager)
+        rabbitmq_system_thread = threading.Thread(target=rabbitmq_system_consumer.start_consuming)
+        rabbitmq_system_thread.daemon = True
+        rabbitmq_system_thread.start()
+        
+        self.actuator_status_manager = StatusManager(name="actuator")
+        rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager)
+        rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
+        rabbitmq_actuator_thread.daemon = True
+        rabbitmq_actuator_thread.start()
 
         try:
             os.system("rm -rf Pathplanning/media")
@@ -133,10 +141,10 @@ class Controller_RRT:
             # Iterate through each weed center, calculate the path, and move the robot
             for weed_center in weed_centers:
                 # Check if the system is running, otherwise wait till it does
-                status_thread = threading.Thread(target=self.status_manager.check_status, args=(False))
-                status_thread.daemon = True
-                status_thread.start()
-                status_thread.join()
+                system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=(False))
+                system_status_thread.daemon = True
+                system_status_thread.start()
+                system_status_thread.join()
                 
                 self.status = "searching_path"
                 self.sendRobotUpdate()
@@ -149,7 +157,6 @@ class Controller_RRT:
                 # Calculate the path to the current weed center
                 path = self.calculate_path(self.Calculating_Coords, image)
                 self.status = "optimizing_path"
-                self.sendRobotUpdate()
                 # 'planned path ready'
                 self.sendMessages("planned_path")
 
@@ -158,28 +165,34 @@ class Controller_RRT:
                     # Scale the coordinates
                     scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
                     self.status = "awaiting_actuator"
-                    self.sendRobotUpdate()
                     self.sendMessages("optimized_path")
                     
-                    actuator_thread = threading.Thread(target=self.receiveActuator)
-                    actuator_thread.start()
-                    actuator_thread.join()
+                    # ToDo remove old data
+                    # actuator_thread = threading.Thread(target=self.receiveActuator)
+                    # actuator_thread.start()
+                    # actuator_thread.join()
 
-                    if self.await_actuator == False:
-                        self.status = "moving"
-                        self.sendRobotUpdate()
+                    # if self.await_actuator == False:
+                    # Check if the actuator is ready
+                    actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=(True))
+                    actuator_status_thread.daemon = True
+                    actuator_status_thread.start()
+                    actuator_status_thread.join()
+                    
+                    self.status = "moving"
+                    self.sendRobotUpdate()
 
-                        for position in scaled_path:
-                            x, y = position
-                            x = x - (target_width / 2)
-                            y = y - (target_height / 2)
-                            self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
+                    for position in scaled_path:
+                        x, y = position
+                        x = x - (target_width / 2)
+                        y = y - (target_height / 2)
+                        self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
-                        # Update the start coordinates to the current weed center
-                        self.sendActuatorStart()
-                        self.status = "Started actuator"
-                        self.sendRobotUpdate()
-                        self.start_x, self.start_y = weed_center
+                    # Update the start coordinates to the current weed center
+                    self.sendActuatorStart()
+                    self.status = "Started actuator"
+                    self.sendRobotUpdate()
+                    self.start_x, self.start_y = weed_center
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info

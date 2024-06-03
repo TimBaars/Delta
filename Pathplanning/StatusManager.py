@@ -6,14 +6,16 @@ class StatusManager:
         self.SystemStatus = False
         self.lock = threading.Lock()
 
-    def check_current_status(self):
+    def check_current_status(self, name="System"):
+        self.name = name
+        
         with self.lock:
             return self.SystemStatus
 
     def check_status(self, status = False):
         while self.check_current_status() == status:
             with self.lock:
-                print(f"SystemStatus: {self.SystemStatus}")
+                print(f"{self.name}Status: {self.SystemStatus}")
             time.sleep(0.1)
 
     def update_status(self, new_status):
