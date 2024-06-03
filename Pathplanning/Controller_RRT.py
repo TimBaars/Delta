@@ -84,13 +84,12 @@ class Controller_RRT:
         self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
         
         self.system_status_manager = StatusManager(name="system")
-        
         rabbitmq_system_consumer = RabbitMQConsumer(self.system_status_manager)
         rabbitmq_system_thread = threading.Thread(target=rabbitmq_system_consumer.start_consuming)
         rabbitmq_system_thread.daemon = True
         rabbitmq_system_thread.start()
         
-        # self.actuator_status_manager = StatusManager(name="actuator")
+        self.actuator_status_manager = StatusManager(name="actuator")
         rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager, username='actuator', password='actuator', exchange_name='actuator')
         rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
         rabbitmq_actuator_thread.daemon = True
