@@ -37,6 +37,14 @@ class RabbitMQManager:
                 print(f"Connection error: {e}. Retrying in 5 seconds...")
                 time.sleep(5)
 
+    def close_connection(self):
+        if self._channel:
+            self._channel.close()
+        if self._connection:
+            self._connection.close()
+        self._connection = None
+        self._channel = None
+
     def setup_consumer(self, exchange_name, callback):
         while True:
             try:
@@ -48,15 +56,17 @@ class RabbitMQManager:
                 break
             except (pika.exceptions.AMQPChannelError, pika.exceptions.AMQPConnectionError) as e:
                 print(f"Error setting up consumer: {e}. Reconnecting...")
+                self.close_connection()
                 self.connect()
 
     def start_consuming(self):
         while True:
             try:
-                #print(' [*] Waiting for messages. To exit press CTRL+C')
+                print(' [*] Waiting for messages. To exit press CTRL+C')
                 self._channel.start_consuming()
             except (pika.exceptions.StreamLostError, pika.exceptions.AMQPConnectionError) as e:
                 print(f"Error during consuming: {e}. Reconnecting...")
+                self.close_connection()
                 self.connect()
 
     def send_message(self, exchange_name, body):
@@ -67,4 +77,5 @@ class RabbitMQManager:
                 break
             except (pika.exceptions.AMQPChannelError, pika.exceptions.AMQPConnectionError) as e:
                 print(f"Error sending message: {e}. Reconnecting...")
+                self.close_connection()
                 self.connect()
