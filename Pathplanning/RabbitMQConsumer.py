@@ -1,7 +1,7 @@
 import json
 import pika
 
-from RabbitMQManager import RabbitMQManager
+from Pathplanning.RabbitMQManager import RabbitMQManager
 
 class RabbitMQConsumer:
     def __init__(self, status_manager, host="192.168.201.78", username='python', password='python', exchange_name='system'):
