@@ -2,13 +2,12 @@ import threading
 import time
 
 class StatusManager:
-    def __init__(self):
+    def __init__(self, name="System"):
         self.SystemStatus = False
         self.lock = threading.Lock()
-
-    def check_current_status(self, name="System"):
         self.name = name
-        
+
+    def check_current_status(self):
         with self.lock:
             return self.SystemStatus
 

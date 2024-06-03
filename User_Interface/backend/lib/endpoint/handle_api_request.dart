@@ -3,7 +3,7 @@ import 'package:shelf/shelf.dart';
 
 Future<Response> HandleApiRequests(Request request) async {
   String? jsonData = null;
-  int timestamp = 0;
+  int timestamp = 1;
 
   // print("request: ${request.url.path}, ${request.headers.entries}, ${request.headers}, ${request.url.queryParameters}, ${request.url.queryParametersAll}");
   

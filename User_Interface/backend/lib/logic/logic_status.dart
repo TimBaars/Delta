@@ -58,7 +58,7 @@ abstract class StatusLogic {
   }
 
   Future<String> retrieveLastData(int timestamp, {int counter = 0}) async {
-    if (lastDataReceived >= timestamp) {
+    if (lastDataReceived > timestamp) {
       return lastData;
     } else {
       if (counter > 100) {
