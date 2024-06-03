@@ -163,10 +163,7 @@ try:
             # Wait for movement to finish
         # Disable drill
 
-        # Send message to pathplanning that actuator is ready
-        client.send_message('actuator', {'running': 'false'})
-        print(" [Python] Sent to pathplanning: Actuator is ready")
-        
+# ToDo Make the actuator do above steps instead of manual input (after testing)
         if (gpio.input(23)==gpio.HIGH):
                 stepper_up()
         signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down")
@@ -180,6 +177,11 @@ try:
             stepper_down()
         else:
             print("Invalid input, please enter 1 or 2.")
+#endToDo
+        
+        # Send message to pathplanning that actuator is ready
+        client.send_message('actuator', {'running': 'false'})
+        print(" [Python] Sent to pathplanning: Actuator is ready")
 
 except KeyboardInterrupt:
     pass
