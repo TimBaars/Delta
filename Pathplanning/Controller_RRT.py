@@ -142,7 +142,7 @@ class Controller_RRT:
             # Iterate through each weed center, calculate the path, and move the robot
             for weed_center in weed_centers:
                 # Check if the system is running, otherwise wait till it does
-                system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=(False))
+                system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
                 system_status_thread.daemon = True
                 system_status_thread.start()
                 system_status_thread.join()
