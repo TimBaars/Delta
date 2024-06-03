@@ -160,7 +160,7 @@ class Controller_RRT:
                     self.status = "awaiting_actuator"
                     self.sendRobotUpdate()
                     self.sendMessages("optimized_path")
-
+                    
                     actuator_thread = threading.Thread(target=self.receiveActuator)
                     actuator_thread.start()
                     actuator_thread.join()
@@ -176,6 +176,9 @@ class Controller_RRT:
                             self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
                         # Update the start coordinates to the current weed center
+                        self.sendActuatorStart()
+                        self.status = "Started actuator"
+                        self.sendRobotUpdate()
                         self.start_x, self.start_y = weed_center
 
         except Exception:
