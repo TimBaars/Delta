@@ -122,18 +122,17 @@ def dc_motor_stop():
     gpio.output(IN2, gpio.LOW)
     gpio.output(ENA, 0)
 
-def delta_callback(self, ch, method, properties, body):
-    print(f" [Python] Received from actuator_exchange: {body}")
-    ch.stop_consuming()
-    
-def receiveDelta(self):
-    self.await_actuator = True
-    self.receiver.setup_consumer('actuator', delta_callback)
-    self.receiver.start_consuming()
-
 # Main Sequence
 try:
     client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    
+    def delta_callback(ch, method, properties, body):
+        print(f" [Python] Received from actuator_exchange: {body}")
+        ch.stop_consuming()
+        
+    def receiveDelta():
+        client.setup_consumer('actuator', delta_callback)
+        client.start_consuming()
 
     status_manager = StatusManager()        
 
