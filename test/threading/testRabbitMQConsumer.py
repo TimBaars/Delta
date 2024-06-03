@@ -10,7 +10,7 @@ class RabbitMQConsumer:
     def start_consuming(self):
         print("Starting RabbitMQ consumer")
         manager = RabbitMQManager()
-        manager.initialize(host='localhost', username='rabbitmq', password='orangepi')
+        manager.initialize(host='localhost', username='python', password='python')
 
         def callback(ch, method, properties, body):
             print("received - " + str(body))

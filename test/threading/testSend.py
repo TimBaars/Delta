@@ -6,7 +6,7 @@ import pika
 # Establish a connection to RabbitMQ server
 host = 'localhost'
 exchange_name = "system"
-connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, credentials=pika.PlainCredentials('rabbitmq', 'orangepi')))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, credentials=pika.PlainCredentials('rabbitmq', 'pi')))
 
 # Create a channel
 channel = connection.channel()
