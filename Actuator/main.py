@@ -3,9 +3,9 @@ import threading
 from time import sleep
 import RPi.GPIO as gpio
 
-from Actuator.RabbitMQManager import RabbitMQManager
-from Pathplanning.RabbitMQConsumer import RabbitMQConsumer
-from Pathplanning.StatusManager import StatusManager
+from RabbitMQManager import RabbitMQManager
+from RabbitMQConsumer import RabbitMQConsumer
+from StatusManager import StatusManager
 
 # DC Motor Pin Definitions
 direction_pin = 20
@@ -42,7 +42,14 @@ gpio.setup(in4, gpio.OUT)
 gpio.setup(speedPinA, gpio.OUT)
 gpio.setup(speedPinB, gpio.OUT)
 
-# Initial states
+# Initial statesimport json
+import threading
+from time import sleep
+import RPi.GPIO as gpio
+
+from RabbitMQManager import RabbitMQManager
+from RabbitMQConsumer import RabbitMQConsumer
+from StatusManager import StatusManager
 gpio.output(in1, gpio.HIGH)
 gpio.output(in2, gpio.HIGH)
 gpio.output(in3, gpio.HIGH)
@@ -115,7 +122,6 @@ def dc_motor_stop():
 
 def delta_callback(self, ch, method, properties, body):
     print(f" [Python] Received from actuator_exchange: {body}")
-    self.await_actuator = json.loads(body)['running'].lower() == 'true'
     ch.stop_consuming()
     
 def receiveDelta(self):
@@ -136,7 +142,7 @@ try:
 
     while True:
         # Check if system is running
-        status_thread = threading.Thread(target=status_manager.check_status, args=(False))
+        status_thread = threading.Thread(target=status_manager.check_status, args=[False])
         status_thread.daemon = True
         status_thread.start()
         status_thread.join()

@@ -13,8 +13,8 @@ class StatusManager:
     def check_status(self, status = False):
         while self.check_current_status() == status:
             with self.lock:
-                print(f"SystemStatus: {self.SystemStatus}")
-            time.sleep(0.1)
+                # print(f"SystemStatus: {self.SystemStatus}")
+                time.sleep(0.1)
 
     def update_status(self, new_status):
         with self.lock:

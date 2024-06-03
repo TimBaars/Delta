@@ -16,12 +16,12 @@ class RabbitMQConsumer:
         manager = RabbitMQManager(host=self.host, username=self.username, password=self.password)
 
         def callback(ch, method, properties, body):
-            print("received - " + str(body))
+            # print("received - " + str(body))
             message = json.loads(body)
             runningData = message['running']
             new_status = runningData == True or runningData == 'true' or runningData.lower() == 'true'
             self.status_manager.update_status(new_status)
 
         manager.setup_consumer(self.exchange_name, callback)
-        print("Started consuming RabbitMQ messages")
+        # print("Started consuming RabbitMQ messages")
         manager.start_consuming()

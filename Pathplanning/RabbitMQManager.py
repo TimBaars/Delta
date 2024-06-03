@@ -37,5 +37,5 @@ class RabbitMQManager:
         self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
 
     def start_consuming(self):
-        print(' [*] Waiting for messages. To exit press CTRL+C')
+        # print(' [*] Waiting for messages. To exit press CTRL+C')
         self._channel.start_consuming()
