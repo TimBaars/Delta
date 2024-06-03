@@ -19,13 +19,17 @@ class RabbitMQManager:
 
     def setup_consumer(self, exchange_name, callback):
         # Declare the exchange
+        print("declarito")
         self._channel.exchange_declare(exchange=exchange_name, exchange_type='fanout')
+        print("errorito")
         # Declare a unique, auto-delete queue
         result = self._channel.queue_declare(queue='', exclusive=True, auto_delete=True)
         queue_name = result.method.queue
 
+        print("idiota")
         # Bind the queue to the exchange
         self._channel.queue_bind(exchange=exchange_name, queue=queue_name)
+        print("cheerio")
 
         # Bind the callback function to the queue
         self._channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
