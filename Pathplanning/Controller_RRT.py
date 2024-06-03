@@ -91,7 +91,7 @@ class Controller_RRT:
         rabbitmq_system_thread.start()
         
         self.actuator_status_manager = StatusManager(name="actuator")
-        rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager)
+        rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager, username='actuator', password='actuator')
         rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
         rabbitmq_actuator_thread.daemon = True
         rabbitmq_actuator_thread.start()
