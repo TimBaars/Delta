@@ -178,17 +178,20 @@ try:
 # ToDo Make the actuator do above steps instead of manual input (after testing)
         if (buttonPin == gpio.HIGH):
             stepper_up(20)
-        signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down: ")
+        signal = input("Enter command: 1 - move stepper motor up; 2 - spin up DC motor; 3 - stepper down; 4 - End program: ")
         if signal == '1':
             print("Moving stepper motor up")
-            stepper_up(20)
+            stepper_up(100)
         elif signal == '2':
             duration = float(input("Enter duration to spin up DC motor (in seconds): "))
             dc_motor_spin_up(duration)
             dc_motor_stop()
         elif signal == '3':
             print("Moving stepper motor down")
-            stepper_down(20)
+            stepper_down(100)
+        elif signal == '4':
+            print("Ending program")
+            break
         else:
             print("Invalid input, please enter 1 or 2.")
         
