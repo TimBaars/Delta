@@ -45,14 +45,7 @@ gpio.setup(speedPinB, gpio.OUT)
 
 gpio.setup(buttonPin, gpio.OUT)
 
-# Initial statesimport json
-import threading
-from time import sleep
-import RPi.GPIO as gpio
-
-from RabbitMQManager import RabbitMQManager
-from RabbitMQConsumer import RabbitMQConsumer
-from StatusManager import StatusManager
+# Initial states
 gpio.output(in1, gpio.HIGH)
 gpio.output(in2, gpio.HIGH)
 gpio.output(in3, gpio.HIGH)
@@ -127,34 +120,34 @@ def dc_motor_stop():
 
 # Main Sequence
 try:
-    client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    # client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
     
-    def delta_callback(ch, method, properties, body):
-        print(f" [Python] Received from actuator_exchange: {body}")
-        ch.stop_consuming()
+    # def delta_callback(ch, method, properties, body):
+    #     print(f" [Python] Received from actuator_exchange: {body}")
+    #     ch.stop_consuming()
         
-    def receiveDelta():
-        client.setup_consumer('actuator', delta_callback)
-        client.start_consuming()
+    # def receiveDelta():
+    #     client.setup_consumer('actuator', delta_callback)
+    #     client.start_consuming()
 
-    status_manager = StatusManager()        
+    # status_manager = StatusManager()        
 
-    rabbitmq_consumer = RabbitMQConsumer(status_manager)
-    rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
-    rabbitmq_thread.daemon = True
-    rabbitmq_thread.start()
+    # rabbitmq_consumer = RabbitMQConsumer(status_manager)
+    # rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
+    # rabbitmq_thread.daemon = True
+    # rabbitmq_thread.start()
 
     while True:
         # Check if system is running
-        status_thread = threading.Thread(target=status_manager.check_status, args=[False])
-        status_thread.daemon = True
-        status_thread.start()
-        status_thread.join()
+        # status_thread = threading.Thread(target=status_manager.check_status, args=[False])
+        # status_thread.daemon = True
+        # status_thread.start()
+        # status_thread.join()
 
-        # Wait for message from delta that it stopped moving
-        actuator_thread = threading.Thread(target=receiveDelta)
-        actuator_thread.start()
-        actuator_thread.join()
+        # # Wait for message from delta that it stopped moving
+        # actuator_thread = threading.Thread(target=receiveDelta)
+        # actuator_thread.start()
+        # actuator_thread.join()
 
         # Enable drill
         # Move actuator down
@@ -183,7 +176,7 @@ try:
 #endToDo
         
         # Send message to pathplanning that actuator is ready
-        client.send_message('actuator', {'running': 'false'})
+        # client.send_message('actuator', {'running': 'false'})
         print(" [Python] Sent to pathplanning: Actuator is ready")
 
 except KeyboardInterrupt:
