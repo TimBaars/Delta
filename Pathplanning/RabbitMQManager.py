@@ -44,12 +44,8 @@ class RabbitMQManager:
             queue_name = result.method.queue
             self._channel.queue_bind(exchange=exchange_name, queue=queue_name)
             self._channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
-        except pika.exceptions.AMQPChannelError as e:
-            print(f"Channel error: {e}. Reconnecting...")
-            self.connect()
-            self.setup_consumer(exchange_name, callback)
-        except pika.exceptions.AMQPConnectionError as e:
-            print(f"Connection error: {e}. Reconnecting...")
+        except (pika.exceptions.AMQPChannelError, pika.exceptions.AMQPConnectionError) as e:
+            print(f"Error setting up consumer: {e}. Reconnecting...")
             self.connect()
             self.setup_consumer(exchange_name, callback)
 
@@ -58,12 +54,8 @@ class RabbitMQManager:
             try:
                 print(' [*] Waiting for messages. To exit press CTRL+C')
                 self._channel.start_consuming()
-            except pika.exceptions.StreamLostError as e:
-                print(f"Stream lost error: {e}. Reconnecting...")
-                self.connect()
-                continue
-            except pika.exceptions.AMQPConnectionError as e:
-                print(f"Connection error: {e}. Reconnecting...")
+            except (pika.exceptions.StreamLostError, pika.exceptions.AMQPConnectionError) as e:
+                print(f"Error during consuming: {e}. Reconnecting...")
                 self.connect()
                 continue
 
@@ -71,11 +63,7 @@ class RabbitMQManager:
         try:
             message = json.dumps(body)
             self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
-        except pika.exceptions.AMQPChannelError as e:
-            print(f"Channel error: {e}. Reconnecting...")
-            self.connect()
-            self.send_message(exchange_name, body)
-        except pika.exceptions.AMQPConnectionError as e:
-            print(f"Connection error: {e}. Reconnecting...")
+        except (pika.exceptions.AMQPChannelError, pika.exceptions.AMQPConnectionError) as e:
+            print(f"Error sending message: {e}. Reconnecting...")
             self.connect()
             self.send_message(exchange_name, body)

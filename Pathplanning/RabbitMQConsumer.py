@@ -1,5 +1,4 @@
 import json
-import pika
 import time
 from threading import Thread
 from Pathplanning.RabbitMQManager import RabbitMQManager
@@ -32,4 +31,7 @@ class RabbitMQConsumer:
                 time.sleep(5)  # Wait before retrying
 
     def stop_consuming(self):
-        self.manager.stop_consuming()
+        if self.manager._channel is not None:
+            self.manager._channel.stop_consuming()
+        if self.manager._connection is not None:
+            self.manager._connection.close()
