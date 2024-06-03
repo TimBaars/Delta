@@ -260,7 +260,7 @@ class Controller_RRT:
             return scaled_path
         return []
 
-# Example run
-if __name__ == "__main__":
-    controller = Controller_RRT()
-    controller.run()
+# # Example run
+# if __name__ == "__main__":
+#     controller = Controller_RRT()
+#     controller.run()
