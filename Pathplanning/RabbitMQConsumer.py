@@ -1,6 +1,6 @@
 import json
 import time
-from threading import Thread
+from threading import Thread, Event
 from Pathplanning.RabbitMQManager import RabbitMQManager
 
 class RabbitMQConsumer:
@@ -11,6 +11,7 @@ class RabbitMQConsumer:
         self.password = password
         self.exchange_name = exchange_name
         self.manager = RabbitMQManager(host=self.host, username=self.username, password=self.password)
+        self.stop_event = Event()
         self.thread = Thread(target=self.start_consuming)
         self.thread.start()
 
@@ -22,7 +23,7 @@ class RabbitMQConsumer:
             new_status = runningData == True or runningData == 'true' or runningData.lower() == 'true'
             self.status_manager.update_status(new_status)
 
-        while True:
+        while not self.stop_event.is_set():
             try:
                 self.manager.setup_consumer(self.exchange_name, callback)
                 self.manager.start_consuming()
@@ -31,6 +32,7 @@ class RabbitMQConsumer:
                 time.sleep(5)  # Wait before retrying
 
     def stop_consuming(self):
+        self.stop_event.set()
         if self.manager._channel is not None:
             try:
                 self.manager._channel.stop_consuming()

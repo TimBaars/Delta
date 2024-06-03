@@ -53,7 +53,7 @@ class RabbitMQManager:
     def start_consuming(self):
         while True:
             try:
-                #print(' [*] Waiting for messages. To exit press CTRL+C')
+                print(' [*] Waiting for messages. To exit press CTRL+C')
                 self._channel.start_consuming()
             except (pika.exceptions.StreamLostError, pika.exceptions.AMQPConnectionError) as e:
                 print(f"Error during consuming: {e}. Reconnecting...")
