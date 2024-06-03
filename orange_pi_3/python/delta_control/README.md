@@ -4,11 +4,11 @@
 
 ```ps
 # Open VENV
-cd ~
-source ~/Desktop/Delta/delta/bin/activate
+cd /home/pi
+source ./Desktop/Delta/delta/bin/activate
 
 # Go to the Delta Control directory
-cd ~/Desktop/Delta
+cd ./Desktop/Delta
 
 # Run the main.py
 python main.py
