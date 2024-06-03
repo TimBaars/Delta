@@ -88,6 +88,8 @@ def stepper_down():
     mStop(in3, in4)
     mSetSpeed(pwmA, 0)
     mSetSpeed(pwmB, 0)
+ 
+
 
 def stepper_up():
     # Move stepper motor up
@@ -165,6 +167,8 @@ try:
         # Send message to pathplanning that actuator is ready
         client.send_message('actuator', {'running': 'false'})
         
+        if (gpio.input(23)==gpio.HIGH):
+                stepper_up()
         signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down")
         if signal == '1':
             stepper_up()
