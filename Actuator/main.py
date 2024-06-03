@@ -7,7 +7,7 @@ from RabbitMQManager import RabbitMQManager
 from RabbitMQConsumer import RabbitMQConsumer
 from StatusManager import StatusManager
 
-# DC Motor Pin Definitions
+# Stepper Motor Pin Definitions
 direction_pin = 20
 puls_pin = 21
 cw_direction = 0
@@ -17,7 +17,7 @@ IN1 = 8
 IN2 = 9
 buttonPin = 23
 
-# Stepper Motor Pin Definitions
+# DC Motor Pin Definitions
 in1 = 13
 in2 = 12
 in3 = 11
@@ -54,8 +54,8 @@ gpio.output(in4, gpio.HIGH)
 # Setup PWM for Stepper Motor
 pwmA = gpio.PWM(speedPinA, 1000)  # 1000 Hz frequency
 pwmB = gpio.PWM(speedPinB, 1000)  # 1000 Hz frequency
-pwmA.start(0)  # Start PWM with 0% duty cycle
-pwmB.start(0)  # Start PWM with 0% duty cycle
+pwmA.start(50)  # Start PWM with 0% duty cycle
+pwmB.start(50)  # Start PWM with 0% duty cycle
 
 # Functions to control Stepper Motor
 def mRight(pin1, pin2):
@@ -67,8 +67,8 @@ def mLeft(pin1, pin2):
     gpio.output(pin2, gpio.HIGH)
 
 def mStop(pin1, pin2):
-    gpio.output(pin1, gpio.HIGH)
-    gpio.output(pin2, gpio.HIGH)
+    gpio.output(pin1, gpio.LOW)
+    gpio.output(pin2, gpio.LOW)
 
 def mSetSpeed(pwm, speedValue):
     pwm.ChangeDutyCycle(speedValue)
@@ -85,8 +85,6 @@ def stepper_down():
     mSetSpeed(pwmA, 0)
     mSetSpeed(pwmB, 0)
  
-
-
 def stepper_up():
     # Move stepper motor up
     mLeft(in1, in2)
@@ -162,7 +160,7 @@ try:
 # ToDo Make the actuator do above steps instead of manual input (after testing)
         if (buttonPin == gpio.HIGH):
                 stepper_up()
-        signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down")
+        signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down\n")
         if signal == '1':
             stepper_up()
         elif signal == '2':
