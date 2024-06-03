@@ -27,10 +27,10 @@ target_height = 300
 
 class Controller_RRT:
     # ToDo remove old code
-    # def actuator_callback(self, ch, method, properties, body):
-    #     print(f" [Python] Received from actuator_exchange: {body}")
-    #     self.await_actuator = json.loads(body)['running'].lower() == 'false'
-    #     ch.stop_consuming()
+    def actuator_callback(self, ch, method, properties, body):
+        print(f" [Python] Received from actuator_exchange: {body}")
+        self.await_actuator = json.loads(body)['running'].lower() == 'false'
+        ch.stop_consuming()
 
     def sendRobotUpdate(self):
         current_position = self.robot_driver.get_current_position()
@@ -65,10 +65,10 @@ class Controller_RRT:
         self.sendImageUpdate(image_name)
 
     # ToDo remove old code
-    # def receiveActuator(self):
-    #     self.await_actuator = True
-    #     self.receiver.setup_consumer('actuator', self.actuator_callback)
-    #     self.receiver.start_consuming()
+    def receiveActuator(self):
+        self.await_actuator = True
+        self.receiver.setup_consumer('actuator', self.actuator_callback)
+        self.receiver.start_consuming()
 
     def sendDataUpdate(self):
         while True:
@@ -90,11 +90,12 @@ class Controller_RRT:
         rabbitmq_system_thread.daemon = True
         rabbitmq_system_thread.start()
         
-        self.actuator_status_manager = StatusManager(name="actuator")
-        rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager, username='actuator', password='actuator', exchange_name='actuator')
-        rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
-        rabbitmq_actuator_thread.daemon = True
-        rabbitmq_actuator_thread.start()
+        # ToDo Fix following code
+        # self.actuator_status_manager = StatusManager(name="actuator")
+        # rabbitmq_actuator_consumer = RabbitMQConsumer(self.actuator_status_manager, username='actuator', password='actuator', exchange_name='actuator')
+        # rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
+        # rabbitmq_actuator_thread.daemon = True
+        # rabbitmq_actuator_thread.start()
 
         try:
             os.system("rm -rf Pathplanning/media")
@@ -168,31 +169,32 @@ class Controller_RRT:
                     self.sendMessages("optimized_path")
                     
                     # ToDo remove old data
-                    # actuator_thread = threading.Thread(target=self.receiveActuator)
-                    # actuator_thread.start()
-                    # actuator_thread.join()
+                    actuator_thread = threading.Thread(target=self.receiveActuator)
+                    actuator_thread.start()
+                    actuator_thread.join()
 
-                    # if self.await_actuator == False:
+                    if self.await_actuator == False:
+                    # ToDo Fix following code
                     # Check if the actuator is ready
-                    actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=(True))
-                    actuator_status_thread.daemon = True
-                    actuator_status_thread.start()
-                    actuator_status_thread.join()
+                    # actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=(True))
+                    # actuator_status_thread.daemon = True
+                    # actuator_status_thread.start()
+                    # actuator_status_thread.join()
                     
-                    self.status = "moving"
-                    self.sendRobotUpdate()
+                        self.status = "moving"
+                        self.sendRobotUpdate()
 
-                    for position in scaled_path:
-                        x, y = position
-                        x = x - (target_width / 2)
-                        y = y - (target_height / 2)
-                        self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
+                        for position in scaled_path:
+                            x, y = position
+                            x = x - (target_width / 2)
+                            y = y - (target_height / 2)
+                            self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
 
-                    # Update the start coordinates to the current weed center
-                    self.sendActuatorStart()
-                    self.status = "Started actuator"
-                    self.sendRobotUpdate()
-                    self.start_x, self.start_y = weed_center
+                        # Update the start coordinates to the current weed center
+                        self.sendActuatorStart()
+                        self.status = "Started actuator"
+                        self.sendRobotUpdate()
+                        self.start_x, self.start_y = weed_center
 
         except Exception:
             exc_info = sys.exc_info()  # Get current exception info

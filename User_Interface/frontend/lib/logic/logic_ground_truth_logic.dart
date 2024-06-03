@@ -40,6 +40,8 @@ class GroundTruthImageLogic {
   }
 
   void request({DateTime? dateTime}) async {
+    await Future.delayed(Duration(milliseconds: 0));
+    
     try {
       http.Response result = await apiManager.requestData(endpointAddition, dateTime: dateTime);
 
