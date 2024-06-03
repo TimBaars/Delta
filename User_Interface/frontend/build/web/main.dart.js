@@ -69432,8 +69432,8 @@ switch(a){case 0:return new A.jb("System","Stop","system",'{"running": "false"}'
 case 1:return new A.jb("System","Start","system",'{"running": "true"}',s)
 case 2:return new A.jb(r,"...","delta","",s)
 case 3:return new A.jb(r,"...","delta","",s)
-case 4:return new A.jb("Delta Finished Moving","Trigger Actuator",q,'{"drilling": "true", "extended": "false"}',s)
-case 5:return new A.jb("Actuator Finished","Trigger Delta",q,'{"drilling": "false", "extended": "true"}',s)
+case 4:return new A.jb("Delta Finished Moving","Trigger Actuator",q,'{"drilling": "true", "drilling": "true", "extended": "false"}',s)
+case 5:return new A.jb("Actuator Finished","Trigger Delta",q,'{"drilling": "false", "drilling": "false", "extended": "true"}',s)
 default:return A.b3("Container "+(a+1),s,s)}}}
 A.a9u.prototype={
 $0(){this.a.ar(new A.a9t())
