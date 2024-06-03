@@ -23,7 +23,6 @@ try:
             gpio.output(puls_pin, gpio.LOW)
             sleep(.0005)
         
-           
         print('Direction CCW')
         sleep(.5)
         gpio.output(direction_pin, ccw_direction)
