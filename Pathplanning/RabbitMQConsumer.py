@@ -32,6 +32,12 @@ class RabbitMQConsumer:
 
     def stop_consuming(self):
         if self.manager._channel is not None:
-            self.manager._channel.stop_consuming()
+            try:
+                self.manager._channel.stop_consuming()
+            except Exception as e:
+                print(f"Error stopping consumer: {e}")
         if self.manager._connection is not None:
-            self.manager._connection.close()
+            try:
+                self.manager._connection.close()
+            except Exception as e:
+                print(f"Error closing connection: {e}")
