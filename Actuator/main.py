@@ -143,15 +143,15 @@ try:
 
     while True:
         # Check if system is running
-        # status_thread = threading.Thread(target=status_manager.check_status, args=[False])
-        # status_thread.daemon = True
-        # status_thread.start()
-        # status_thread.join()
+        status_thread = threading.Thread(target=status_manager.check_status, args=[False])
+        status_thread.daemon = True
+        status_thread.start()
+        status_thread.join()
 
-        # # Wait for message from delta that it stopped moving
-        # actuator_thread = threading.Thread(target=receiveDelta)
-        # actuator_thread.start()
-        # actuator_thread.join()
+        # Wait for message from delta that it stopped moving
+        actuator_thread = threading.Thread(target=receiveDelta)
+        actuator_thread.start()
+        actuator_thread.join()
 
         # Enable drill
         # Move actuator down
