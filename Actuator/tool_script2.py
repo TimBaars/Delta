@@ -64,9 +64,19 @@ try:
         mSetSpeed(pwmB, n)
         time.sleep(1) # Add some delay to simulate the loop
         
+        mLeft(in1, in2)
+        mLeft(in3, in4)
+
+        time.sleep(1)
+
+        mStop(in1, in2)
+        mStop(in3, in4)
+        
 except Exception as e:
     print("Program interrupted:", e)
-    
+except KeyboardInterrupt:
+    pass    
+
 finally:
     pwmA.stop()
     pwmB.stop()
