@@ -8,9 +8,9 @@ import sys
 import time
 import random
 
-from Pathplanning.RabbitMQConsumer import RabbitMQConsumer
-from Pathplanning.RabbitMQManager import RabbitMQManager
-from Pathplanning.StatusManager import StatusManager
+from RabbitMQConsumer import RabbitMQConsumer
+from RabbitMQManager import RabbitMQManager
+from StatusManager import StatusManager
 
 # Configure logging
 logging.basicConfig(filename='errors.log', level=logging.ERROR, format='%(asctime)s, %(filename)s, %(lineno)d, %(message)s')
