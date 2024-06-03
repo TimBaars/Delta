@@ -75,6 +75,7 @@ try:
 except Exception as e:
     print("Program interrupted:", e)
 except KeyboardInterrupt:
+    print("Program interrupted by user")
     pass    
 
 finally:
