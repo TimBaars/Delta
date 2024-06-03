@@ -143,15 +143,15 @@ try:
 
     while True:
         # Check if system is running
-        status_thread = threading.Thread(target=status_manager.check_status, args=[False])
-        status_thread.daemon = True
-        status_thread.start()
-        status_thread.join()
+        # status_thread = threading.Thread(target=status_manager.check_status, args=[False])
+        # status_thread.daemon = True
+        # status_thread.start()
+        # status_thread.join()
 
-        # Wait for message from delta that it stopped moving
-        actuator_thread = threading.Thread(target=receiveDelta)
-        actuator_thread.start()
-        actuator_thread.join()
+        # # Wait for message from delta that it stopped moving
+        # actuator_thread = threading.Thread(target=receiveDelta)
+        # actuator_thread.start()
+        # actuator_thread.join()
 
         # Enable drill
         # Move actuator down
@@ -165,6 +165,7 @@ try:
 
         # Send message to pathplanning that actuator is ready
         client.send_message('actuator', {'running': 'false'})
+        print(" [Python] Sent to pathplanning: Actuator is ready")
         
         if (gpio.input(23)==gpio.HIGH):
                 stepper_up()
