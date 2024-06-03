@@ -1,5 +1,11 @@
+import json
+import threading
 from time import sleep
 import RPi.GPIO as gpio
+
+from Actuator.RabbitMQManager import RabbitMQManager
+from Pathplanning.RabbitMQConsumer import RabbitMQConsumer
+from Pathplanning.StatusManager import StatusManager
 
 # DC Motor Pin Definitions
 direction_pin = 20
@@ -107,9 +113,52 @@ def dc_motor_stop():
     gpio.output(IN2, gpio.LOW)
     gpio.output(ENA, 0)
 
+def delta_callback(self, ch, method, properties, body):
+    print(f" [Python] Received from actuator_exchange: {body}")
+    self.await_actuator = json.loads(body)['running'].lower() == 'true'
+    ch.stop_consuming()
+    
+def receiveDelta(self):
+    self.await_actuator = True
+    self.receiver.setup_consumer('actuator', delta_callback)
+    self.receiver.start_consuming()
+
 # Main Sequence
 try:
+    client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+
+    status_manager = StatusManager()        
+
+    rabbitmq_consumer = RabbitMQConsumer(status_manager)
+    rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
+    rabbitmq_thread.daemon = True
+    rabbitmq_thread.start()
+
     while True:
+        # Check if system is running
+        status_thread = threading.Thread(target=status_manager.check_status, args=(False))
+        status_thread.daemon = True
+        status_thread.start()
+        status_thread.join()
+
+        # Wait for message from delta that it stopped moving
+        actuator_thread = threading.Thread(target=receiveDelta)
+        actuator_thread.start()
+        actuator_thread.join()
+
+        # Enable drill
+        # Move actuator down
+            # Wait for movement to finish
+
+        # ...?
+
+        # Move actuator up
+            # Wait for movement to finish
+        # Disable drill
+
+        # Send message to pathplanning that actuator is ready
+        client.send_message('actuator', {'running': 'false'})
+        
         signal = input("Enter 1 to move stepper motor up, 2 to spin up DC motor or 3 to stepper down")
         if signal == '1':
             stepper_up()

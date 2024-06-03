@@ -28,7 +28,7 @@ target_height = 300
 class Controller_RRT:
     def actuator_callback(self, ch, method, properties, body):
         print(f" [Python] Received from actuator_exchange: {body}")
-        self.await_actuator = json.loads(body)['running'].lower() == 'true'
+        self.await_actuator = json.loads(body)['running'].lower() == 'false'
         ch.stop_consuming()
 
     def sendRobotUpdate(self):
@@ -46,6 +46,10 @@ class Controller_RRT:
         # turn message into JSON
         message = json.dumps({"position": position, "status": status, "velocity": velocity, "direction": direction})
         self.sender.send_message('delta', message)
+
+    def sendActuatorStart(self):
+        message = json.dumps({"running": "true"})
+        self.sender.send_message('actuator', message)
 
     def sendImageUpdate(self, location):
         date = time.gmtime()
