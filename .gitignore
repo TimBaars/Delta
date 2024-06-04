@@ -2,3 +2,10 @@
 Pathplanning/media/*
 orange_pi_3/prebuilt_image/setup_32gb_orangepi.img
 **/constants.dart
+User_Interface/.local-be/*
+User_Interface/.local-fe/*
+User_Interface/backend/.dart-tool/*
+venv/*
+User_Interface/backend/.dart_tool/package_config.json
+/.venv
+/User_Interface/backend/.dart_tool

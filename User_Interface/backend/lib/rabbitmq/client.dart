@@ -52,7 +52,7 @@ class RabbitMQClient {
     await clientIsInitialized();
 
     Exchange exchange = await _channel.exchange(exchangeName, ExchangeType.FANOUT);
-    Queue queue = await _channel.queue('', autoDelete: true); 
+    Queue queue = await _channel.queue('', autoDelete: false); 
     await queue.bind(exchange, "");
     return await queue.consume();
   }

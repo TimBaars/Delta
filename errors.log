@@ -2728,3 +2728,1657 @@ Traceback (most recent call last):
   File "/home/koen/miniconda3/envs/delta/lib/python3.10/site-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection
     raise self._reap_last_connection_workflow_error(error)
 pika.exceptions.AMQPConnectionError
+2024-06-04 13:11:45,462, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=IndexError('pop from an empty deque'); sock=<socket.socket fd=1156, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 52369, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+2024-06-04 13:11:45,462, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:11:45,462, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:11:45,462, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:14:08,311, channel.py, 1440, Unexpected frame: <METHOD(['channel_number=1', 'frame_type=1', 'method=<Exchange.DeclareOk>'])>
+2024-06-04 13:14:08,311, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=IndexError('pop from an empty deque'); sock=<socket.socket fd=2032, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 52470, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+2024-06-04 13:14:08,323, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:14:08,323, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:14:08,323, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 13:56:30,356, connection_workflow.py, 291, AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))")
+2024-06-04 13:56:30,357, connection_workflow.py, 746, AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None.
+2024-06-04 13:56:30,357, connection_workflow.py, 723, AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None
+2024-06-04 13:56:30,357, blocking_connection.py, 450, Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '192.168.201.78'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('192.168.201.78', 5672))"); first exception - None
+2024-06-04 13:56:30,357, blocking_connection.py, 457, Error in _create_connection().
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2024-06-04 15:17:30,686, channel.py, 1440, Unexpected frame: <METHOD(['channel_number=1', 'frame_type=1', 'method=<Exchange.DeclareOk>'])>
+2024-06-04 15:17:30,686, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=IndexError('pop from an empty deque'); sock=<socket.socket fd=1908, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 59428, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+2024-06-04 15:17:30,686, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:17:30,686, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:17:30,686, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:18:11,999, channel.py, 1440, Unexpected frame: <METHOD(['channel_number=1', 'frame_type=1', 'method=<Exchange.DeclareOk>'])>
+2024-06-04 15:18:11,999, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=IndexError('pop from an empty deque'); sock=<socket.socket fd=1960, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 59469, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+2024-06-04 15:18:11,999, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:18:11,999, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:18:11,999, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: IndexError('pop from an empty deque')",)
+2024-06-04 15:20:55,357, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:56,066, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:56,719, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:57,353, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:57,987, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:58,610, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:59,227, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:20:59,859, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:00,484, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:01,101, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:01,783, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:02,436, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:03,035, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:03,668, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:04,276, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:04,905, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:05,511, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:06,132, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:06,748, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:07,349, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:07,996, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:21:08,600, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in <dictcomp>
+    direction = {mapping[i]: random.randint(100) for i in range(4)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:50,031, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:50,859, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:51,489, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:52,093, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:52,768, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:28:53,439, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 53, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(100), mapping[1]: random.randint(100), mapping[2]: random.randint(100), mapping[3]: random.randint(100)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:27,293, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:27,900, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:28,523, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:29,169, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:29,776, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:30,405, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:31,025, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:30:31,640, Controller_RRT.py, 208, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 158, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 56, in sendRobotUpdate
+    message = json.dumps({"position": random.randint(100), "status": self.status, "velocity": 750, "direction": direction})
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:22,673, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:23,284, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:23,894, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:24,515, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:25,174, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:25,832, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:26,452, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:27,081, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:27,775, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:28,400, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:29,060, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:29,723, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:30,355, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:30,968, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:31,599, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:32,210, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:32,844, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:33,445, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:34,090, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:34,689, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:35,320, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:35,938, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:36,586, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 159, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    direction = {mapping[0]: random.randint(range), mapping[1]: random.randint(range), mapping[2]: random.randint(range), mapping[3]: random.randint(range)}
+TypeError: randint() missing 1 required positional argument: 'b'
+2024-06-04 15:33:58,991, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 180, in run
+    actuator_thread = threading.Thread(target=self.receiveActuator)
+AttributeError: 'Controller_RRT' object has no attribute 'receiveActuator'
+2024-06-04 15:33:59,819, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 180, in run
+    actuator_thread = threading.Thread(target=self.receiveActuator)
+AttributeError: 'Controller_RRT' object has no attribute 'receiveActuator'
+2024-06-04 15:34:00,594, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 180, in run
+    actuator_thread = threading.Thread(target=self.receiveActuator)
+AttributeError: 'Controller_RRT' object has no attribute 'receiveActuator'
+2024-06-04 15:34:01,470, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 180, in run
+    actuator_thread = threading.Thread(target=self.receiveActuator)
+AttributeError: 'Controller_RRT' object has no attribute 'receiveActuator'
+2024-06-04 15:34:02,307, Controller_RRT.py, 209, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 180, in run
+    actuator_thread = threading.Thread(target=self.receiveActuator)
+AttributeError: 'Controller_RRT' object has no attribute 'receiveActuator'
+2024-06-04 16:46:42,656, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None); sock=<socket.socket fd=2032, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 50614, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+2024-06-04 16:46:42,657, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)",)
+2024-06-04 16:46:42,657, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)",)
+2024-06-04 16:46:42,657, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 185, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2265, in basic_publish
+    self._flush_output()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 1353, in _flush_output
+    self._connection._flush_output(lambda: self.is_closed, *waiters)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 523, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)
+2024-06-04 16:46:43,326, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:43,971, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:44,605, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:45,228, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:45,854, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:46,478, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:47,110, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:47,758, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:48,390, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:49,026, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:49,633, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:50,266, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:50,893, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:51,521, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:52,139, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:52,761, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:53,428, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:54,045, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:54,659, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:55,286, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:55,909, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:56,566, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:57,195, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:57,848, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:58,461, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:59,078, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:46:59,700, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:47:00,344, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 33, in send_message
+    # print(f" [Python] Sent to delta_exchange: {body}")
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:03,210, io_services_utils.py, 1109, _AsyncBaseTransport._produce() failed, aborting connection: error=ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None); sock=<socket.socket fd=1976, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6, laddr=('::1', 51135, 0, 0), raddr=('::1', 5672, 0, 0)>; Caller's stack:
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\utils\io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+2024-06-04 16:52:03,210, base_connection.py, 428, connection_lost: StreamLostError: ("Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)",)
+2024-06-04 16:52:03,211, blocking_connection.py, 521, Unexpected connection close detected: StreamLostError: ("Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)",)
+2024-06-04 16:52:03,211, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 203, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2265, in basic_publish
+    self._flush_output()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 1353, in _flush_output
+    self._connection._flush_output(lambda: self.is_closed, *waiters)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 523, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)
+2024-06-04 16:52:03,819, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:04,462, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:05,074, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:05,700, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:06,322, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:06,940, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:07,542, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:08,168, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:08,795, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:09,422, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:10,056, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:10,678, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:11,302, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:11,932, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:12,546, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:13,181, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:13,817, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:14,443, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:15,122, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:15,752, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:16,413, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:17,020, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:17,635, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:18,250, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:18,865, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:19,479, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:20,096, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:20,705, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:21,318, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:21,926, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:22,596, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:23,284, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:23,934, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:24,648, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:25,288, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:25,977, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:26,679, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:27,337, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:28,054, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.
+2024-06-04 16:52:28,774, Controller_RRT.py, 221, Error inside run
+Traceback (most recent call last):
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 151, in run
+    self.sendRobotUpdate()
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\Controller_RRT.py", line 54, in sendRobotUpdate
+    self.sender.send_message('delta', message)
+  File "D:\Fontys\Semester 6\Group\Delta\Pathplanning\RabbitMQManager.py", line 30, in send_message
+    self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\adapters\blocking_connection.py", line 2259, in basic_publish
+    self._impl.basic_publish(
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 423, in basic_publish
+    self._raise_if_not_open()
+  File "D:\Fontys\Semester 6\Group\Delta\.venv\lib\site-packages\pika\channel.py", line 1403, in _raise_if_not_open
+    raise exceptions.ChannelWrongStateError('Channel is closed.')
+pika.exceptions.ChannelWrongStateError: Channel is closed.

@@ -26,12 +26,6 @@ target_width = 300
 target_height = 300
 
 class Controller_RRT:
-    # ToDo remove old code
-    # def actuator_callback(self, ch, method, properties, body):
-    #     print(f" [Python] Received from actuator_exchange: {body}")
-    #     self.await_actuator = json.loads(body)['running'].lower() == 'false'
-    #     ch.stop_consuming()
-
     def sendRobotUpdate(self):
         current_position = self.robot_driver.get_current_position()
         if current_position is None or len(current_position) < 3:
@@ -49,6 +43,8 @@ class Controller_RRT:
         self.sender.send_message('delta', message)
 
     def sendActuatorStart(self):
+        self.actuator_status_manager.update_status(True)
+
         message = json.dumps({"running": "true"})
         self.sender.send_message('actuator', message)
 
@@ -64,27 +60,24 @@ class Controller_RRT:
         self.sendRobotUpdate()
         self.sendImageUpdate(image_name)
 
-    # ToDo remove old code
-    # def receiveActuator(self):
-    #     self.await_actuator = True
-    #     self.receiver.setup_consumer('actuator', self.actuator_callback)
-    #     self.receiver.start_consuming()
-
     def sendDataUpdate(self):
         while True:
-            if not self.stop:
-                self.sendRobotUpdate()
+            system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
+            system_status_thread.daemon = True
+            system_status_thread.start()
+            system_status_thread.join()
+
+            self.sendRobotUpdate()
             time.sleep(0.1)
 
     def __init__(self):
         self.status = "shutdown"
         self.stop = True
-        # ToDo remove old data
-        # self.receiver = RabbitMQManager(host='192.168.201.78', username='python', password='python')
+
         self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
         
         self.system_status_manager = StatusManager(name="system")
-        rabbitmq_system_consumer = RabbitMQConsumer(self.system_status_manager)
+        rabbitmq_system_consumer = RabbitMQConsumer(self.system_status_manager, username='python', password='python', exchange_name='system')
         rabbitmq_system_thread = threading.Thread(target=rabbitmq_system_consumer.start_consuming)
         rabbitmq_system_thread.daemon = True
         rabbitmq_system_thread.start()
@@ -120,9 +113,10 @@ class Controller_RRT:
 
     def run(self):
         """Starting the process"""
-        data_update_thread = threading.Thread(target=self.sendDataUpdate)
-        data_update_thread.daemon = True
-        data_update_thread.start()
+        # Constant data updates thread
+        # data_update_thread = threading.Thread(target=self.sendDataUpdate)
+        # data_update_thread.daemon = True
+        # data_update_thread.start()
 
         self.status = "waiting for start"
 
@@ -139,12 +133,6 @@ class Controller_RRT:
 
             # Iterate through each weed center, calculate the path, and move the robot
             for weed_center in weed_centers:
-                # Check if the system is running, otherwise wait till it does
-                system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
-                system_status_thread.daemon = True
-                system_status_thread.start()
-                system_status_thread.join()
-                
                 self.status = "searching_path"
                 self.sendRobotUpdate()
                 # Update the coordinates for the current weed center
@@ -165,18 +153,37 @@ class Controller_RRT:
                     scaled_path = self.scale_coordinates(path, target_width / image.shape[1], target_height / image.shape[0])
                     self.status = "awaiting_actuator"
                     self.sendMessages("optimized_path")
-                    
-                    # ToDo remove old data
-                    actuator_thread = threading.Thread(target=self.receiveActuator)
-                    actuator_thread.start()
-                    actuator_thread.join()
 
-                    # if self.await_actuator == False:
+                    # Check if the system is running
+                    if (self.system_status_manager.check_current_status() == False):
+                        self.status = "System stopped"
+                        self.sendRobotUpdate()
+
+                        system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
+                        system_status_thread.daemon = True
+                        system_status_thread.start()
+                        system_status_thread.join()
+
                     # Check if the actuator is ready
-                    actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=(True))
-                    actuator_status_thread.daemon = True
-                    actuator_status_thread.start()
-                    actuator_status_thread.join()
+                    print(f"Actuator status: {self.actuator_status_manager.check_current_status()}")
+                    if (self.system_status_manager.check_current_status() == True):
+                        self.status = "Awaiting actuator"
+                        self.sendRobotUpdate()
+                    
+                        actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=[True])
+                        actuator_status_thread.daemon = True
+                        actuator_status_thread.start()
+                        actuator_status_thread.join()
+
+                    # Check if the system is running
+                    if (self.system_status_manager.check_current_status() == False):
+                        self.status = "System stopped"
+                        self.sendRobotUpdate()
+
+                        system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
+                        system_status_thread.daemon = True
+                        system_status_thread.start()
+                        system_status_thread.join()
                     
                     self.status = "moving"
                     self.sendRobotUpdate()
@@ -260,7 +267,7 @@ class Controller_RRT:
             return scaled_path
         return []
 
-# # Example run
+# Example run
 # if __name__ == "__main__":
 #     controller = Controller_RRT()
 #     controller.run()
