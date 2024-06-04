@@ -2,15 +2,7 @@ import pika
 import json
 
 class RabbitMQManager:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super(RabbitMQManager, cls).__new__(cls)
-            cls._instance.initialize(*args, **kwargs)
-        return cls._instance
-
-    def initialize(self, host='localhost', username='guest', password='guest'):
+    def __init__(self, host='localhost', username='guest', password='guest'):
         self._connection = pika.BlockingConnection(pika.ConnectionParameters(
             host=host,
             credentials=pika.PlainCredentials(username, password)
@@ -32,9 +24,13 @@ class RabbitMQManager:
 
     def send_message(self, exchange_name, body):
         # Ensure the body is JSON encoded
-        message = json.dumps(body)
-        self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
-        self._channel.basic_publish(exchange=exchange_name, routing_key='', body=message)
+        if type(body) is not str:
+            body = json.dumps(body)
+
+        self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+        self._channel.basic_publish(exchange=exchange_name, routing_key='', body=body)
+
+        # print(f" [Python] Sent to delta_exchange: {body}")
 
     def start_consuming(self):
         # print(' [*] Waiting for messages. To exit press CTRL+C')

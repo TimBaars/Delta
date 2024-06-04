@@ -1,6 +1,7 @@
 import json
 import threading
 from time import sleep
+import time
 import RPi.GPIO as gpio
 
 from RabbitMQManager import RabbitMQManager
@@ -136,68 +137,108 @@ def dc_motor_stop():
 
 # Main Sequence
 try:
-    # client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
     
-    # def delta_callback(ch, method, properties, body):
-    #     print(f" [Python] Received from actuator_exchange: {body}")
-    #     ch.stop_consuming()
-        
-    # def receiveDelta():
-    #     client.setup_consumer('actuator', delta_callback)
-    #     client.start_consuming()
+    # RabbitMQ Functions
+    def sendMessage(running, drilling, status):
+        timestamp = time.time()
 
-    # status_manager = StatusManager()        
-
-    # rabbitmq_consumer = RabbitMQConsumer(status_manager)
-    # rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
-    # rabbitmq_thread.daemon = True
-    # rabbitmq_thread.start()
+        # turn message into JSON
+        message = json.dumps({"running": running, "drilling": drilling, "status": status, "timestamp": timestamp})
+        sender.send_message("actuator", message)
+    
+    system_status_manager = StatusManager(name="system")
+    rabbitmq_system_consumer = RabbitMQConsumer(system_status_manager, username='python', password='python', exchange_name='system')
+    rabbitmq_system_thread = threading.Thread(target=rabbitmq_system_consumer.start_consuming)
+    rabbitmq_system_thread.daemon = True
+    rabbitmq_system_thread.start()
+    
+    actuator_status_manager = StatusManager(name="actuator")
+    rabbitmq_actuator_consumer = RabbitMQConsumer(actuator_status_manager, username='actuator', password='actuator', exchange_name='actuator')
+    rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
+    rabbitmq_actuator_thread.daemon = True
+    rabbitmq_actuator_thread.start()
 
     while True:
-        # Check if system is running
-        # status_thread = threading.Thread(target=status_manager.check_status, args=[False])
-        # status_thread.daemon = True
-        # status_thread.start()
-        # status_thread.join()
+        # Check if the system is running
+        if (system_status_manager.check_current_status() == False):
+            status = "System stopped"
 
-        # # Wait for message from delta that it stopped moving
-        # actuator_thread = threading.Thread(target=receiveDelta)
-        # actuator_thread.start()
-        # actuator_thread.join()
+            system_status_thread = threading.Thread(target=system_status_manager.check_status, args=[False])
+            system_status_thread.daemon = True
+            system_status_thread.start()
+            system_status_thread.join()
 
-        # Enable drill
-        # Move actuator down
-            # Wait for movement to finish
+        # Check if the delta moved to position
+        print(f"Actuator status: {actuator_status_manager.check_current_status()}")
+        if (system_status_manager.check_current_status() == True):
+            status = "Awaiting Delta"
+        
+            actuator_status_thread = threading.Thread(target=actuator_status_manager.check_status, args=[False])
+            actuator_status_thread.daemon = True
+            actuator_status_thread.start()
+            actuator_status_thread.join()
 
-        # ...?
+        # Check if the system is running
+        if (system_status_manager.check_current_status() == False):
+            status = "System stopped"
 
-        # Move actuator up
-            # Wait for movement to finish
-        # Disable drill
+            system_status_thread = threading.Thread(target=system_status_manager.check_status, args=[False])
+            system_status_thread.daemon = True
+            system_status_thread.start()
+            system_status_thread.join()
+
+        status = "Doing important stuff"
+        sendMessage(True, True, status)
+
+# ToDo Start Example implementation (Done by Tim so needs to be revised by the actuator team)
+        
+    # Enable drill for x seconds
+        dc_motor_thread = threading.Thread(target=dc_motor_spin_up, args=[5])
+        dc_motor_thread.daemon = True
+        dc_motor_thread.start()
+
+    # Move actuator down
+        status = "Moving actuator down"
+        sendMessage(True, True, status)
+        stepper_down(100)
+
+    # ToDo Run other stuff/wait for a bit,...?
+        time.sleep(0.5)
+
+    # Move actuator up
+        status = "Moving actuator up"
+        sendMessage(True, True, status)
+        stepper_up(100)
+
+    # Disable drill
+        dc_motor_thread.join()
+        dc_motor_stop()
+
+# ToDo End Example implementation (Done by Tim so needs to be revised by the actuator team)
+
+        status = "Finished important stuff"
+        sendMessage(False, False, status)
 
 # ToDo Make the actuator do above steps instead of manual input (after testing)
-        if (buttonPin == gpio.HIGH):
-            stepper_up(20)
-        signal = input("Enter command: 1 - move stepper motor up; 2 - spin up DC motor; 3 - stepper down; 4 - End program: ")
-        if signal == '1':
-            print("Moving stepper motor up")
-            stepper_up(100)
-        elif signal == '2':
-            duration = float(input("Enter duration to spin up DC motor (in seconds): "))
-            dc_motor_spin_up(duration)
-            dc_motor_stop()
-        elif signal == '3':
-            print("Moving stepper motor down")
-            stepper_down(100)
-        elif signal == '4':
-            print("Ending program")
-            break
-        else:
-            print("Invalid input, please enter 1 or 2.")
-        
-        # Send message to pathplanning that actuator is ready
-        # client.send_message('actuator', {'running': 'false'})
-        # print(" [Python] Sent to pathplanning: Actuator is ready")
+        # if (buttonPin == gpio.HIGH):
+        #     stepper_up(20)
+        # signal = input("Enter command: 1 - move stepper motor up; 2 - spin up DC motor; 3 - stepper down; 4 - End program: ")
+        # if signal == '1':
+        #     print("Moving stepper motor up")
+        #     stepper_up(100)
+        # elif signal == '2':
+        #     duration = float(input("Enter duration to spin up DC motor (in seconds): "))
+        #     dc_motor_spin_up(duration)
+        #     dc_motor_stop()
+        # elif signal == '3':
+        #     print("Moving stepper motor down")
+        #     stepper_down(100)
+        # elif signal == '4':
+        #     print("Ending program")
+        #     break
+        # else:
+        #     print("Invalid input, please enter 1 or 2.")
 
 except KeyboardInterrupt:
     pass
