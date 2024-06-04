@@ -25,10 +25,28 @@ sudo systemctl enable rabbitmq-server
 sudo systemctl start rabbitmq-server
 ```
 
-### Add account
+### Add users
+
+#### Generic
 
 ```ps
 # Create user
-sudo rabbitmqctl add_user "rabbitmq" "<password>"
+sudo rabbitmqctl add_user "<user>" "<password>"
+sudo rabbitmqctl set_permissions -p / "<user>" ".*" ".*" ".*"
+```
+
+#### Required
+
+```ps
+# Create user RabbitMQ
+sudo rabbitmqctl add_user "rabbitmq" "pi"
 sudo rabbitmqctl set_permissions -p / "rabbitmq" ".*" ".*" ".*"
+
+# Create user Python
+sudo rabbitmqctl add_user "python" "python"
+sudo rabbitmqctl set_permissions -p / "python" ".*" ".*" ".*"
+
+# Create user Actuator
+sudo rabbitmqctl add_user "actuator" "actuator"
+sudo rabbitmqctl set_permissions -p / "actuator" ".*" ".*" ".*"
 ```
