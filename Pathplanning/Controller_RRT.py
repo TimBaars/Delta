@@ -94,9 +94,16 @@ class Controller_RRT:
             print("Dir already clean")
             os.mkdir("Pathplanning/media")
         # Placeholders for testing replace with actual implementation with another group
-        self.number = 4  # random.randint(1, 18)
-        txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
-        img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
+
+        # Harder paths
+        # self.paths = (3, 4)
+        # Easier paths
+        self.paths = (1, 2, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18)
+
+        self.number = random.choice(self.paths)
+        self.number_str = '{num:0{width}}'.format(num=self.number, width=5)
+        txt_path = f'Pathplanning/Paths/BLP{self.number_str}.txt'
+        img_path = f'Pathplanning/Paths/BLP{self.number_str}.jpg'
         self.start_x = 0  # Needs to be determined when working with the robot.
         self.start_y = 0  # Needs to be determined when working with the robot.
 
@@ -121,9 +128,10 @@ class Controller_RRT:
         self.status = "waiting for start"
 
         try:
-            self.number = random.randint(1, 4)
-            txt_path = f'Pathplanning/Paths/BLP0000{self.number}.txt'
-            img_path = f'Pathplanning/Paths/BLP0000{self.number}.jpg'
+            self.number = random.choice(self.paths)
+            self.number_str = '{num:0{width}}'.format(num=self.number, width=5)
+            txt_path = f'Pathplanning/Paths/BLP{self.number_str}.txt'
+            img_path = f'Pathplanning/Paths/BLP{self.number_str}.jpg'
             self.processor.txt_path = txt_path
             self.processor.img_path = img_path
 
