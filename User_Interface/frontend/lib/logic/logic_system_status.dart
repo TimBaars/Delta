@@ -87,6 +87,12 @@ class SystemStatusLogic {
           var jsonResult = jsonDecode(body.replaceAll("\'", "\""));
 
           if (jsonResult.toString() != json.toString()) {
+            setJson(jsonResult);
+
+            function();
+          }
+
+          if (jsonResult.toString() != json.toString()) {
             running = jsonResult["running"] == "true";
 
             setJson(jsonResult);

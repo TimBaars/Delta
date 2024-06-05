@@ -1,6 +1,7 @@
 import json
 import threading
 from time import sleep
+import time
 import RPi.GPIO as gpio
 
 from RabbitMQManager import RabbitMQManager
@@ -122,34 +123,37 @@ def up_Logic():
 
 # Main Sequence
 try:
-    # client = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    sender = RabbitMQManager(host='192.168.201.254', username='rabbitmq', password='pi')
     
-    # def delta_callback(ch, method, properties, body):
-    #     print(f" [Python] Received from actuator_exchange: {body}")
-    #     ch.stop_consuming()
-        
-    # def receiveDelta():
-    #     client.setup_consumer('actuator', delta_callback)
-    #     client.start_consuming()
+    # RabbitMQ Functions
+    def sendMessage(running, drilling, status):
+        timestamp = time.time()
 
-    # status_manager = StatusManager()        
-
-    # rabbitmq_consumer = RabbitMQConsumer(status_manager)
-    # rabbitmq_thread = threading.Thread(target=rabbitmq_consumer.start_consuming)
-    # rabbitmq_thread.daemon = True
-    # rabbitmq_thread.start()
+        # turn message into JSON
+        message = json.dumps({"running": running, "drilling": drilling, "status": status, "timestamp": timestamp})
+        sender.send_message("actuator", message)
+    
+    system_status_manager = StatusManager(name="system")
+    rabbitmq_system_consumer = RabbitMQConsumer(system_status_manager, username='python', password='python', exchange_name='system')
+    rabbitmq_system_thread = threading.Thread(target=rabbitmq_system_consumer.start_consuming)
+    rabbitmq_system_thread.daemon = True
+    rabbitmq_system_thread.start()
+    
+    actuator_status_manager = StatusManager(name="actuator")
+    rabbitmq_actuator_consumer = RabbitMQConsumer(actuator_status_manager, username='actuator', password='actuator', exchange_name='actuator')
+    rabbitmq_actuator_thread = threading.Thread(target=rabbitmq_actuator_consumer.start_consuming)
+    rabbitmq_actuator_thread.daemon = True
+    rabbitmq_actuator_thread.start()
 
     while True:
-        # Check if system is running
-        # status_thread = threading.Thread(target=status_manager.check_status, args=[False])
-        # status_thread.daemon = True
-        # status_thread.start()
-        # status_thread.join()
+        # Check if the system is running
+        if (system_status_manager.check_current_status() == False):
+            status = "System stopped"
 
-        # # Wait for message from delta that it stopped moving
-        # actuator_thread = threading.Thread(target=receiveDelta)
-        # actuator_thread.start()
-        # actuator_thread.join()
+            system_status_thread = threading.Thread(target=system_status_manager.check_status, args=[False])
+            system_status_thread.daemon = True
+            system_status_thread.start()
+            system_status_thread.join()
 
         # Actuator Logic
         # signal = input("Enter command: 1 - move tool up; 2 - spin up DC motor; 3 - move tool down; 4 - button test; 5 - End program: ")
