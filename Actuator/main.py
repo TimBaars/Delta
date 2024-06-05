@@ -137,7 +137,7 @@ def dc_motor_stop():
 
 # Main Sequence
 try:
-    sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    sender = RabbitMQManager(host='192.168.201.254', username='rabbitmq', password='pi')
     
     # RabbitMQ Functions
     def sendMessage(running, drilling, status):

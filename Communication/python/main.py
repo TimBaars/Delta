@@ -9,7 +9,7 @@ from rrt import Rrt
 from system import System
 
 # Establish a connection to RabbitMQ server
-host = '192.168.201.78'
+host = '192.168.201.254'
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, credentials=pika.PlainCredentials('rabbitmq', 'pi')))
 
 # Create a channel

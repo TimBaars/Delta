@@ -5,7 +5,7 @@ import pika
 from Pathplanning.RabbitMQManager import RabbitMQManager
 
 class RabbitMQConsumer:
-    def __init__(self, status_manager, host="192.168.201.78", username='python', password='python', exchange_name='system'):
+    def __init__(self, status_manager, host="192.168.201.254", username='python', password='python', exchange_name='system'):
         self.status_manager = status_manager
         self.host = host
         self.username = username

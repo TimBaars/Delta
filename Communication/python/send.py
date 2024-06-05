@@ -3,7 +3,7 @@ import time
 import pika
 
 # Establish a connection to RabbitMQ server
-host = '192.168.201.78'
+host = '192.168.201.254'
 exchange_name = "actuator"
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, credentials=pika.PlainCredentials('rabbitmq', 'pi')))
 

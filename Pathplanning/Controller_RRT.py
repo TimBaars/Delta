@@ -50,7 +50,7 @@ class Controller_RRT:
 
     def sendImageUpdate(self, location):
         date = time.gmtime()
-        endpoint = f"http://192.168.201.78/images/{location}.jpg"
+        endpoint = f"http://192.168.201.254/images/{location}.jpg"
 
         # turn message into JSON
         message = json.dumps({"url": endpoint, "date": date})
@@ -74,7 +74,7 @@ class Controller_RRT:
         self.status = "shutdown"
         self.stop = True
 
-        self.sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+        self.sender = RabbitMQManager(host='192.168.201.254', username='rabbitmq', password='pi')
         
         self.system_status_manager = StatusManager(name="system")
         rabbitmq_system_consumer = RabbitMQConsumer(self.system_status_manager, username='python', password='python', exchange_name='system')
