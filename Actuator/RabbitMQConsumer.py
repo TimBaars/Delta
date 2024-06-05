@@ -19,7 +19,7 @@ class RabbitMQConsumer:
         def callback(ch, method, properties, body):
             # print(f" [Python] Received from {self.exchange_name}: {body}")
             message = json.loads(body)
-            runningData = message['running']
+            runningData = str(message['running'])
             new_status = runningData == True or runningData == 'true' or runningData.lower() == 'true'
             self.status_manager.update_status(new_status)
 
