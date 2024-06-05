@@ -2,7 +2,7 @@ import json
 import threading
 import pika
 
-from Pathplanning.RabbitMQManager import RabbitMQManager
+from RabbitMQManager import RabbitMQManager
 
 class RabbitMQConsumer:
     def __init__(self, status_manager, host="192.168.201.254", username='python', password='python', exchange_name='system'):
