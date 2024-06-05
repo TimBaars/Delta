@@ -173,7 +173,6 @@ class Controller_RRT:
                         system_status_thread.join()
 
                     # Check if the actuator is ready
-                    print(f"Actuator status: {self.actuator_status_manager.check_current_status()}")
                     if (self.system_status_manager.check_current_status() == True):
                         self.status = "Awaiting actuator"
                         self.sendRobotUpdate()
