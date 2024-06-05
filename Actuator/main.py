@@ -174,6 +174,9 @@ try:
             system_status_thread.start()
             system_status_thread.join()
 
+        status = "Doing important stuff"
+        sendMessage(True, True, status)
+        
         down_Logic()
 
         time.sleep(0.5)
@@ -181,6 +184,7 @@ try:
         up_Logic()
 
         status = "Finished important stuff"
+        actuator_status_manager.update_status(False)
         sendMessage(False, False, status)
 
 except Exception as e:
