@@ -1,0 +1,19 @@
+Power cable:
+- Drill positive: 1
+- Drill negative: 2
+- Button positive: 3
+- Button negative: 4
+
+d26 
+
+data cable:
+a+ black - white
+a- green - green
+b+ red - pink
+b- blue - blue
+  
+blue = blue
+green = green
+black = white
+pink = red
+yellow = yellow (button gpio)
