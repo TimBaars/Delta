@@ -34,7 +34,7 @@ class Controller_RRT:
         position = {mapping[i]: current_position[i] for i in range(3)}
         print(f"status = {self.status}")
         status = self.status  # TODO get actual status [awaiting_actuator, moving, searching_path, shutdown]
-        velocity = self.robot_velocity  # TODO get actual velocity
+        velocity = self.robot_velocity if self.status == "moving" else 0  # TODO get actual velocity
         mapping = ["from_x", "from_y", "to_x", "to_y"]
         direction = {mapping[i]: self.Calculating_Coords[i] for i in range(4)}  # TODO get actual direction
 
@@ -172,25 +172,29 @@ class Controller_RRT:
                         system_status_thread.start()
                         system_status_thread.join()
 
-                    # Check if the actuator is ready
-                    if (self.system_status_manager.check_current_status() == True):
-                        self.status = "Awaiting actuator"
-                        self.sendRobotUpdate()
-                    
-                        actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=[True])
-                        actuator_status_thread.daemon = True
-                        actuator_status_thread.start()
-                        actuator_status_thread.join()
+                    try:
 
-                    # Check if the system is running
-                    if (self.system_status_manager.check_current_status() == False):
-                        self.status = "System stopped"
-                        self.sendRobotUpdate()
+                        # Check if the actuator is ready
+                        if (self.system_status_manager.check_current_status() == True):
+                            self.status = "Awaiting actuator"
+                            self.sendRobotUpdate()
+                        
+                            actuator_status_thread = threading.Thread(target=self.actuator_status_manager.check_status, args=[True])
+                            actuator_status_thread.daemon = True
+                            actuator_status_thread.start()
+                            actuator_status_thread.join()
 
-                        system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
-                        system_status_thread.daemon = True
-                        system_status_thread.start()
-                        system_status_thread.join()
+                        # Check if the system is running
+                        if (self.system_status_manager.check_current_status() == False):
+                            self.status = "System stopped"
+                            self.sendRobotUpdate()
+
+                            system_status_thread = threading.Thread(target=self.system_status_manager.check_status, args=[False])
+                            system_status_thread.daemon = True
+                            system_status_thread.start()
+                            system_status_thread.join()
+                    except Exception as e:
+                        print("Error in checking status:", e)
                     
                     self.status = "moving"
                     self.sendRobotUpdate()
