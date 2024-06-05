@@ -174,9 +174,6 @@ try:
             system_status_thread.start()
             system_status_thread.join()
 
-        status = "Doing important stuff"
-        sendMessage(True, True, status)
-        
         down_Logic()
 
         time.sleep(0.5)
