@@ -123,7 +123,7 @@ def up_Logic():
 
 # Main Sequence
 try:
-    sender = RabbitMQManager(host='192.168.201.254', username='rabbitmq', password='pi')
+    sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
     
     # RabbitMQ Functions
     def sendMessage(running, drilling, status):
@@ -155,47 +155,36 @@ try:
             system_status_thread.start()
             system_status_thread.join()
 
-        # Actuator Logic
-        # signal = input("Enter command: 1 - move tool up; 2 - spin up DC motor; 3 - move tool down; 4 - button test; 5 - End program: ")
-        # if signal == '1':
-            # stepper_up(100)
-        # elif signal == '2':
-            # direction = input("Enter direction of dc motor: 1 - right; 2 - left: ")
-            # duration = float(input("Enter duration in seconds to spin up DC motor: "))
+        # Check if the delta moved to position
+        print(f"Actuator status: {actuator_status_manager.check_current_status()}")
+        if (system_status_manager.check_current_status() == True):
+            status = "Awaiting Delta"
+        
+            actuator_status_thread = threading.Thread(target=actuator_status_manager.check_status, args=[False])
+            actuator_status_thread.daemon = True
+            actuator_status_thread.start()
+            actuator_status_thread.join()
 
-            # if direction == '1':
-                # mRight(in1, in2)
-            # else:
-                # mLeft(in1, in2)
-            
-            # sleep(duration)
-            # mStop(in1, in2)
-        # elif signal == '3':
-            # stepper_down(100)
-        # elif signal == '4':
-            # print("Testing button")
-            # while True:
-               	# if gpio.input(buttonPin) == gpio.HIGH:
-                    # print("Button was pressed")
-                    # break
-        # elif signal == '5':
-            # print("Ending program")
-            # break
-        # else:
-            # print("Invalid input, please enter valid command")
-            
-            signal = input("Enter signal: 1 - down logic; 2 - up logic; other - end program: ")
-            if signal == '1':
-                down_Logic()
-            elif signal == '2':
-                up_Logic()
-            else:
-                break
+        # Check if the system is running
+        if (system_status_manager.check_current_status() == False):
+            status = "System stopped"
+
+            system_status_thread = threading.Thread(target=system_status_manager.check_status, args=[False])
+            system_status_thread.daemon = True
+            system_status_thread.start()
+            system_status_thread.join()
+
+        status = "Doing important stuff"
+        sendMessage(True, True, status)
         
-        
-        # Send message to pathplanning that actuator is ready
-        # client.send_message('actuator', {'running': 'false'})
-        # print(" [Python] Sent to pathplanning: Actuator is ready")
+        down_Logic()
+
+        time.sleep(0.5)
+
+        up_Logic()
+
+        status = "Finished important stuff"
+        sendMessage(False, False, status)
 
 except Exception as e:
     print("Program interrupted:", e)

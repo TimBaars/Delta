@@ -114,9 +114,9 @@ class Controller_RRT:
     def run(self):
         """Starting the process"""
         # Constant data updates thread
-        # data_update_thread = threading.Thread(target=self.sendDataUpdate)
-        # data_update_thread.daemon = True
-        # data_update_thread.start()
+        data_update_thread = threading.Thread(target=self.sendDataUpdate)
+        data_update_thread.daemon = True
+        data_update_thread.start()
 
         self.status = "waiting for start"
 
