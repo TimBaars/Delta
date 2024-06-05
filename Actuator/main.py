@@ -123,10 +123,8 @@ def up_Logic():
 
 # Main Sequence
 try:
-    print("Main sequence started")
-    sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
-    print("RabbitMQ Manager started")
-    
+    sender = RabbitMQManager(host='192.168.201.254', username='rabbitmq', password='pi')
+
     # RabbitMQ Functions
     def sendMessage(running, drilling, status):
         timestamp = time.time()
@@ -148,7 +146,6 @@ try:
     rabbitmq_actuator_thread.start()
 
     while True:
-        print("loop reached")
         # Check if the system is running
         if (system_status_manager.check_current_status() == False):
             status = "System stopped"
