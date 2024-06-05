@@ -125,6 +125,7 @@ def up_Logic():
 try:
     print("Main sequence started")
     sender = RabbitMQManager(host='192.168.201.78', username='rabbitmq', password='pi')
+    print("RabbitMQ Manager started")
     
     # RabbitMQ Functions
     def sendMessage(running, drilling, status):
