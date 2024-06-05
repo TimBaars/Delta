@@ -20,7 +20,7 @@ class RabbitMQConsumer:
             # print(f" [Python] Received from {self.exchange_name}: {body}")
             message = json.loads(body)
             runningData = str(message['running'])
-            new_status = runningData == True or runningData == 'true' or runningData.lower() == 'true'
+            new_status = runningData == False or runningData == 'false' or runningData.lower() == 'false'
             self.status_manager.update_status(new_status)
 
         manager.setup_consumer(self.exchange_name, callback)
