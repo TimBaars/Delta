@@ -81,7 +81,7 @@ def stepper_up(stepper_range=0):
     
     if stepper_range == 0:
         while True:
-            if gpio.input(buttonPin) == gpio.HIGH:
+            if gpio.input(buttonPin) != gpio.LOW:
                 break
             else:
                 gpio.output(puls_pin, gpio.HIGH)
@@ -94,9 +94,9 @@ def stepper_up(stepper_range=0):
                 break
             else:
                 gpio.output(puls_pin, gpio.HIGH)
-                sleep(.001)
+                sleep(.01)
                 gpio.output(puls_pin, gpio.LOW)
-                sleep(.0005)
+                sleep(.005)
         
 def down_Logic():
     print("Down logic")
