@@ -125,9 +125,10 @@ class Controller_RRT:
         # Constant data updates thread
         self.status = "waiting for start"
         
-        data_update_thread = threading.Thread(target=self.sendDataUpdate)
-        data_update_thread.daemon = True
-        data_update_thread.start()
+        # ToDo Make use of this data thread when a more powerful system is available
+        # data_update_thread = threading.Thread(target=self.sendDataUpdate)
+        # data_update_thread.daemon = True
+        # data_update_thread.start()
 
 
     def run(self):
