@@ -27,6 +27,7 @@ try:
             sleep(.0005)
 
             if gpio.input(buttonPin) == gpio.HIGH:
+                print("button pressed")
                 break
         
         print('Direction CCW')
