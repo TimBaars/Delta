@@ -122,14 +122,16 @@ class Controller_RRT:
         self.optimizer = PathOptimizer()
         self.robot_driver = DeltaRobotDriver(ip_address="192.168.3.11")
 
-    def run(self):
-        """Starting the process"""
         # Constant data updates thread
+        self.status = "waiting for start"
+        
         data_update_thread = threading.Thread(target=self.sendDataUpdate)
         data_update_thread.daemon = True
         data_update_thread.start()
 
-        self.status = "waiting for start"
+
+    def run(self):
+        """Starting the process"""
 
         try:
             self.number = random.choice(self.paths)
