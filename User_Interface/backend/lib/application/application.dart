@@ -117,7 +117,7 @@ class Application {
         updated = plannedPathImageLogic.setData(data, timestamp);
       }
 
-      // if (updated) RabbitMQClient().publish(endpoint!, "", data);
+      if (updated) RabbitMQClient().publish(endpoint!, "", data);
 
       return "Data received";
     } else {
