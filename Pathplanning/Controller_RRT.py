@@ -22,8 +22,8 @@ from Delta_Control.Deltacontroldriver import DeltaRobotDriver
 from Pathplanning.PathOptimize import PathOptimizer
 from functions import convert_nodes_to_flat_list, convert_to_tuples
 
-target_width = 300
-target_height = 300
+target_width = 250
+target_height = 250
 
 class Controller_RRT:
     def sendRobotUpdate(self):
@@ -114,7 +114,7 @@ class Controller_RRT:
         # Variables
         self.stepSize = 100  # stepsize for RRT
         self.Calculating_Coords = [0, 0, 0, 0]
-        self.robot_velocity = 750
+        self.robot_velocity = 250
 
         # Setup of classes
         self.processor = SegmentationProcessor(txt_path, img_path)
@@ -208,7 +208,7 @@ class Controller_RRT:
                         x, y = position
                         x = x - (target_width / 2)
                         y = y - (target_height / 2)
-                        self.robot_driver.drive_to_location_and_wait(x, y, 200, self.robot_velocity)
+                        self.robot_driver.drive_to_location_and_wait(x, y, 150, self.robot_velocity)
 
                     # Update the start coordinates to the current weed center
                     self.sendActuatorStart()
