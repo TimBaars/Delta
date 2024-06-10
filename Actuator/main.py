@@ -69,9 +69,9 @@ def stepper_down(stepper_range):
     gpio.output(direction_pin, ccw_direction)
     for x in range(stepper_range):
         gpio.output(puls_pin, gpio.HIGH)
-        sleep(.01)
+        sleep(.02)
         gpio.output(puls_pin, gpio.LOW)
-        sleep(.005)
+        sleep(.01)
 
 # Move stepper motor up 
 def stepper_up(stepper_range=0):
@@ -85,9 +85,9 @@ def stepper_up(stepper_range=0):
             if gpio.input(buttonPin) == gpio.LOW:
                 gpiocount = 0
                 gpio.output(puls_pin, gpio.HIGH)
-                sleep(.001)
+                sleep(.02)
                 gpio.output(puls_pin, gpio.LOW)
-                sleep(.0005)
+                sleep(.01)
             else:
                 gpiocount += 1
                 
@@ -99,9 +99,9 @@ def stepper_up(stepper_range=0):
                 break
             else:
                 gpio.output(puls_pin, gpio.HIGH)
-                sleep(.001)
+                sleep(.02)
                 gpio.output(puls_pin, gpio.LOW)
-                sleep(.0005)
+                sleep(.01)
         
 def down_Logic():
     print("Down logic")
