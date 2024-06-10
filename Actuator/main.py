@@ -101,7 +101,8 @@ def stepper_up(stepper_range=0):
 def down_Logic():
     print("Down logic")
     
-    stepper_down(175)
+    # stepper_down(175)
+    stepper_down(75)
     mRight(in1, in2)
     
     sleep(2)
