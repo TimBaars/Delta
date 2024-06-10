@@ -114,7 +114,7 @@ class Controller_RRT:
         # Variables
         self.stepSize = 100  # stepsize for RRT
         self.Calculating_Coords = [0, 0, 0, 0]
-        self.robot_velocity = 250
+        self.robot_velocity = 100
 
         # Setup of classes
         self.processor = SegmentationProcessor(txt_path, img_path)
