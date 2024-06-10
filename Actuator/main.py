@@ -20,7 +20,7 @@ in2 = 4
 ena = 2
 
 # Button Pin Definitions
-buttonPin = 5
+buttonPin = 24
 
 # Setup GPIO mode
 gpio.setmode(gpio.BCM)
