@@ -21,10 +21,17 @@ class Delta:
                 "y": random.randint(*position_y_range),
                 "z": random.randint(*position_z_range)
             }
-            moving = random.choice(boolean_def)
+            direction = {
+                "from_x": random.randint(*position_x_range),
+                "from_y": random.randint(*position_y_range),
+                "to_x": random.randint(*position_x_range),
+                "to_y": random.randint(*position_y_range),
+            }
             return {
                 "position": position,
-                "moving": moving
+                "status": "running",
+                "velocity": random.randint(0, 750),
+                "direction": direction
             }
 
         message = generate_random_message()

@@ -103,13 +103,13 @@ def down_Logic():
     
     # stepper_down(175)
     stepper_down(75)
-    mRight(in1, in2)
+    mLeft(in1, in2)
     
     sleep(2)
     mStop(in1, in2)
     
     sleep(0.5)
-    mLeft(in1, in2)
+    mRight(in1, in2)
     
     sleep(0.5)
     mStop(in1, in2)
