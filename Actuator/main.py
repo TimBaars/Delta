@@ -80,14 +80,19 @@ def stepper_up(stepper_range=0):
     gpio.output(direction_pin, cw_direction)
     
     if stepper_range == 0:
+        gpiocount = 0
         while True:
-            if gpio.input(buttonPin) != gpio.LOW:
-                break
-            else:
+            if gpio.input(buttonPin) == gpio.LOW:
+                gpiocount = 0
                 gpio.output(puls_pin, gpio.HIGH)
                 sleep(.001)
                 gpio.output(puls_pin, gpio.LOW)
                 sleep(.0005)
+            else:
+                gpiocount += 1
+                
+                if (gpiocount == 10):
+                    break
     else:    
         for x in range(stepper_range):
             if gpio.input(buttonPin) == gpio.HIGH:
