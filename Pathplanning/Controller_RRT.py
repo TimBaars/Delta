@@ -208,7 +208,7 @@ class Controller_RRT:
                         x, y = position
                         x = x - (target_width / 2)
                         y = y - (target_height / 2)
-                        self.robot_driver.drive_to_location_and_wait(x, y, 150, self.robot_velocity)
+                        self.robot_driver.drive_to_location_and_wait(x, y, 275, self.robot_velocity)
 
                     # Update the start coordinates to the current weed center
                     self.sendActuatorStart()
