@@ -27,7 +27,11 @@ target_height = 300
 
 class Controller_RRT:
     def sendRobotUpdate(self):
-        current_position = self.robot_driver.get_current_position()
+        current_position = None
+        try:
+            current_position = self.robot_driver.get_current_position()
+        except Exception as e:
+            print(f"Error in getting current position: {e}")
         if current_position is None or len(current_position) < 3:
             current_position = [9999, 9999, 9999]
         mapping = ["x", "y", "z"]
