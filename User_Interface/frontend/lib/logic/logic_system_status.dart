@@ -61,6 +61,8 @@ class SystemStatusLogic {
       maskedImageLogic.request();
       rrtImageLogic.request();
       groundTruthImageLogic.request();
+      plannedPathImageLogic.request();
+      optimizedPathImageLogic.request();
     }
   }
 
